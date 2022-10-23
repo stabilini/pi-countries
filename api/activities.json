@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Paseo",
+    "skill": "1",
+    "term": "20",
+    "season": "Verano"
+  },
+  {
+    "name": "Running",
+    "skill": "4",
+    "term": "10",
+    "season": "Otoño"
+  },
+  {
+    "name": "Tenis",
+    "skill": "4",
+    "term": "10",
+    "season": "Primavera"
+  },
+  {
+    "name": "Waterpolo",
+    "skill": "5",
+    "term": "5",
+    "season": "Verano"
+  },
+  {
+    "name": "Futbol",
+    "skill": "2",
+    "term": "30",
+    "season": "Primavera"
+  },
+  {
+    "name": "Sky",
+    "skill": "3",
+    "term": "15",
+    "season": "Invierno"
+  }
+]

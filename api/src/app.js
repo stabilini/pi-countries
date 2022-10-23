@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const routes = require('./routes/index.js');
 const axios = require('axios');
 
-const { Country } = require('./db.js');
+const { Country, Activity } = require('./db.js');
 
 require('./db.js');
 
@@ -26,6 +26,7 @@ server.use((req, res, next) => {
 });
 
 // obtiene los datos de la API y los guarda en la DB, solo se ejecuta al levantar el back
+// VER FRANCO 12 REACT REDUX 46.33 DEL LECTURE QUE EXPLICA ALGO DE AXIOS (para sacar el let paises = data.data)
 axios
   .get('https://restcountries.com/v3/all')
   .then(data => {
@@ -48,6 +49,13 @@ axios
     cargaPaises();
   })
   .then(console.log('Paises cargados'))
+  // BORRAR ESTE THEN CUANDO FUNCIONE TODO
+  .then(() => {
+    const ejemplos = require('../activities.json');
+    Activity.bulkCreate(ejemplos);
+    }
+  )
+  .then(console.log('Actividades de prueba creadas'))
   .catch(error => {
     console.log(error);
   });
