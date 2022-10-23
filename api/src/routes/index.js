@@ -30,9 +30,12 @@ router.get('/countries', async (req, res) => {
   try {
     if (name) {
       // manejar el error en caso de nombre inexsitente
+      console.log(name)
       result = await Country.findAll({
         where: {
-          name: name
+          name: {
+            [Op.iRegexp]: `^[${name}]`,
+          }
         }
       })
     } else {

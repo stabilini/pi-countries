@@ -3,6 +3,9 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
+const axios = require('axios');
+
+const { Country } = require('./db.js');
 
 require('./db.js');
 
@@ -22,8 +25,32 @@ server.use((req, res, next) => {
   next();
 });
 
+// obtiene los datos de la API y los guarda en la DB, solo se ejecuta al levantar el back
+axios
+  .get('https://restcountries.com/v3/all')
+  .then(data => {
+    let paises = data.data;
 
-
+    function cargaPaises() {
+      for (let i = 0; i < paises.length; i++) {
+        Country.create({
+          id: paises[i].cca3,
+          name: paises[i].name.common,
+          flag: paises[i].flags,
+          continent: paises[i].region,
+          capital: paises[i].capital ? paises[i].capital : [],
+          subregion: paises[i].subregion,
+          area: paises[i].area,
+          population: paises[i].population,
+        });
+      }
+    }
+    cargaPaises();
+  })
+  .then(console.log('Paises cargados'))
+  .catch(error => {
+    console.log(error);
+  });
 
 server.use('/', routes);
 
