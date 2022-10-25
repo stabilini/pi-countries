@@ -1,0 +1,17 @@
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.pais {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 8px;
+  text-align: center;
+}
+
+.bandera {
+  max-width: 150px;
+  max-height: 100px;
+}

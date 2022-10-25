@@ -50,6 +50,7 @@ router.get('/countries', async (req, res) => {
 
 router.post('/activities', async (req, res) => {
   let { name, skill, term, season, countries } = req.body;
+  console.log(name, skill, term, season, countries)
   try {
     let result = await Activity.create({
       name: name,

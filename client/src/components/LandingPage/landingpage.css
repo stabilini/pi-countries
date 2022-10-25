@@ -1,0 +1,11 @@
+.landingpage{
+  background-color: rgb(67, 67, 67);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landingpage img {
+  width: 40%;
+}
