@@ -7,7 +7,7 @@ export const URL = 'http://localhost:3001/';
 
 export const getCountries = (name) => {
   return function(dispatch) {
-    return fetch(name ? URL + 'countries/name=' + name : URL + 'countries')
+    return fetch(name ? URL + 'countries?name=' + name : URL + 'countries')
             .then(res => res.json())
             .then(obj => dispatch({type: GET_COUNTRIES, payload: obj}))
   }

@@ -24,11 +24,11 @@ function App() {
         <Route exact path='/countries'>
           <Home />
         </Route>
-        {/* <Route exact path='/home/:id'>
+        <Route exact path='/countries/:id'>
           <Detail />
-          <BotonNew />
         </Route>
-        <Route path='/newactivity'>
+        {/* <Route path='/newactivity'>
+          <BotonNew />
           <NewActivity />
         </Route> */}
       </Switch>

@@ -1,21 +1,44 @@
-import { useEffect } from "react";
+import React from 'react';
 import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
 import { getDetail } from "../../redux/actions";
-import { connect } from "react-redux";
 
-const Detail = ({ getDetail, detail }) => {
+const Detail = () => {
   const { id } = useParams(); // viene como objeto
 
-  useEffect(() => {
-    getDetail(id)
-  }, [id, getDetail])
+  const dispatch = useDispatch();
+  const detail = useSelector(state => state.detail)[0];
+
+  React.useEffect(() => {
+    dispatch(getDetail(id))
+  }, [id, dispatch]);
 
   return (
     <>
       {
         detail ? 
           <div>
-            pais
+            <img src={detail.flag[1]} alt={`imagen de ${detail.name}`} className='bandera' />
+            <h3>{detail.name} - ({detail.id})</h3>
+            <h4>{detail.continent}</h4>
+            <p>Detalles:</p>
+            <ul>
+              <li>Capital: {detail.capital}</li>
+              <li>Subregion: {detail.subregion}</li>
+              <li>Area: {detail.area} km2</li>
+              <li>Poblacion: {detail.population} habs.</li>
+            </ul>
+            <p>Actividades turisticas:</p>
+            <ul>
+              {
+          
+          detail.activities.map(ac => {
+              return (
+                <li>{ac.name}, {ac.skill}, {ac.term}, {ac.season}</li>
+              );
+            })
+        }
+            </ul>
           </div>
           :
           <div>
@@ -25,9 +48,5 @@ const Detail = ({ getDetail, detail }) => {
     </>
   )
 }
-const mapStateToProps = (state) => {
-  return {
-    detail: state.detail
-  }
-}
-export default connect(mapStateToProps, { getDetail })(Detail);
+
+export default Detail;

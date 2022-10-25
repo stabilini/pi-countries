@@ -29,8 +29,6 @@ router.get('/countries', async (req, res) => {
   let result;
   try {
     if (name) {
-      // manejar el error en caso de nombre inexsitente
-      console.log(name)
       result = await Country.findAll({
         where: {
           name: {
@@ -38,7 +36,7 @@ router.get('/countries', async (req, res) => {
           }
         }
       })
-      if(result.length === 0) result = {msg: 'No hay paises con ese nombre'}
+      if(!result) return res.status(200).json({msg: 'No hay paises con ese texto.'})
     } else {
       result = await Country.findAll();
     }
