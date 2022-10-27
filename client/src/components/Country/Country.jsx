@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './pais.css';
+import './country.css';
 
 
-const Pais = (props) => {
+const Country = (props) => {
 
   return (
     
@@ -18,4 +18,4 @@ const Pais = (props) => {
   );
 };
 
-export default Pais;
+export default Country;

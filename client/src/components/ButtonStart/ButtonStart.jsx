@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { getCountries } from '../../redux/actions';
 
 // lo comentado es para hacerlo con hooks, ojo no va el connect en export
-const BotonIngreso = () => {
+const ButtonStart = () => {
 
   return (
     <>
@@ -16,4 +16,4 @@ const BotonIngreso = () => {
   )
 }
 
-export default BotonIngreso;
+export default ButtonStart;

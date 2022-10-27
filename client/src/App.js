@@ -5,11 +5,9 @@ import './App.css';
 // importo los componentes
 import LandingPage from './components/LandingPage/LandingPage.jsx';
 import Home from './components/Home/Home.jsx';
-import BotonIngreso from './components/BotonIngreso/BotonIngreso.jsx';
 import Detail from './components/Detail/Detail.jsx'
 import NewActivity from './components/NewActivity/NewActivity.jsx'
 
-import BotonNew from './components/BotonNew/BotonNew';
 
 function App() {
   return (
@@ -27,10 +25,9 @@ function App() {
         <Route exact path='/countries/:id'>
           <Detail />
         </Route>
-        {/* <Route path='/newactivity'>
-          <BotonNew />
+        <Route path='/newactivity'>
           <NewActivity />
-        </Route> */}
+        </Route>
       </Switch>
     </>
   );

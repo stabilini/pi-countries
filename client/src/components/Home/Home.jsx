@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from '../NavBar/NavBar';
-import Paises from '../Paises/Paises';
+import Countries from '../Countries/Countries';
 import './home.css';
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className='contenedor'>
       <NavBar />
-      <Paises />
+      <Countries />
     </div>
   );
 };

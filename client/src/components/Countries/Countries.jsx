@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCountries } from '../../redux/actions';
-import Pais from '../Pais/Pais';
-import './paises.css';
+import Pais from '../Country/Country';
+import './countries.css';
 
 
-const Paises = () => {
+const Countries = () => {
 
   const dispatch = useDispatch();
   const paises = useSelector(state => state.countries);
@@ -20,6 +20,7 @@ const Paises = () => {
         paises &&
         paises.map(pais => {
             return (
+              pais.c_visible && pais.a_visible ?
               <Pais
                 key={pais.id}
                 id={pais.id}
@@ -27,6 +28,8 @@ const Paises = () => {
                 name={pais.name}
                 continent={pais.continent}
               />
+              : 
+              <></>
             );
           })
       }
@@ -34,4 +37,4 @@ const Paises = () => {
   );
 };
 
-export default Paises;
+export default Countries;

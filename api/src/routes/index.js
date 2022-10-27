@@ -34,11 +34,12 @@ router.get('/countries', async (req, res) => {
           name: {
             [Op.iLike]: `%${name}%`,
           }
-        }
+        },
+        include: Activity
       })
       if(!result) return res.status(200).json({msg: 'No hay paises con ese texto.'})
     } else {
-      result = await Country.findAll();
+      result = await Country.findAll({include: Activity});
     }
     res.status(200).json(result);
   } catch (error) {

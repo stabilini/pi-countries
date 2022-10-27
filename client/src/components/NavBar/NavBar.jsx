@@ -1,7 +1,13 @@
 import './navbar.css';
 import { getCountries } from '../../redux/actions';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import React, { useState } from "react";
+
+import ButtonAlphOrder from '../ButtonAlphOrder/ButtonAlphOrder.jsx';
+import ButtonPopOrder from '../ButtonPopOrder/ButtonPopOrder.jsx';
+import FilterContinent from '../FilterContinent/FilterContinent.jsx';
+import FilterActivity from '../FilterActivity/FilterActivity.jsx';
 
 function NavBar() {
   const [input, setInput] = useState("");
@@ -15,14 +21,14 @@ function NavBar() {
   const manejarEnvio = (e) => {
     e.preventDefault();
     dispatch(getCountries(input));
-    setInput('');
+    // setInput('');
   };
 
   const usarEnter = (e) => {
     if (e.keyCode === 13) {
       e.preventDefault();
       getCountries(input);
-      setInput('');
+      // setInput('');
     }
   }
 
@@ -41,6 +47,18 @@ function NavBar() {
       <button className='boton' onClick={manejarEnvio}>
         Buscar paises
       </button>
+      &nbsp;
+      <Link to='/newactivity'>
+        <button>Crear actividades</button>
+      </Link>&nbsp;
+      <ButtonAlphOrder />&nbsp;
+      <ButtonPopOrder />
+      <div>
+        <FilterContinent />
+      </div>
+      <div>
+        <FilterActivity />
+      </div>
     </div>
   );
 }
