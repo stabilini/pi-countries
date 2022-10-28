@@ -32,7 +32,7 @@ const FilterContinent = () => {
       <ul>
         {
           Object.keys(input).map( cont => (
-            <li><input type='checkbox' onChange={handleInputChange} name={cont} defaultChecked={input[cont]} />{cont}</li>
+            <li key={cont}><input type='checkbox' onChange={handleInputChange} name={cont} defaultChecked={input[cont]} />{cont}</li>
           ))
         }
       </ul>

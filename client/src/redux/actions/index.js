@@ -1,5 +1,6 @@
 export const GET_COUNTRIES = 'GET_COUNTRIES';
 export const GET_DETAIL = 'GET_DETAIL';
+export const GET_ACTIVITIES = 'GET_ACTIVITIES';
 export const CREATE_ACTIVITY = 'CREATE_ACTIVITY';
 export const COUNTRIES_ORDER_ASC = 'COUNTRIES_ORDER_ASC';
 export const COUNTRIES_ORDER_DES = 'COUNTRIES_ORDER_DES';
@@ -9,13 +10,13 @@ export const COUNTRIES_FILTER_ACTIVITY = 'COUNTRIES_FILTER_ACTIVITY';
 
 
 export const URL = 'http://localhost:3001/';
-// son las acciones que buscan la info en el back
 
 export const getCountries = (name) => {
   return function(dispatch) {
     return fetch(name ? URL + 'countries?name=' + name : URL + 'countries')
             .then(res => res.json())
             .then(obj => obj.map(v => ({...v, c_visible: true, a_visible: true}))) // agrego la propiedad visible para los filtros por continente y actividades
+            .then(obj => obj.map(v => v.activities.length === 0 ? {...v, activities: [{name: 'Sin actividades'}]} : {...v}))
             .then(obj => dispatch({type: GET_COUNTRIES, payload: obj}))
   }
 };
@@ -26,6 +27,15 @@ export const getDetail = (id) => {
     return fetch(URL + 'countries/' + id)
             .then(res => res.json())
             .then(obj => dispatch({type: GET_DETAIL, payload: obj}))
+  }
+}
+
+export const getActivities = () => {
+  return function(dispatch) {
+    return fetch(URL + 'activities')
+            .then(res => res.json())
+            .then(obj => ({...obj, 'Sin actividades': true}))
+            .then(obj => dispatch({type: GET_ACTIVITIES, payload: obj}))
   }
 }
 

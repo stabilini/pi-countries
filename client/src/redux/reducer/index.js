@@ -1,6 +1,7 @@
 import { 
   GET_COUNTRIES,
   GET_DETAIL,
+  GET_ACTIVITIES,
   CREATE_ACTIVITY,
   COUNTRIES_ORDER_ASC,
   COUNTRIES_ORDER_DES,
@@ -11,27 +12,28 @@ import {
 const initialState = {
   countries: [],
   detail: {},
-  //activities: {}
+  activities: {},
+  pagination: {
+    active: 1
+  }
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_COUNTRIES:
-      // let activities = {};
-      // for (let i = 0; i < action.payload.length; i++) {
-      //   for (let x = 0; x < action.payload[i].activities.length; x++) {
-      //     activities[action.payload[i].activities[x].name] = true;
-      //   } 
-      // }
       return {
         ...state,
         countries: action.payload,
-        //activities: activities
       };
     case GET_DETAIL:
       return {
         ...state,
         detail: action.payload,
+      }
+    case GET_ACTIVITIES:
+      return {
+        ...state,
+        activities: action.payload,
       }
     case CREATE_ACTIVITY:
       return {

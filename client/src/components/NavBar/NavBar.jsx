@@ -8,6 +8,7 @@ import ButtonAlphOrder from '../ButtonAlphOrder/ButtonAlphOrder.jsx';
 import ButtonPopOrder from '../ButtonPopOrder/ButtonPopOrder.jsx';
 import FilterContinent from '../FilterContinent/FilterContinent.jsx';
 import FilterActivity from '../FilterActivity/FilterActivity.jsx';
+import Pagination from '../Pagination/Pagination';
 
 function NavBar() {
   const [input, setInput] = useState("");
@@ -33,33 +34,44 @@ function NavBar() {
   }
 
   return (
-    <div>
-      <input
-        type='text'
-        placeholder='Ingrese texto...'
-        className='input'
-        onChange={manejarCambio}
-        value={input}
-        // autofocus
-        onKeyUp={usarEnter}
-      />
-      &nbsp;
-      <button className='boton' onClick={manejarEnvio}>
-        Buscar paises
-      </button>
-      &nbsp;
-      <Link to='/newactivity'>
-        <button>Crear actividades</button>
-      </Link>&nbsp;
-      <ButtonAlphOrder />&nbsp;
-      <ButtonPopOrder />
-      <div>
-        <FilterContinent />
+    <>
+      <div className='container'>
+        <div className='parte1'>
+          <input
+            type='text'
+            placeholder='Ingrese texto...'
+            className='input'
+            onChange={manejarCambio}
+            value={input}
+            // autofocus
+            onKeyUp={usarEnter}
+          />
+          &nbsp;
+          <button className='boton' onClick={manejarEnvio}>
+            Buscar paises
+          </button>
+          &nbsp;
+          <Link to='/newactivity'>
+            <button>Crear actividades</button>
+          </Link>
+        </div>
+        <div className='orden'>
+        <ButtonAlphOrder />&nbsp;
+        <ButtonPopOrder />
+        </div>
       </div>
-      <div>
-        <FilterActivity />
+      <div className='container'>
+        <div className='filtercontinent'>
+          <FilterContinent />
+        </div>
+        <div className='filteractivity'>
+          <FilterActivity />
+        </div>
+        <div className='pagination'>
+          <Pagination />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

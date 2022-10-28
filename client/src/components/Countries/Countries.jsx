@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCountries } from '../../redux/actions';
+import { getCountries, getActivities } from '../../redux/actions';
 import Pais from '../Country/Country';
 import './countries.css';
 
@@ -12,8 +12,12 @@ const Countries = () => {
 
   React.useEffect(() => {
     dispatch(getCountries())
+    dispatch(getActivities());
   }, [dispatch]);
   
+  // logica que vea cuandos paises visibles hay y en base a eso muestre la cantidad de paginas 
+  
+
   return (
     <div className='contenedor'>
       {
@@ -27,6 +31,7 @@ const Countries = () => {
                 flag={pais.flag[1]}
                 name={pais.name}
                 continent={pais.continent}
+                activities={pais.activities}
               />
               : 
               <></>

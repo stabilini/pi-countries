@@ -4,6 +4,7 @@ import './country.css';
 
 
 const Country = (props) => {
+  //let actividades = props.activities.map(a => a.name);
 
   return (
     
@@ -11,6 +12,7 @@ const Country = (props) => {
         <img src={props.flag} alt={`imagen de ${props.name}`} className='bandera'/>
         <h3>{props.name}</h3>
         <h4>{props.continent}</h4>
+        {/* <p>{actividades}</p> */}
         <Link to={`/countries/${props.id}`}><button>Detalles</button></Link>
       </div>
             

@@ -6,6 +6,9 @@ import { getDetail } from "../../redux/actions";
 const Detail = () => {
   const { id } = useParams(); // viene como objeto
 
+  // con props y lo siguiente, rompe, anotado tambien en trello
+  // let id = props.match.params.id;
+  
   const dispatch = useDispatch();
   const detail = useSelector(state => state.detail)[0];
 
