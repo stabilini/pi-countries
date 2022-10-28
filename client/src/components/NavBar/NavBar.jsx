@@ -68,7 +68,7 @@ function NavBar() {
           <FilterActivity />
         </div>
         <div className='pagination'>
-          <Pagination />
+          {/* <Pagination /> */}
         </div>
       </div>
     </>

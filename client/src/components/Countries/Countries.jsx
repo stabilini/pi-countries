@@ -16,10 +16,10 @@ const Countries = () => {
   }, [dispatch]);
   
   // logica que vea cuandos paises visibles hay y en base a eso muestre la cantidad de paginas 
-  
+
 
   return (
-    <div className='contenedor'>
+    <div className='contenedorpaises'>
       {
         paises &&
         paises.map(pais => {
