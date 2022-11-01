@@ -5,12 +5,13 @@ import { useState } from 'react';
 
 const FilterContinent = () => {
   const [input, setInput] = useState({
-    Europe: true,
-    Oceania: true,
-    Americas: true,
-    Africa: true,
-    Asia: true,
-    Antarctic: true
+    'Africa': true,
+    'Antarctica': true,
+    'Asia': true,
+    'Europe': true,
+    'Oceania': true,
+    'South America': true,
+    'North America': true
   });
 
   const dispatch = useDispatch();

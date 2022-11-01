@@ -2,44 +2,38 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { setPageView } from '../../redux/actions';
 
 const Pagination = () => {
-  const [pages, setPages] = useState({
-    actual: 1,
-    pages: [1]
-  });
 
   const dispatch = useDispatch();
   const paises = useSelector(state => state.countries);
+  const page = useSelector(state => state.page);
   
   const handleInputChange = (e) => {
-    setPages({
-      ...pages,
-      [e.target.name]: e.target.checked
-    })
+    dispatch(setPageView(e.target.value))
   }
-  
-  setPages({
-    ...pages,
-    actual: paises.length / 10
-  })
 
-  useEffect(() => {
-    
-    // dispatch(filtrarPaises('continent', input))
-  })
+  let filtrados = paises.filter(pais => pais.c_visible && pais.a_visible)
+  let visibles = filtrados.length;
 
   return (
-    <>
-      <p>Paginacion:</p>
-      <ul>
-        {pages.actual
-          // Object.keys(input).map( cont => (
-          //   <li key={cont}><input type='checkbox' onChange={handleInputChange} name={cont} defaultChecked={input[cont]} />{cont}</li>
-          // ))
-        }
-      </ul>
-        
+    <>{
+      visibles < 9 ? null :
+        <>
+          <p>Paginas: {Math.ceil((visibles - 9) / 10) + 1}</p>
+          {/* <ul> */}
+            {
+              [...Array(Math.ceil((visibles - 9) / 10) + 1).keys()].map(i => i + 1).map(i => (
+                // <li>
+                  <input type='button' onClick={handleInputChange} name={i} value={i} />
+                // </li>
+                )
+              )
+            }
+          {/* </ul> */}
+        </>
+      }
     </>
   )
 }

@@ -2,6 +2,7 @@ export const GET_COUNTRIES = 'GET_COUNTRIES';
 export const GET_DETAIL = 'GET_DETAIL';
 export const GET_ACTIVITIES = 'GET_ACTIVITIES';
 export const CREATE_ACTIVITY = 'CREATE_ACTIVITY';
+export const SET_PAGE_VIEW = 'SET_PAGE_VIEW';
 export const COUNTRIES_ORDER_ASC = 'COUNTRIES_ORDER_ASC';
 export const COUNTRIES_ORDER_DES = 'COUNTRIES_ORDER_DES';
 export const COUNTRIES_FILTER_CONTINENT = 'COUNTRIES_FILTER_CONTINENT';
@@ -80,5 +81,14 @@ export const filtrarPaises = (field, data) => {
         payload: data
       })
     }
+  }
+}
+
+export const setPageView = (page) => {
+  return function(dispatch) {
+    return dispatch({
+      type: SET_PAGE_VIEW,
+      payload: page
+    })
   }
 }

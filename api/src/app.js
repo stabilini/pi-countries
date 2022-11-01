@@ -38,7 +38,7 @@ axios
           id: paises[i].cca3,
           name: paises[i].name.common,
           flag: paises[i].flags,
-          continent: paises[i].region,
+          continent: paises[i].continents[0],
           capital: paises[i].capital ? paises[i].capital : [],
           subregion: paises[i].subregion,
           area: paises[i].area,

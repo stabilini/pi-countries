@@ -6,16 +6,15 @@ import {
   COUNTRIES_ORDER_ASC,
   COUNTRIES_ORDER_DES,
   COUNTRIES_FILTER_CONTINENT,
-  COUNTRIES_FILTER_ACTIVITY
+  COUNTRIES_FILTER_ACTIVITY,
+  SET_PAGE_VIEW
   } from '../actions';
 
 const initialState = {
   countries: [],
   detail: {},
   activities: {},
-  pagination: {
-    active: 1
-  }
+  page: 1,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -61,6 +60,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
        countries: state.countries.map(c => c.activities.some(obj => keys_a.includes(obj.name)) ? {...c, a_visible: true} : {...c, a_visible: false})
+      }
+    case SET_PAGE_VIEW:
+      return {
+        ...state,
+        page: Number(action.payload)
       }
     default:
       return state;

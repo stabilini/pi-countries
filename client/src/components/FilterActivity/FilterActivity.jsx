@@ -19,7 +19,7 @@ const FilterContinent = () => {
       <ul>
         {
           Object.keys(activities).map( act => (
-            <li><input type='checkbox' onChange={handleInputChange} name={act} defaultChecked={activities[act]} />{act}</li>
+            <li key={act}><input type='checkbox' onChange={handleInputChange} name={act} defaultChecked={activities[act]} />{act}</li>
           ))
         }
       </ul>

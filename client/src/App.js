@@ -6,7 +6,7 @@ import './App.css';
 import LandingPage from './components/LandingPage/LandingPage.jsx';
 import Home from './components/Home/Home.jsx';
 import Detail from './components/Detail/Detail.jsx'
-import NewActivity from './components/NewActivity/NewActivity.jsx'
+import CreateActivity from './components/CreateActivity/CreateActivity.jsx'
 
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
           <Detail />
         </Route>
         <Route path='/newactivity'>
-          <NewActivity />
+          <CreateActivity />
         </Route>
       </Switch>
     </>
