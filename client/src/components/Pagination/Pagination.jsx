@@ -1,14 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import { setPageView } from '../../redux/actions';
 
 const Pagination = () => {
 
   const dispatch = useDispatch();
   const paises = useSelector(state => state.countries);
-  const page = useSelector(state => state.page);
+  const page = useSelector(state => state.page); // para luego ver mediante CSS en que pagina estoy
   
   const handleInputChange = (e) => {
     dispatch(setPageView(e.target.value))

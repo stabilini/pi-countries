@@ -9,18 +9,18 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-router.get('/countries/:idPais', async (req, res) => {
+router.get('/countries/:idCountry', async (req, res) => {
   try {
-    let { idPais } = req.params;
+    let { idCountry } = req.params;
     let result = await Country.findAll({
       where: {
-        id: idPais
+        id: idCountry
       },
       include: Activity
     });
     res.status(200).json(result);
   } catch (error) {
-    res.status(500).json({err: 'Fallo la conexion con la BD.'})
+    res.status(500).json({err: 'Conection to DB failed.', error})
   }
 });
 
@@ -37,13 +37,13 @@ router.get('/countries', async (req, res) => {
         },
         include: Activity
       })
-      if(!result) return res.status(200).json({msg: 'No hay paises con ese texto.'})
+      if(!result) return res.status(200).json({msg: 'No countries.'})
     } else {
       result = await Country.findAll({include: Activity});
     }
     res.status(200).json(result);
   } catch (error) {
-    res.status(500).json({err: 'Fallo la conexion con la BD.', error})
+    res.status(500).json({err: 'Conection to DB failed.', error})
   }
 });
 
@@ -59,27 +59,26 @@ router.get('/activities', async (req, res) => {
     }
     res.status(200).json(act);
   } catch (error) {
-    res.status(500).json({err: 'Fallo la conexion con la BD.', error})
+    res.status(500).json({err: 'Conection to DB failed.', error})
   } 
 })
 
 router.post('/activities', async (req, res) => {
-  let { name, skill, term, season, countries } = req.body;
-  console.log(name, skill, term, season, countries)
+  let { name, skill, duration, season, countries } = req.body;
   try {
     let result = await Activity.create({
       name: name,
       skill: skill,
-      term: term,
+      duration: duration,
       season: season,
     })
     if (countries) {
       await result.setCountries(countries);
-      return res.status(200).json({msg: 'Actividad creada y asociada.'})
+      return res.status(200).json({msg: 'Activity created and linked.'})
     }
-    res.status(200).json({msg: 'Actividad creada.'})
+    res.status(200).json({msg: 'Activity created.'})
   } catch (error) {
-    res.status(500).json({err: 'Fallo la conexion con la BD.'})
+    res.status(500).json({err: 'Conection to DB failed.', error})
   }
 })
 

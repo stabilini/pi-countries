@@ -3,25 +3,24 @@ import { useDispatch } from 'react-redux';
 import { ordenPaises } from '../../redux/actions';
 
 const ButtonAlphOrder = () => {
-  
   const dispatch = useDispatch();
 
-  const handleSubmit1 = (e) => {
+  const handleSubmit1 = e => {
     e.preventDefault();
     dispatch(ordenPaises('name', 'asc'));
-  }
+  };
 
-  const handleSubmit2 = (e) => {
+  const handleSubmit2 = e => {
     e.preventDefault();
     dispatch(ordenPaises('name', 'desc'));
-  }
+  };
 
   return (
     <>
-        <button onClick={handleSubmit1}>Ordenar ascendente alfabetico</button>&nbsp;
-        <button onClick={handleSubmit2}>Ordenar descendente alfabetico</button>
+      <button onClick={handleSubmit1}>Ordenar ascendente alfabetico</button>
+      <button onClick={handleSubmit2}>Ordenar descendente alfabetico</button>
     </>
-  )
-}
+  );
+};
 
 export default ButtonAlphOrder;

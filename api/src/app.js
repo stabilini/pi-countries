@@ -26,29 +26,30 @@ server.use((req, res, next) => {
 });
 
 // obtiene los datos de la API y los guarda en la DB, solo se ejecuta al levantar el back
-// VER FRANCO 12 REACT REDUX 46.33 DEL LECTURE QUE EXPLICA ALGO DE AXIOS (para sacar el let paises = data.data)
+// VER FRANCO 12 REACT REDUX 46.33 DEL LECTURE QUE EXPLICA ALGO DE AXIOS (para sacar el let countries = data.data)
 axios
   .get('https://restcountries.com/v3/all')
   .then(data => {
-    let paises = data.data;
+    let countries = data.data;
 
-    function cargaPaises() {
-      for (let i = 0; i < paises.length; i++) {
+    // CAMBIAR A UN BULK CREATE SIN HACER EL FOR
+    function firstCountryLoad() {
+      for (let i = 0; i < countries.length; i++) {
         Country.create({
-          id: paises[i].cca3,
-          name: paises[i].name.common,
-          flag: paises[i].flags,
-          continent: paises[i].continents[0],
-          capital: paises[i].capital ? paises[i].capital : [],
-          subregion: paises[i].subregion,
-          area: paises[i].area,
-          population: paises[i].population,
+          id: countries[i].cca3,
+          name: countries[i].name.common,
+          flag: countries[i].flags,
+          continent: countries[i].continents[0],
+          capital: countries[i].capital ? countries[i].capital : [],
+          subregion: countries[i].subregion,
+          area: countries[i].area,
+          population: countries[i].population,
         });
       }
     }
-    cargaPaises();
+    firstCountryLoad();
   })
-  .then(console.log('Paises cargados'))
+  .then(console.log('countries cargados'))
   // BORRAR ESTE THEN CUANDO FUNCIONE TODO
   .then(() => {
     const ejemplos = require('../activities.json');

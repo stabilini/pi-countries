@@ -6,26 +6,30 @@ const FilterContinent = () => {
   let activities = useSelector(state => state.activities);
 
   const dispatch = useDispatch();
-  
-  
-  const handleInputChange = (e) => {
+
+  const handleInputChange = e => {
     activities[e.target.name] = e.target.checked;
-    dispatch(filtrarPaises('activities', activities))
-  }
+    dispatch(filtrarPaises('activities', activities));
+  };
 
   return (
     <>
       <p>Seleccione actividades:</p>
       <ul>
-        {
-          Object.keys(activities).map( act => (
-            <li key={act}><input type='checkbox' onChange={handleInputChange} name={act} defaultChecked={activities[act]} />{act}</li>
-          ))
-        }
+        {Object.keys(activities).map(act => (
+          <li key={act}>
+            <input
+              type="checkbox"
+              onChange={handleInputChange}
+              name={act}
+              defaultChecked={activities[act]}
+            />
+            {act}
+          </li>
+        ))}
       </ul>
-        
     </>
-  )
-}
+  );
+};
 
 export default FilterContinent;

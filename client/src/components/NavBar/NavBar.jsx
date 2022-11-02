@@ -2,7 +2,7 @@ import './navbar.css';
 import { getCountries } from '../../redux/actions';
 import { useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { useEffect } from 'react';
 
 import ButtonAlphOrder from '../ButtonAlphOrder/ButtonAlphOrder.jsx';
@@ -16,16 +16,16 @@ function NavBar() {
   const query = useQuery();
   const name = query.get('name');
 
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   //if (name) setInput(name);
 
   const dispatch = useDispatch();
 
-  const manejarCambio = (e) => {
+  const manejarCambio = e => {
     setInput(e.target.value);
   };
 
-  const manejarEnvio = (e) => {
+  const manejarEnvio = e => {
     e.preventDefault();
     //conviene usar el siguiente dispatch, pero el PI pide que se use la ruta con query
     dispatch(getCountries(input));
@@ -33,57 +33,58 @@ function NavBar() {
     // setInput('');
   };
 
-  const usarEnter = (e) => {
+  const usarEnter = e => {
     if (e.keyCode === 13) {
       e.preventDefault();
       getCountries(input);
       // setInput('');
     }
-  }
+  };
 
   useEffect(() => {
-    if (name) setInput(name)
-  }, [name])
+    if (name) setInput(name);
+  }, [name]);
 
   return (
     <>
-      <div className='container'>
-        <div className='parte1'>
+      <div className="container">
+        <div className="parte1">
           <input
-            type='text'
-            placeholder='Ingrese texto...'
-            className='input'
+            type="text"
+            placeholder="Ingrese texto..."
+            className="input"
             onChange={manejarCambio}
             value={input}
             // autofocus
             onKeyUp={usarEnter}
           />
           &nbsp;
-          <button className='boton' onClick={manejarEnvio}>
+          <button className="boton" onClick={manejarEnvio}>
             Buscar paises
           </button>
           {/* <Link to={`/countries?name=${input}`}>
             <button>Buscar paises</button>
           </Link> */}
           &nbsp;
-          <Link to='/newactivity'>
+          <Link to="/newactivity">
             <button>Crear actividades</button>
           </Link>
         </div>
 
-        <div className='orden'>
-        <ButtonAlphOrder />&nbsp;
-        <ButtonPopOrder />
+        <div className="orden">
+          <ButtonAlphOrder />
+          &nbsp;
+          <ButtonPopOrder />
         </div>
       </div>
-      <div className='container'>
-        <div className='filtercontinent'>
+      <div className="container">
+        <div className="filtercontinent">
           <FilterContinent />
         </div>
-        <div className='filteractivity'>
+        <div className="filteractivity">
           <FilterActivity />
         </div>
-        <div className='pagination'>
+        <div className="pagination">
           <Pagination />
         </div>
       </div>

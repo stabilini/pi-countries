@@ -49,6 +49,7 @@ export const createActivity = (payload) => {
                 })
             .then(res => res.json())
             .then(obj => dispatch({type: CREATE_ACTIVITY, payload: obj}))
+            .catch(error => console.log(error))
   }
 }
 

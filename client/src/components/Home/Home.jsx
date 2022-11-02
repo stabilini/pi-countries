@@ -4,9 +4,8 @@ import Countries from '../Countries/Countries';
 import './home.css';
 
 const Home = () => {
-  
   return (
-    <div className='contenedor'>
+    <div className="contenedor">
       <NavBar />
       <Countries />
     </div>
