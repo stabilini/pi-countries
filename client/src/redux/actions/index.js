@@ -22,7 +22,6 @@ export const getCountries = (name) => {
   }
 };
 
-// wanda repaso M2 usa axios en 1:28:00
 export const getDetail = (id) => {
   return function(dispatch) {
     return fetch(URL + 'countries/' + id)

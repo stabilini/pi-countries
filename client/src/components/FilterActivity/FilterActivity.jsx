@@ -14,7 +14,7 @@ const FilterContinent = () => {
 
   return (
     <>
-      <p>Seleccione actividades:</p>
+      <p>Select activities:</p>
       <ul>
         {Object.keys(activities).map(act => (
           <li key={act}>

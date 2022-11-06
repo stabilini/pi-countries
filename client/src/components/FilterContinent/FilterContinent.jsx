@@ -29,7 +29,7 @@ const FilterContinent = () => {
 
   return (
     <>
-      <p>Seleccione continentes:</p>
+      <p>Select continent:</p>
       <ul>
         {Object.keys(input).map(cont => (
           <li key={cont}>

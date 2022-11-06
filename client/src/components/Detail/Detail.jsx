@@ -29,14 +29,14 @@ const Detail = () => {
             {detail.name} - ({detail.id})
           </h3>
           <h4>{detail.continent}</h4>
-          <p>Detalles:</p>
+          <p>Detail:</p>
           <ul>
             <li>Capital: {detail.capital}</li>
             <li>Subregion: {detail.subregion}</li>
             <li>Area: {detail.area} km2</li>
-            <li>Poblacion: {detail.population} habs.</li>
+            <li>Population: {detail.population} habs.</li>
           </ul>
-          <p>Actividades turisticas:</p>
+          <p>Activities:</p>
           <ul>
             {detail.activities.map(ac => {
               return (

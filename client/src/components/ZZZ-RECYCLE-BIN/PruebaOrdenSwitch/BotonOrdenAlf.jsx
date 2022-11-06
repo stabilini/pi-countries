@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 //import { useDispatch } from 'react-redux';
-import { ordenPaises } from '../../redux/actions';
+import { ordenPaises } from '../../../redux/actions';
 
 // opcion 1 con un boton 
 const BotonOrdenAlf = () => {

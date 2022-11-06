@@ -1,4 +1,4 @@
-.landingpage{
+.landingPage{
   background-color: rgb(67, 67, 67);
   color: white;
   display: flex;
@@ -6,6 +6,6 @@
   align-items: center;
 }
 
-.landingpage img {
+.landingPageImage {
   width: 40%;
 }

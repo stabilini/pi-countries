@@ -25,7 +25,7 @@ function NavBar() {
     setInput(e.target.value);
   };
 
-  const manejarEnvio = e => {
+  const handleSubmit = e => {
     e.preventDefault();
     //conviene usar el siguiente dispatch, pero el PI pide que se use la ruta con query
     dispatch(getCountries(input));
@@ -33,10 +33,10 @@ function NavBar() {
     // setInput('');
   };
 
-  const usarEnter = e => {
+  const useEnter = e => {
     if (e.keyCode === 13) {
       e.preventDefault();
-      getCountries(input);
+      dispatch(getCountries(input));
       // setInput('');
     }
   };
@@ -51,23 +51,22 @@ function NavBar() {
         <div className="parte1">
           <input
             type="text"
-            placeholder="Ingrese texto..."
+            placeholder="Type text..."
             className="input"
             onChange={manejarCambio}
             value={input}
-            // autofocus
-            onKeyUp={usarEnter}
+            onKeyUp={useEnter}
           />
           &nbsp;
-          <button className="boton" onClick={manejarEnvio}>
-            Buscar paises
+          <button className="boton" onClick={handleSubmit}>
+            Search countries
           </button>
           {/* <Link to={`/countries?name=${input}`}>
             <button>Buscar paises</button>
           </Link> */}
           &nbsp;
           <Link to="/newactivity">
-            <button>Crear actividades</button>
+            <button>Create activity</button>
           </Link>
         </div>
 

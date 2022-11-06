@@ -17,8 +17,8 @@ const ButtonPopOrder = () => {
 
   return (
     <>
-      <button onClick={handleSubmit1}>Ordenar ascendente poblacion</button>
-      <button onClick={handleSubmit2}>Ordenar descendente poblacion</button>
+      <button onClick={handleSubmit1}>Population +</button>
+      <button onClick={handleSubmit2}>Population -</button>
     </>
   );
 };

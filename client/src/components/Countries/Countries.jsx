@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCountries, getActivities } from '../../redux/actions';
 import { useLocation } from 'react-router-dom';
-import Pais from '../Country/Country';
+import Country from '../Country/Country';
 import './countries.css';
 
 const Countries = () => {
@@ -11,8 +11,10 @@ const Countries = () => {
   const name = query.get('name');
 
   const dispatch = useDispatch();
-  const paises = useSelector(state => state.countries);
+  const countryes = useSelector(state => state.countries);
+  const filtered = countryes.filter(country => country.c_visible && country.a_visible);
   const page = useSelector(state => state.page);
+
 
   React.useEffect(() => {
     dispatch(getCountries(name));
@@ -20,20 +22,19 @@ const Countries = () => {
   }, [dispatch, name]);
 
   return (
-    <div className="contenedorpaises">
-      {paises.length > 0 ? (
-        paises
-          .filter(pais => pais.c_visible && pais.a_visible)
-          .map((pais, i) => {
+    <div className="countriescontainer">
+      {filtered.length > 0 ? (
+        filtered
+          .map((country, i) => {
             return i >= (page === 1 ? 0 : page * 10 - 11) && i <= (page === 1 ? 8 : page * 10 - 2) ?
             (
-              <Pais
-                key={pais.id}
-                id={pais.id}
-                flag={pais.flag[1]}
-                name={pais.name}
-                continent={pais.continent}
-                activities={pais.activities}
+              <Country
+                key={country.id}
+                id={country.id}
+                flag={country.flag[1]}
+                name={country.name}
+                continent={country.continent}
+                activities={country.activities}
               />
             ) : (
               <></>

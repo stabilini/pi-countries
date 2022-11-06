@@ -31,7 +31,17 @@ axios
   .get('https://restcountries.com/v3/all')
   .then(data => {
     let countries = data.data;
-
+    let bulk = countries.map(c => ({
+      id: c.cca3,
+      name: c.name.common,
+      flag: c.flags.png,
+      continents: c.continents[0],
+      capital: c.capital ? c.capital : [],
+      subregion: c.subregion,
+      area: c.area,
+      population: c.population
+    }))
+    console.log(bulk)
     // CAMBIAR A UN BULK CREATE SIN HACER EL FOR
     function firstCountryLoad() {
       for (let i = 0; i < countries.length; i++) {
@@ -50,13 +60,6 @@ axios
     firstCountryLoad();
   })
   .then(console.log('countries cargados'))
-  // BORRAR ESTE THEN CUANDO FUNCIONE TODO
-  .then(() => {
-    const ejemplos = require('../activities.json');
-    Activity.bulkCreate(ejemplos);
-    }
-  )
-  .then(console.log('Actividades de prueba creadas'))
   .catch(error => {
     console.log(error);
   });

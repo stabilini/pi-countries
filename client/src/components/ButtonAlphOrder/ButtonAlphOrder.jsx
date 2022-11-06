@@ -17,8 +17,8 @@ const ButtonAlphOrder = () => {
 
   return (
     <>
-      <button onClick={handleSubmit1}>Ordenar ascendente alfabetico</button>
-      <button onClick={handleSubmit2}>Ordenar descendente alfabetico</button>
+      <button onClick={handleSubmit1}>A-Z</button>
+      <button onClick={handleSubmit2}>Z-A</button>
     </>
   );
 };

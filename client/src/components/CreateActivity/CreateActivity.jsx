@@ -92,7 +92,14 @@ const Form = props => {
       country: '',
       countries: []
     });
-    
+  };
+
+  const useEnter = e => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      getCountries(input);
+      // setInput('');
+    }
   };
 
   return (
@@ -103,7 +110,8 @@ const Form = props => {
           type="text"
           name="name"
           value={input.name}
-          onChange={handleInputChange}/><br />
+          onChange={handleInputChange}
+          onKeyUp={useEnter}/><br />
           {errors.name}<br />
         
         {/* puede ir <fieldset></fieldset> tambien, averiguar */}

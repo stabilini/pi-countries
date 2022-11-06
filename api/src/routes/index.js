@@ -2,85 +2,24 @@ const { Router } = require('express');
 const { Op } = require('sequelize');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
-const { Country, Activity } = require('../db.js');
+const findByIdCountry = require('../controllers/idCountry.js');
+const getCountries = require('../controllers/getCountries.js');
+const getActivities = require('../controllers/getActivities.js');
+const createActivity = require('../controllers/createActivity.js');
 
 const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-router.get('/countries/:idCountry', async (req, res) => {
-  try {
-    let { idCountry } = req.params;
-    let result = await Country.findAll({
-      where: {
-        id: idCountry
-      },
-      include: Activity
-    });
-    res.status(200).json(result);
-  } catch (error) {
-    res.status(500).json({err: 'Conection to DB failed.', error})
-  }
-});
+router.get('/countries/:idCountry', findByIdCountry);
+router.get('/countries', getCountries);
+router.get('/activities', getActivities);
+router.post('/activities', createActivity);
 
-router.get('/countries', async (req, res) => {
-  let { name } = req.query;
-  let result;
-  try {
-    if (name) {
-      result = await Country.findAll({
-        where: {
-          name: {
-            [Op.iLike]: `%${name}%`,
-          }
-        },
-        include: Activity
-      })
-      if(!result) return res.status(200).json({msg: 'No countries.'})
-    } else {
-      result = await Country.findAll({include: Activity});
-    }
-    res.status(200).json(result);
-  } catch (error) {
-    res.status(500).json({err: 'Conection to DB failed.', error})
-  }
-});
 
-router.get('/activities', async (req, res) => {
-  try {
-    let result = await Country.findAll({include: Activity});
-    let act = {};
-    for (let i = 0; i < result.length; i++) {
-      for (let x = 0; x < result[i].activities.length; x++) {
-        let key = result[i].activities[x].name;
-        act[key] = true;
-      } 
-    }
-    res.status(200).json(act);
-  } catch (error) {
-    res.status(500).json({err: 'Conection to DB failed.', error})
-  } 
-})
-
-router.post('/activities', async (req, res) => {
-  let { name, skill, duration, season, countries } = req.body;
-  try {
-    let result = await Activity.create({
-      name: name,
-      skill: skill,
-      duration: duration,
-      season: season,
-    })
-    if (countries) {
-      await result.setCountries(countries);
-      return res.status(200).json({msg: 'Activity created and linked.'})
-    }
-    res.status(200).json({msg: 'Activity created.'})
-  } catch (error) {
-    res.status(500).json({err: 'Conection to DB failed.', error})
-  }
-})
+// RUTAS DE PRUEBA, BORRAR TODO PARA EL FINAL
+const { Country, Activity } = require('../db.js');
 
 // ESTA RUTA ES PROPIA, NO PEDIDA EN EL PI, ES PARA AGREGAR ACTIVIDADES
 // A UN PAIS... DESPUES VER COMO VERLO EN EL FRONT

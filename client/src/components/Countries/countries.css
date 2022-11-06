@@ -1,17 +1,17 @@
-.contenedorpaises {
+.countriescontainer {
   display: flex;
   flex-wrap: wrap;
  
 }
 
-.pais {
+.country {
   border: 1px solid black;
   border-radius: 5px;
   margin: 6px;
   text-align: center;
 }
 
-.bandera {
+.flag {
   max-width: 150px;
   max-height: 80px;
 }
