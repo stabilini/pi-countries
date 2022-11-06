@@ -21,7 +21,7 @@ const Detail = () => {
       {detail ? (
         <div>
           <img
-            src={detail.flag[1]}
+            src={detail.flag}
             alt={`imagen de ${detail.name}`}
             className="bandera"
           />

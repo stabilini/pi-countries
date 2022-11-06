@@ -31,7 +31,7 @@ const Countries = () => {
               <Country
                 key={country.id}
                 id={country.id}
-                flag={country.flag[1]}
+                flag={country.flag}
                 name={country.name}
                 continent={country.continent}
                 activities={country.activities}

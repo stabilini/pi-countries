@@ -25,41 +25,25 @@ server.use((req, res, next) => {
   next();
 });
 
+
 // obtiene los datos de la API y los guarda en la DB, solo se ejecuta al levantar el back
 // VER FRANCO 12 REACT REDUX 46.33 DEL LECTURE QUE EXPLICA ALGO DE AXIOS (para sacar el let countries = data.data)
 axios
-  .get('https://restcountries.com/v3/all')
+  .get('https://restcountries.com/v3.1/all')
   .then(data => {
-    let countries = data.data;
-    let bulk = countries.map(c => ({
+    let bulk = data.data.map(c => ({
       id: c.cca3,
       name: c.name.common,
       flag: c.flags.png,
-      continents: c.continents[0],
-      capital: c.capital ? c.capital : [],
-      subregion: c.subregion,
-      area: c.area,
-      population: c.population
+      continent: c.continents[0],
+      capital: c.capital ? c.capital[0] : 'n/d',
+      subregion: c.subregion ? c.subregion : 'n/d',
+      area: c.area >= 0 ? c.area : 0,
+      population: c.population >= 0 ? c.population : 0
     }))
-    console.log(bulk)
-    // CAMBIAR A UN BULK CREATE SIN HACER EL FOR
-    function firstCountryLoad() {
-      for (let i = 0; i < countries.length; i++) {
-        Country.create({
-          id: countries[i].cca3,
-          name: countries[i].name.common,
-          flag: countries[i].flags,
-          continent: countries[i].continents[0],
-          capital: countries[i].capital ? countries[i].capital : [],
-          subregion: countries[i].subregion,
-          area: countries[i].area,
-          population: countries[i].population,
-        });
-      }
-    }
-    firstCountryLoad();
+    Country.bulkCreate(bulk);
   })
-  .then(console.log('countries cargados'))
+  .then(console.log('Countries loaded from external API.'))
   .catch(error => {
     console.log(error);
   });
