@@ -3,6 +3,7 @@ export const GET_DETAIL = 'GET_DETAIL';
 export const GET_ACTIVITIES = 'GET_ACTIVITIES';
 export const CREATE_ACTIVITY = 'CREATE_ACTIVITY';
 export const SET_PAGE_VIEW = 'SET_PAGE_VIEW';
+export const FILTER_ACTIVITY = 'FILTER_ACTIVITY';
 export const COUNTRIES_ORDER_ASC = 'COUNTRIES_ORDER_ASC';
 export const COUNTRIES_ORDER_DES = 'COUNTRIES_ORDER_DES';
 export const COUNTRIES_FILTER_CONTINENT = 'COUNTRIES_FILTER_CONTINENT';
@@ -36,6 +37,15 @@ export const getActivities = () => {
             .then(res => res.json())
             .then(obj => ({...obj, 'Sin actividades': true}))
             .then(obj => dispatch({type: GET_ACTIVITIES, payload: obj}))
+  }
+}
+
+export const getFilterActivities = () => {
+  return function(dispatch) {
+    return fetch(URL + 'activities')
+            .then(res => res.json())
+            .then(obj => ({...obj, 'Sin actividades': true}))
+            .then(obj => dispatch({type: FILTER_ACTIVITY, payload: obj}))
   }
 }
 

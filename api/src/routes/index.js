@@ -6,6 +6,7 @@ const findByIdCountry = require('../controllers/idCountry.js');
 const getCountries = require('../controllers/getCountries.js');
 const getActivities = require('../controllers/getActivities.js');
 const createActivity = require('../controllers/createActivity.js');
+//const getContinents = require('../controllers/getContinents.js');
 
 const router = Router();
 
@@ -16,6 +17,7 @@ router.get('/countries/:idCountry', findByIdCountry);
 router.get('/countries', getCountries);
 router.get('/activities', getActivities);
 router.post('/activities', createActivity);
+//router.get('/continents', getContinents);
 
 
 // RUTAS DE PRUEBA, BORRAR TODO PARA EL FINAL

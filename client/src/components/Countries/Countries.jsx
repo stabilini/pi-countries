@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCountries, getActivities } from '../../redux/actions';
+import { getCountries } from '../../redux/actions';
 import { useLocation } from 'react-router-dom';
 import Country from '../Country/Country';
 import './countries.css';
@@ -11,14 +11,20 @@ const Countries = () => {
   const name = query.get('name');
 
   const dispatch = useDispatch();
-  const countryes = useSelector(state => state.countries);
-  const filtered = countryes.filter(country => country.c_visible && country.a_visible);
+  const countries = useSelector(state => state.countries);
+  const continents = useSelector(state => state.filterContinent);
+  const activities = useSelector(state => state.filterActivity);
+  //const filtered = countryes.filter(country => country.c_visible && country.a_visible);
+  let keys_c = Object.keys(continents).filter(k => continents[k] === true)
+  let keys_a = Object.keys(activities).filter(k => activities[k] === true)
+  //(c => keys_c.includes(c.continent) ? {...c, c_visible: true} : {...c, c_visible: false})
+  const filtered = countries.filter(c => keys_c.includes(c.continent) && c.activities.some(obj => keys_a.includes(obj.name)))
   const page = useSelector(state => state.page);
 
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(getCountries(name));
-    dispatch(getActivities());
+    
   }, [dispatch, name]);
 
   return (
@@ -26,6 +32,7 @@ const Countries = () => {
       {filtered.length > 0 ? (
         filtered
           .map((country, i) => {
+            // confuso, pero se fija si el country debe ser mostrado en la page actual (9 en la 1ra, 10 en las demas)
             return i >= (page === 1 ? 0 : page * 10 - 11) && i <= (page === 1 ? 8 : page * 10 - 2) ?
             (
               <Country
@@ -37,7 +44,7 @@ const Countries = () => {
                 activities={country.activities}
               />
             ) : (
-              <></>
+              null
             );
           })
       ) : (

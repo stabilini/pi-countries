@@ -1,43 +1,28 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector  } from 'react-redux';
 import { filtrarPaises } from '../../redux/actions';
-import { useState } from 'react';
 
 const FilterContinent = () => {
-  const [input, setInput] = useState({
-    Africa: true,
-    Antarctica: true,
-    Asia: true,
-    Europe: true,
-    Oceania: true,
-    'South America': true,
-    'North America': true,
-  });
+  let continents = useSelector(state => state.filterContinent);
 
   const dispatch = useDispatch();
 
   const handleInputChange = e => {
-    setInput({
-      ...input,
-      [e.target.name]: e.target.checked,
-    });
+    continents[e.target.name] = e.target.checked;
+    dispatch(filtrarPaises('continent', continents));
   };
-
-  useEffect(() => {
-    dispatch(filtrarPaises('continent', input));
-  });
 
   return (
     <>
       <p>Select continent:</p>
       <ul>
-        {Object.keys(input).map(cont => (
+        {Object.keys(continents).map(cont => (
           <li key={cont}>
             <input
               type="checkbox"
               onChange={handleInputChange}
               name={cont}
-              defaultChecked={input[cont]}
+              defaultChecked={continents[cont]}
             />
             {cont}
           </li>

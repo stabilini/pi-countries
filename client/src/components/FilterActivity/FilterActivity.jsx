@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { filtrarPaises } from '../../redux/actions';
+import { filtrarPaises, getFilterActivities } from '../../redux/actions';
 
 const FilterContinent = () => {
-  let activities = useSelector(state => state.activities);
+  let activities = useSelector(state => state.filterActivity);
 
   const dispatch = useDispatch();
 
@@ -11,6 +11,10 @@ const FilterContinent = () => {
     activities[e.target.name] = e.target.checked;
     dispatch(filtrarPaises('activities', activities));
   };
+
+  useEffect(() => {
+    dispatch(getFilterActivities());
+  }, [dispatch]);
 
   return (
     <>

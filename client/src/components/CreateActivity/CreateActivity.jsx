@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
@@ -77,7 +77,7 @@ const Form = props => {
 
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(getCountries());
   }, [dispatch]);
 
@@ -144,7 +144,7 @@ const Form = props => {
       </form>
       {/* disabled={errors.name || errors.duration ? true : false} */}
       <Link to="/countries">
-        <button>Back to countries list</button>
+        <button>Back to list</button>
       </Link>
       <br />
       <label>Select countries:</label>
@@ -156,7 +156,7 @@ const Form = props => {
         onChange={handleInputChange}
       />
       <br />{errors.countries}<br />
-      {input.countries.length} selected
+      Selected: {input.countries.length}
       <div className="box">
         <ul>
           {countries

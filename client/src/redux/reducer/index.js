@@ -7,13 +7,24 @@ import {
   COUNTRIES_ORDER_DES,
   COUNTRIES_FILTER_CONTINENT,
   COUNTRIES_FILTER_ACTIVITY,
-  SET_PAGE_VIEW
+  SET_PAGE_VIEW,
+  FILTER_ACTIVITY
   } from '../actions';
 
 const initialState = {
   countries: [],
   detail: {},
-  activities: [],
+  // activities: [],
+  filterActivity: {},
+  filterContinent: {
+    Africa: true,
+    Antarctica: true,
+    Asia: true,
+    Europe: true,
+    Oceania: true,
+    'South America': true,
+    'North America': true,
+  },
   page: 1,
 };
 
@@ -38,6 +49,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         activities: [...state.activities, action.payload],
+      }
+    case FILTER_ACTIVITY:
+      return {
+        ...state,
+        filterActivity: action.payload,
       }
     case COUNTRIES_ORDER_ASC:
       return {
