@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
@@ -118,10 +118,10 @@ const Form = props => {
         <label>Skill:</label>
         {
           [1,2,3,4,5].map(i => (
-            <>
+            <Fragment>
               <input type="radio" id={i} name="skill" value={i} onChange={handleInputChange} defaultChecked={i === input.skill}/>
               <label>{i}</label>
-            </>
+            </Fragment>
           ))
         }
         <br />
