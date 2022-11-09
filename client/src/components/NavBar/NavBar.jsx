@@ -1,15 +1,11 @@
-import './navbar.css';
 import { getCountries } from '../../redux/actions';
 import { useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 
-import ButtonAlphOrder from '../ButtonAlphOrder/ButtonAlphOrder.jsx';
-import ButtonPopOrder from '../ButtonPopOrder/ButtonPopOrder.jsx';
-import FilterContinent from '../FilterContinent/FilterContinent.jsx';
-import FilterActivity from '../FilterActivity/FilterActivity.jsx';
-import Pagination from '../Pagination/Pagination';
+import styles from './NavBar.module.css';
+import logo from './globe.png';
 
 function NavBar() {
   const useQuery = () => new URLSearchParams(useLocation().search);
@@ -46,48 +42,34 @@ function NavBar() {
   }, [name]);
 
   return (
-    <>
-      <div className="container">
-        <div className="parte1">
+    <div className={ styles.container }>
+      <div className={ styles.logoContainer }>
+        <img src={logo} alt='logo' className={ styles.logo }/>
+      </div>
+      <div className={ styles.center }>
+        <div className={ styles.subcenter }>
           <input
             type="text"
             placeholder="Type text..."
-            className="input"
+            size="10"
             onChange={manejarCambio}
             value={input}
             onKeyUp={useEnter}
           />
-          &nbsp;
-          <button className="boton" onClick={handleSubmit}>
-            Search countries
+          <button onClick={handleSubmit}>
+            Search
           </button>
-          {/* <Link to={`/countries?name=${input}`}>
-            <button>Buscar paises</button>
-          </Link> */}
-          &nbsp;
+        </div>
           <Link to="/newactivity">
             <button>Create activity</button>
           </Link>
-        </div>
-
-        <div className="orden">
-          <ButtonAlphOrder />
-          &nbsp;
-          <ButtonPopOrder />
-        </div>
       </div>
-      <div className="container">
-        <div className="filtercontinent">
-          <FilterContinent />
-        </div>
-        <div className="filteractivity">
-          <FilterActivity />
-        </div>
-        <div className="pagination">
-          <Pagination />
-        </div>
+      <div className={ styles.exit }>
+        <Link to="/">
+          <button>Exit</button>
+        </Link>
       </div>
-    </>
+    </div>
   );
 }
 

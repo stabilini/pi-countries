@@ -1,0 +1,17 @@
+/* .container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 8px;
+} */
+
+.navBar {
+  top: 0;
+}
+
+.main {
+  display: flex;
+}
+
+.column1 {
+  flex: 35%
+}

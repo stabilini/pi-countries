@@ -1,16 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import landingBackImage from './mapa_fondo.jpg';
-import styles from './landingpage.css';
+import styles from './LandingPage.module.css';
 
 const LandingPage = () => {
   return (
-    <div className={ styles.landingPage }>
-      <h1>Welocome to the Countries APP</h1>
-      <img className={ styles.landingPageImage } src={ landingBackImage } alt="Landing page background" />
-      <Link to="/countries">
-        <button>Start</button>
-      </Link>
+    <div className={ styles.landingBackground }>
+      <div className={ styles.container }>
+        <div className= { styles.globe }>
+          <h1>Countries<br />&<br />Activities</h1>
+        </div>
+        <div className= { styles.globe }>
+          <Link to="/countries">
+            <button>Start</button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

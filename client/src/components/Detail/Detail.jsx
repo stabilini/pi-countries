@@ -42,7 +42,7 @@ const Detail = () => {
             <ul>
               {detail.activities.map(ac => {
                 return (
-                  <li>
+                  <li key={ac.id}>
                     {ac.name}, {ac.skill}, {ac.duration}, {ac.season}
                   </li>
                 );

@@ -1,14 +1,25 @@
 import React from 'react';
 import NavBar from '../NavBar/NavBar';
+import OrderFilter from '../OrderFilter/OrderFilter';
 import Countries from '../Countries/Countries';
-import './home.css';
+import Pagination from '../Pagination/Pagination';
+
+import styles from './Home.module.css';
 
 const Home = () => {
   return (
-    <div className="container">
-      <NavBar />
-      <Countries />
-    </div>
+    <>
+      <NavBar  />
+      <div className={ styles.main }>
+        <div className={ styles.column1 }>
+          <OrderFilter />
+        </div>
+        <div>
+          <Countries />
+          <Pagination />
+        </div>
+      </div>
+    </>
   );
 };
 

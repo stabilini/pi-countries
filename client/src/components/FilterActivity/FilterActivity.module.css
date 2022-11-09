@@ -1,0 +1,14 @@
+.filteractivity{
+  background: rgba(0, 0, 255, 0.25);
+  border-radius: 15px;
+  border: 2px solid blue;
+  margin: 4px;
+  padding: 4px;
+  width: 100%;
+}
+
+.title {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  text-align: center;
+}

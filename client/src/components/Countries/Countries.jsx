@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCountries } from '../../redux/actions';
 import { useLocation } from 'react-router-dom';
 import Country from '../Country/Country';
-import './countries.css';
+import styles from './Countries.module.css';
 
 const Countries = () => {
   const useQuery = () => new URLSearchParams(useLocation().search);
@@ -28,7 +28,7 @@ const Countries = () => {
   }, [dispatch, name]);
 
   return (
-    <div className="countriescontainer">
+    <div className={ styles.countriesContainer }>
       {filtered.length > 0 ? (
         filtered
           .map((country, i) => {

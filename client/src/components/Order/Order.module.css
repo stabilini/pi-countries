@@ -1,0 +1,26 @@
+.order{
+  background: rgba(255, 0, 0, 0.25);
+  border-radius: 15px;
+  border: 2px solid red;
+  margin: 4px;
+  padding: 2px;
+  width: 100%;
+}
+
+.order button {
+  margin-left: 2px;
+  margin-bottom: 2px;
+  min-width: 50px;
+}
+  
+.title {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,28 @@
+.country {
+  border: 1px solid black;
+  /* border-radius: 10px; */
+  margin: 5px;
+  text-align: center;
+}
+
+.flag {
+  max-height: 10vw;
+  /* border-radius: 8px; */
+  /* margin: 3px; */
+  /* border-top-left-radius: 10px;
+  border-top-right-radius: 10px; */
+}
+
+h3 {
+  margin: 5px;
+  padding: 0;
+}
+
+h4 {
+  margin: 5px;
+  padding: 0;
+}
+
+button {
+  margin:8px;
+}
