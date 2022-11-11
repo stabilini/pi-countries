@@ -23,7 +23,6 @@ export function validate(input) {
   if (input.countries.length === 0) {
     errors.countries = 'At least one country must be selected.';
   }
-  console.log(errors)
   return errors;
 };
 
@@ -104,17 +103,22 @@ const Form = props => {
 
   return (
     <div className={ styles.container }>
+      
       <form className={ styles.form }>
         <div className={ styles.section }>
-          <div>Activity name:</div>
+          <label>Activity name:</label>
           <input
             type="text"
             name="name"
             value={input.name}
             onChange={handleInputChange}
             onKeyUp={useEnter}/>
-          <div className={ styles.error }>{errors.name}</div>
         </div>
+        { errors.name ? 
+          <div className={ styles.error }>{errors.name}</div>
+          :
+          <div className={ styles.noerror }></div>
+        }
         <div className={ styles.section }>
           <label>Skill:</label>
           {
@@ -129,13 +133,19 @@ const Form = props => {
         <div className={ styles.section }>
           <label>Duration:</label>
           <input
+            className={ styles.numberInput }
             type="number"
+            maxLength="4"
             name="duration"
             id="duration"
             value={input.duration}
             onChange={handleInputChange} /> days.
-          <div className={ styles.error }>{errors.duration}</div>
         </div>
+        { errors.duration ? 
+          <div className={ styles.error }>{errors.duration}</div>
+          :
+          <div className={ styles.noerror }></div>
+        }
         <div className={ styles.section }>
           <label>Season:</label>
           <select name="season" id="season" onChange={handleInputChange}>
@@ -176,8 +186,12 @@ const Form = props => {
             </ol>
           </div>
           <div>Selected: {input.countries.length}</div>
-          <div className={ styles.error }>{errors.countries}</div>
         </div>
+        { errors.countries ? 
+          <div className={ styles.error }>{errors.countries}</div>
+          :
+          <div className={ styles.noerror }></div>
+        }
         <div className={ styles.section }>
           <button onClick={handleSubmit} disabled={!input.name || !input.duration || errors.name || errors.duration || input.countries.length === 0 ? true : false}>Create activity</button>
           <Link to="/countries">
