@@ -1,14 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import landingBackImage from './mapa_fondo.jpg';
 import styles from './LandingPage.module.css';
 
 const LandingPage = () => {
   return (
-    <div className={ styles.landingBackground }>
-      <div className={ styles.container }>
-        <div className= { styles.globe }>
-          <h1>Countries<br />&<br />Activities</h1>
+    <>
+      <div className={ styles.landingBackground }></div>
+      <div className={ styles.globesContainer }>
+        <div className={ styles.globe }>
+          <div className={ styles.logo }>
+            <span className={ styles.text }>Countries</span>
+            <span className={ styles.ampersand }>&</span>
+            <span className={ styles.text }>Activities</span>
+          </div>
         </div>
         <div className= { styles.globe }>
           <Link to="/countries">
@@ -16,7 +20,13 @@ const LandingPage = () => {
           </Link>
         </div>
       </div>
-    </div>
+      <div className={ styles.footer }>
+        <div className={ styles.footerText }>
+          Henry Individual Project
+        </div>
+      </div>
+    </>
+    
   );
 };
 
