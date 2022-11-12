@@ -1,0 +1,139 @@
+.container {
+  /* margin: 10px; */
+  display: flex;
+  /* width: 50%; */
+  /* align-items: center; */
+  justify-content: center;
+  margin-top: -100vh;
+}
+
+.detail {
+  /* display: block; */
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 15px;
+  width: 85%;
+  
+  margin-top: 4vh;
+  max-width: 500px;
+  min-width: 240px;
+
+  background: rgb(228, 233, 231);
+  box-shadow:
+    0 0 0 3px hsl(0, 0%, 70%),
+    0 0 0 5px hsl(0, 0%, 90%);
+}
+
+.section {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.sectionDetail {
+  /* border: 1px solid black; */
+  /* margin-top: 10px; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+}
+
+.sectionDetail h3 {
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.sectionDetail ul {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.sectionDetail li {
+  text-align: left;
+  margin-left: -10px;
+}
+
+.sectionTitle {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.table {
+  width: 100%;
+}
+
+.activities {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* align-items: center; */
+  width: 100%;
+}
+
+.activityContainer {
+  /* width: 90%; */
+  /* max-width: 350px; */
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 5px;
+  background-color: azure;
+}
+
+.activityName {
+  display: flex;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.activityDetail {
+  margin-left: 12px;
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.flag {
+  max-width: 100%;
+  max-height: 220px;
+  border: 1px solid black;
+}
+
+.detailBackground {
+  background: url("./background.jpg") repeat;
+  height: 100vh;
+  animation-name: slide;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@media (max-width: 349px) {
+  .detailBackground{
+    animation-duration: 70s;
+  }
+}
+
+@media (min-width: 350px) and (max-width: 899px){
+  .detailBackground{
+    animation-duration: 50s;
+  }
+}
+
+@media (min-width: 900px) {
+  .detailBackground{
+    animation-duration: 30s;
+  }
+}
+
+@keyframes slide {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 100% 0%;
+  }
+}

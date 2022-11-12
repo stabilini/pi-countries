@@ -11,7 +11,7 @@ export const COUNTRIES_FILTER_ACTIVITY = 'COUNTRIES_FILTER_ACTIVITY';
 
 
 
-export const URL = 'http://localhost:3001/';
+export const URL = 'http://192.168.0.10:3001/';
 
 export const getCountries = (name) => {
   return function(dispatch) {

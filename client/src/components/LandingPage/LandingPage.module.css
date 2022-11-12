@@ -81,7 +81,7 @@
 }
 
 .landingBackground {
-  background: url("./mapa_fondo.jpg") center;
+  background: url("./background.jpg") center;
   height: 100vh;
   animation-name: animatedBackground;
   animation-timing-function: cubic-bezier(.41,.01,.62,.97);

@@ -4,6 +4,7 @@
   /* width: 50%; */
   /* align-items: center; */
   justify-content: center;
+  margin-top: -100vh;
 }
 
 .form {
@@ -17,8 +18,10 @@
   max-width: 500px;
   min-width: 220px;
 
-  background: rgb(194, 194, 194);
-  
+  background: rgb(228, 233, 231);
+  box-shadow:
+    0 0 0 3px hsl(0, 0%, 70%),
+    0 0 0 5px hsl(0, 0%, 90%);
 }
 
 .section {
@@ -30,11 +33,11 @@
 }
 
 .section label {
-  margin-right: 5px;
+  margin-right: 3px;
 }
 
 .section input {
-  margin-right: 5px;
+  margin-right: 3px;
 }
 
 .numberInput {
@@ -42,6 +45,7 @@
 }
 .box{
   height: 220px;
+  width: 100%;
   overflow: auto;
   text-align: left;
   font-family: 'Courier New', Courier, monospace;
@@ -52,7 +56,7 @@
   margin: 10px;
 
   background: rgb(63,177,251);
-  background: radial-gradient(circle, rgb(63, 251, 144) 0%, rgb(73, 252, 70) 100%);
+  background: radial-gradient(circle, rgba(149, 250, 193, 0.654) 0%, rgba(121, 250, 119, 0.694) 100%);
 }
 
 .error {
@@ -60,11 +64,46 @@
   /* display: inline; */
   padding: 1px 5px 1px 5px;
   color: red;
-  background-color: rgba(243, 243, 226, 0.687);
+  background-color: rgba(240, 225, 185, 0.687);
   font-size: 0.75em;
 }
 
 .noerror {
   padding: 1px 5px 1px 5px;
   height: 1.15em;
+}
+
+.createActivityBackground {
+  background: url("./background.png") repeat-x;
+  height: 100vh;
+  animation-name: slide;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@media (max-width: 349px) {
+  .createActivityBackground{
+    animation-duration: 70s;
+  }
+}
+
+@media (min-width: 350px) and (max-width: 899px){
+  .createActivityBackground{
+    animation-duration: 50s;
+  }
+}
+
+@media (min-width: 900px) {
+  .createActivityBackground{
+    animation-duration: 30s;
+  }
+}
+
+@keyframes slide {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 100% 0%;
+  }
 }
