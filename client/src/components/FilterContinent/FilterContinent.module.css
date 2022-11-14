@@ -1,31 +1,14 @@
-
-@media (max-width: 600px) {
-  .filtercontinent{
-    background: rgba(0, 255, 0, 0.25);
-    border: 2px solid green;
-    border-radius: 15px;
-    margin: 2px;
-    padding: 2px;
-    
-  }
-  .filtercontinent li {
-    margin-left: 0px;
-  }
+.container{
+  background: rgb(124, 255, 124);
+  /* background: rgba(89, 182, 89, 0.95); */
+  border-radius: 15px;
+  border: 2px solid green;
+  min-height: 170px;
 }
-
-@media (min-width: 601px) {
-  .filtercontinent{
-    background: rgba(0, 255, 0, 0.25);
-    border: 2px solid green;
-    border-radius: 15px;
-    margin: 2px;
-    padding: 2px;
-    width: 100%
-  }
-}
-
+ 
 .title {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   text-align: center;
+  text-decoration: underline;
 }

@@ -1,26 +1,80 @@
-.pagination{
-    background: rgba(255, 255, 0, 0.25);
-    border: 2px solid yellow;
-    margin: 4px;
-    padding: 4px;
-    text-align: center;
-    
-  }
-  
-  .pagination input {
-    margin-left: 1px;
-    margin-right: 1px;
-  }
-  
-  .normalPage {
-    font-size: 1em;
-  }
-  
-  .actualPage {
-    font-size: 1.3em;
-    font-weight: bold;
-  }
-  
-  .hide {
+.container{
+  background: rgba(246, 246, 138, 0.929);
+  /* background: rgba(165, 165, 94, 0.90); */
+  border: 2px solid yellow;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.container button {
+  margin: 5px 1px 2px 1px;
+  border: 2px solid #1A1A1A;
+  border-radius: 7px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  min-height: 24px;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  will-change: transform;
+}
+
+.normalPage {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  color: #222222;
+  font-size: 1em;
+}
+
+.actualPage {
+  width: 36px;
+  height: 36px;
+  color: #fff;
+  background-color: #1A1A1A;
+  font-size: 1.3em;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.skipPage {
+  width: 30px;
+  height: 22px;
+  background-color: transparent;
+  color: #222222;
+  font-size: .8em;
+}
+
+button:disabled {
+  pointer-events: none;
+}
+
+button:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+@media (max-width: 375px) {
+  .hideSkipPage {
     display: none;
   }
+}
+
+/* @media (min-width: 500px) {
+  .logoContainer {
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+} */

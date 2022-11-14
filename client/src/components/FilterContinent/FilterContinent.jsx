@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector  } from 'react-redux';
-import { filtrarPaises } from '../../redux/actions';
+import { filterBy } from '../../redux/actions';
+
 import styles from './FilterContinent.module.css'
 
 const FilterContinent = () => {
@@ -10,11 +11,11 @@ const FilterContinent = () => {
 
   const handleInputChange = e => {
     continents[e.target.name] = e.target.checked;
-    dispatch(filtrarPaises('continent', continents));
+    dispatch(filterBy('continent', continents));
   };
 
   return (
-    <div className={ styles.filtercontinent }>
+    <div className={ styles.container }>
       <div className={ styles.title }>
         Continent
       </div>

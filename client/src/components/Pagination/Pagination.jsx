@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPageView } from '../../redux/actions';
+
 import styles from './Pagination.module.css'
 
 const stripedPagination = (totalPages, currentPage, maxPages) => {
@@ -36,10 +37,10 @@ const Pagination = () => {
   const [shownPages, setShownPages] = useState([2,3,4,5,6]);
 
   const dispatch = useDispatch();
-  const paises = useSelector(state => state.countries);
+  const countries = useSelector(state => state.countries);
   const page = useSelector(state => state.page); // para luego ver mediante CSS en que pagina estoy
   
-  const visibles = paises.filter(pais => pais.c_visible && pais.a_visible).length
+  const visibles = countries.filter(pais => pais.c_visible && pais.a_visible).length
   const pages = Math.ceil((visibles - 9) / 10) + 1;
   const maxPages = 5;
 
@@ -66,44 +67,38 @@ const Pagination = () => {
   }, [page, visibles, pages, dispatch]);
   
   return (
-    <div className={ styles.pagination }>{
-      visibles < 9 ? null :
+    visibles < 9 ? null :
+    <div className={ styles.container }>
+      {
+      <>
+        { pages <= maxPages ?
         <>
-          { pages <= maxPages ?
-            <>
-            {
-              [...Array(pages).keys()].map(i => (
-                <input type='button' onClick={handleInputChange} name={i+1} value={i+1} key={i+1} 
-                className={page === i+1 ? styles.actualPage : styles.normalPage} />
-              ))
-            }
-            </>
-            :
-            <>
-              <input type='button' onClick={handleInputChange} name={1} value={1} key={1}
-              className={page === 1 ? styles.actualPage : styles.normalPage}  />
-              { shownPages[0] > 2 ? <> ... </> : null }
-              { shownPages[0] > 6 ? <><input type='button' onClick={handleInputLess} name='less' value='-5' /> ... </> : null}
-              {/* <ul> */}
-                {
-                  //[...Array(subpages).keys()]
-                  shownPages.map(i => (
-                   // <li>
-                   <input type='button' onClick={handleInputChange} name={i} value={i} key={i}
-                   className={page === i ? styles.actualPage : styles.normalPage} />
-                // </li>
-                )
-              )
-                }
-              {/* </ul> */}
-              { shownPages[shownPages.length-1] < pages - 5 ? <> ... <input type='button' onClick={handleInputMore} name='more' value='+5' /></> : null}
-              { shownPages[shownPages.length-1] < pages - 1 ? <> ... </> : null }
-              <input type='button' onClick={handleInputChange} name={pages} value={pages} key={pages}
-              className={page === pages ? styles.actualPage : styles.normalPage} />
-            </>
-          }
-          <div className={ styles.hide }>Pages: {pages} - Actual page: {page}</div>
+        {
+          [...Array(pages).keys()].map(i => (
+            <button onClick={handleInputChange} name={i+1} key={i+1} value={i+1}
+                    className={page === i+1 ? styles.actualPage : styles.normalPage}>{i+1}</button>
+          ))
+        }
         </>
+        :
+        <>
+          <button onClick={handleInputChange} name={1} key={1} value={1}
+                  className={page === 1 ? styles.actualPage : styles.normalPage}>1</button>
+          { shownPages[0] > 2 ? <> ... </> : null }
+          { shownPages[0] > 6 ? <span className={ styles.hideSkipPage }><button className={ styles.skipPage } onClick={handleInputLess} name='less' value='-5'>-5</button> ... </span> : null}
+          { shownPages.map(i => (
+                <button onClick={handleInputChange} name={i} key={i} value={i}  className={page === i ? styles.actualPage : styles.normalPage}>{i}</button>
+              )
+            )
+          }
+          { shownPages[shownPages.length-1] < pages - 5 ? <span className={ styles.hideSkipPage }> ... <button className={ styles.skipPage } onClick={handleInputMore} name='more' value='+5'>+5</button></span> : null}
+          { shownPages[shownPages.length-1] < pages - 1 ? <> ... </> : null }
+          <button onClick={handleInputChange} name={pages} key={pages} value={pages}
+                  className={page === pages ? styles.actualPage : styles.normalPage}>{pages}</button>
+        </>
+        }
+        {/* <div className={ styles.hide }>Pages: {pages} - Actual page: {page}</div> */}
+      </>
       }
     </div>
   )

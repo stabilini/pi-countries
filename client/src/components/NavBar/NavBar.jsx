@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 
 import styles from './NavBar.module.css';
-import logo from './globe.png';
+import logo from '../../assets/logo-globe.png';
 
 function NavBar() {
   const useQuery = () => new URLSearchParams(useLocation().search);
@@ -13,8 +13,7 @@ function NavBar() {
   const name = query.get('name');
 
   const [input, setInput] = useState('');
-  //if (name) setInput(name);
-
+  
   const dispatch = useDispatch();
 
   const manejarCambio = e => {
@@ -23,17 +22,15 @@ function NavBar() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    //conviene usar el siguiente dispatch, pero el PI pide que se use la ruta con query
+    //no conviene usar el siguiente dispatch porque llama al back, pero el readme del PI pide que se use la ruta con query
     dispatch(getCountries(input));
-
-    // setInput('');
   };
 
   const useEnter = e => {
     if (e.keyCode === 13) {
       e.preventDefault();
+      //no conviene usar el siguiente dispatch porque llama al back, pero el readme del PI pide que se use la ruta con query
       dispatch(getCountries(input));
-      // setInput('');
     }
   };
 
@@ -46,8 +43,8 @@ function NavBar() {
       <div className={ styles.logoContainer }>
         <img src={logo} alt='logo' className={ styles.logo }/>
       </div>
-      <div className={ styles.center }>
-        <div className={ styles.subcenter }>
+      <div className={ styles.centerContainer }>
+        <div className={ styles.center }>
           <input
             type="text"
             placeholder="Type text..."
@@ -64,7 +61,7 @@ function NavBar() {
             <button>Create activity</button>
           </Link>
       </div>
-      <div className={ styles.exit }>
+      <div className={ styles.exitContainer }>
         <Link to="/">
           <button>Exit</button>
         </Link>

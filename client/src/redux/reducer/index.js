@@ -26,6 +26,7 @@ const initialState = {
     'North America': true,
   },
   page: 1,
+  order: {},
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -58,11 +59,13 @@ const rootReducer = (state = initialState, action) => {
     case COUNTRIES_ORDER_ASC:
       return {
         ...state,
+        order: {asc: action.payload},
         countries: state.countries.slice().sort((a, b) => a[action.payload] > b[action.payload] ? 1 : -1)
       }
     case COUNTRIES_ORDER_DES:
       return {
         ...state,
+        order: {desc: action.payload},
         countries: state.countries.slice().sort((a, b) => a[action.payload] < b[action.payload] ? 1 : -1)
       }
     case COUNTRIES_FILTER_CONTINENT:

@@ -3,15 +3,17 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { createActivity, getCountries } from '../../redux/actions';
+
 import styles from './CreateActivity.module.css';
+
 
 export function validate(input) {
   let errors = {};
   
   if (!input.name) {
     errors.name = 'A name is required.';
-  } else if (!/^[A-Za-z\s]*$/.test(input.name)) {
-    errors.name = 'Invalid name. Only letters and spaces are allowed.';
+  } else if (!/^[A-Za-z0-9\s]*$/.test(input.name)) {
+    errors.name = 'Invalid name. Only letters and numbers are allowed.';
   }
   
   if (!input.duration) {
@@ -26,7 +28,7 @@ export function validate(input) {
   return errors;
 };
 
-const Form = props => {
+const Form = () => {
   const [input, setInput] = useState({
     name: '',
     skill: 1,
@@ -93,14 +95,6 @@ const Form = props => {
     });
   };
 
-  const useEnter = e => {
-    if (e.keyCode === 13) {
-      e.preventDefault();
-      getCountries(input);
-      // setInput('');
-    }
-  };
-
   return (
     <>
       <div className={ styles.createActivityBackground }></div>
@@ -112,8 +106,7 @@ const Form = props => {
               type="text"
               name="name"
               value={input.name}
-              onChange={handleInputChange}
-              onKeyUp={useEnter}/>
+              onChange={handleInputChange}/>
           </div>
           { errors.name ? 
             <div className={ styles.error }>{errors.name}</div>
@@ -125,7 +118,8 @@ const Form = props => {
             {
               [1,2,3,4,5].map(i => (
                 <Fragment key={i}>
-                  <input type="radio" id={i} name="skill" value={i} onChange={handleInputChange} defaultChecked={i === input.skill}/>
+                  <input type="radio" id={i} name="skill" value={i}
+                  onChange={handleInputChange} checked={i === +input.skill ? true : false }/>
                   <label>{i}</label>
                 </Fragment>
               ))
@@ -179,7 +173,7 @@ const Form = props => {
                         name={country.id}
                         id={country.id}
                         onChange={handleInputCountries}
-                        defaultChecked={input.countries[country.id] ? true : false}
+                        checked={input.countries.includes(country.id) ? true : false}
                       />
                       {country.name}
                     </li>
@@ -198,7 +192,6 @@ const Form = props => {
             <Link to="/countries">
               <button>Back to list</button>
             </Link>
-            {/* disabled={errors.name || errors.duration ? true : false} */}
           </div>
         </form>
       </div>

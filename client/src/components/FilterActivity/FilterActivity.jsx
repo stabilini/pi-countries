@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { filtrarPaises, getFilterActivities } from '../../redux/actions';
+import { filterBy, getFilterActivities } from '../../redux/actions';
+
 import styles from './FilterActivity.module.css'
 
 const FilterContinent = () => {
@@ -10,7 +11,7 @@ const FilterContinent = () => {
 
   const handleInputChange = e => {
     activities[e.target.name] = e.target.checked;
-    dispatch(filtrarPaises('activities', activities));
+    dispatch(filterBy('activities', activities));
   };
 
   useEffect(() => {
@@ -18,9 +19,9 @@ const FilterContinent = () => {
   }, [dispatch]);
 
   return (
-    <div className={ styles.filteractivity }>
+    <div className={ styles.container }>
       <div className={ styles.title }>
-        Activities 
+        Activity 
       </div>
       {Object.keys(activities).map(act => (
         <div key={act}>
@@ -33,20 +34,6 @@ const FilterContinent = () => {
           {act}
         </div>
       ))}
-      
-      {/* <ul>
-        {Object.keys(activities).map(act => (
-          <li key={act}>
-            <input
-              type="checkbox"
-              onChange={handleInputChange}
-              name={act}
-              defaultChecked={activities[act]}
-            />
-            {act}
-          </li>
-        ))}
-      </ul> */}
     </div>
   );
 };

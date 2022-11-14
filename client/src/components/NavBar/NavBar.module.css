@@ -1,3 +1,83 @@
+.container {
+  background: rgba(149, 149, 149, 0.9);
+  padding: 5px;
+  display: flex;
+  height: 100%;
+}
+
+.container button {
+  margin-left: 4px;
+  height: 30px;
+}
+
+.container input {
+  height: 24px;
+}
+
+.logo {
+height: 64px;
+}
+
+.centerContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exitContainer {
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.container button {
+  margin: 3px;
+  min-width: 60px;
+  border: 2px solid #1A1A1A;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: .9em;
+  font-weight: 600;
+  min-height: 26px;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  will-change: transform;
+}
+
+.button {
+  background-color: transparent;
+  color: #222222;
+}
+
+.button:disabled {
+  pointer-events: none;
+}
+
+.button:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
 @media (max-width: 499px) {
   .logoContainer {
     display: none;
@@ -11,47 +91,4 @@
     align-items: center;
     justify-content: center;
   }
-}
-
-.container {
-  background: rgba(0, 0, 0, 0.25);
-  padding: 4px;
-  display: flex;
-}
-
-.container button {
-  margin-left: 4px;
-  height: 30px;
-}
-
-.container input {
-  height: 24px;
-}
-
-.logo {
-  height: 64px;
-}
-
-
-.center {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
-
-.subcenter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  
-}
-
-.exit {
-  width: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }

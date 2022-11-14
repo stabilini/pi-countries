@@ -1,17 +1,103 @@
-/* .container {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 8px;
-} */
-
-.navBar {
-  top: 0;
+.container {
+  border: 2px solid black;
+  max-width: 1300px;
+  margin: auto;
+  background-color: rgb(195, 188, 181);
 }
 
-.main {
-  display: flex;
+.container .header {
+  grid-area: header;
+  margin-bottom: 10px;
 }
 
-.column1 {
-  flex: 35%
+.container .order {
+  grid-area: order;
+  margin: 0 3px 0 3px;
+  /* background-color: blueviolet; */
+}
+
+.container .continent {
+  grid-area: continent;
+  margin: 0 3px 0 3px;
+  /* background-color: rgb(70, 226, 43); */
+}
+
+.container .activity {
+  grid-area: activity;
+  margin: 0 3px 0 3px;
+  /* background-color: rgb(208, 226, 43); */
+}
+
+.container .countries {
+  grid-area: countries;
+}
+
+.grouped {
+  grid-area: grouped;
+  margin: 0 3px 0 3px;
+  display: block;
+}
+
+.item {
+  margin-bottom: 5px;
+}
+
+@media (max-width: 599px) {
+  .container {
+    gap: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "header     header"
+      "order      order"
+      "continent  activity"
+      "countries  countries";
+  }
+  .grouped {
+    display: none;
+  }
+  .item {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 999px) {
+  .container {
+    gap: 6px;
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) 5fr;
+    grid-template-rows: 70px auto;
+    grid-template-areas:
+      "header     header"
+      "grouped    countries";
+  }
+  .order {
+    display: none;
+  }
+  .continent {
+    display: none;
+  }
+  .activity {
+    display: none;
+  }
+}
+
+@media (min-width: 1000px) {
+  .container {
+    gap: 8px;
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) 5fr minmax(150px, 1fr);
+    grid-template-rows: 70px auto;
+    grid-template-areas:
+      "header     header    header"
+      "order      order     order"
+      "continent  countries activity";
+  }
+  .grouped {
+    display: none;
+  }
+  .item {
+    display: none;
+  }
 }

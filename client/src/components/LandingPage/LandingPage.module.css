@@ -20,7 +20,6 @@
   align-items: center;
 }
 
-
 .logo {
   display: flex;
   flex-direction: column;
@@ -63,7 +62,7 @@
 }
 
 .globe button {
-  font-size: 3em;
+  font-size: 2.2em;
   border-radius: 50%;
   width: 150px;
   height: 150px;
@@ -78,10 +77,11 @@
 
 .globe button:hover{
   background-color:rgb(80, 147, 80);
+  transform: translateY(-2px);
 }
 
 .landingBackground {
-  background: url("./background.jpg") center;
+  background: url("../../assets/background-landingpage.jpg") center;
   height: 100vh;
   animation-name: animatedBackground;
   animation-timing-function: cubic-bezier(.41,.01,.62,.97);

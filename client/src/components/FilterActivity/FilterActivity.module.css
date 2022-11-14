@@ -1,14 +1,14 @@
-.filteractivity{
-  background: rgba(0, 0, 255, 0.25);
+.container{
+  background: rgb(129, 163, 254);
+  /* background: rgba(133, 134, 223, 0.95); */
   border-radius: 15px;
   border: 2px solid blue;
-  margin: 4px;
-  padding: 4px;
-  width: 100%;
+  min-height: 170px;
 }
-
+ 
 .title {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   text-align: center;
+  text-decoration: underline;
 }

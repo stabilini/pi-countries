@@ -1,7 +1,10 @@
-.countriesContainer {
+.container {
+  border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
+  justify-content: space-evenly;
+  padding-top: 6px ;
+  background: url("../../assets/background-countries-light.jpg") center;
+  background-size: cover;
+  min-height: 300px;
 }

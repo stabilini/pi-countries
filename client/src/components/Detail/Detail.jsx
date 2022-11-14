@@ -2,14 +2,11 @@ import React, { Fragment, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDetail } from '../../redux/actions';
+
 import styles from './Detail.module.css';
-import imagen from './background.jpg';
 
 const Detail = () => {
   const { id } = useParams(); // viene como objeto
-
-  // con props y lo siguiente, rompe, anotado tambien en trello
-  // let id = props.match.params.id;
 
   const dispatch = useDispatch();
   const detail = useSelector(state => state.detail)[0];
@@ -33,12 +30,8 @@ const Detail = () => {
                 className={ styles.flag } 
               />
             </div>
-            <div className={ styles.section }>
-              <h3>
-                {detail.name} - ({detail.id})
-              </h3>
-              <h4>Continent: {detail.continent}</h4>
-            </div>
+            <div className={ styles.sectionTitle }>{detail.name} ({detail.id})</div>
+            <div className={ styles.sectionSubtitle }>Continent: {detail.continent}</div>
             <div className={ styles.section }>
               <span className={ styles.sectionDetail }>
                 <ul>
@@ -77,7 +70,7 @@ const Detail = () => {
               :
               (
                 <>
-                  <p>No activities found.</p>
+                  <p>(no activities found)</p>
                 </>
               )
             }
@@ -86,16 +79,16 @@ const Detail = () => {
         ) : (
           <div className={ styles.section }>
             <h3>
-              An error ocurred, there is no details.
+              An error ocurred, there are no details.
             </h3>
             <Link to="/countries">
-              <button>Back to list</button>
+              <button className={ styles.button }>Back to list</button>
             </Link> 
           </div>
           )
         }
           <Link to="/countries">
-            <button>Back to list</button>
+            <button className={ styles.button }>Back to list</button>
           </Link> 
         </span>
       </div>

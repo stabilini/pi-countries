@@ -62,7 +62,7 @@ export const createActivity = (payload) => {
   }
 }
 
-export const ordenPaises = (field, order) => {
+export const orderCountries = (field, order) => {
   return function(dispatch) {
     if (order === 'asc') {
       return dispatch({
@@ -78,7 +78,7 @@ export const ordenPaises = (field, order) => {
   }
 }
 
-export const filtrarPaises = (field, data) => {
+export const filterBy = (field, data) => {
   return function(dispatch) {
     if (field === 'continent') {
       return dispatch({
