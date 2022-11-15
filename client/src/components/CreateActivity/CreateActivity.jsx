@@ -28,7 +28,7 @@ export function validate(input) {
   return errors;
 };
 
-const Form = () => {
+const CreateActivity = () => {
   const [input, setInput] = useState({
     name: '',
     skill: 1,
@@ -201,4 +201,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default CreateActivity;

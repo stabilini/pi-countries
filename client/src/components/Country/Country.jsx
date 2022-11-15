@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter } from 'react-router-dom';
 
 import styles from './Country.module.css';
 
@@ -8,15 +8,17 @@ const Country = props => {
     <div key={props.id} className={ styles.container }>
       <img
         src={props.flag}
-        alt={`imagen de ${props.name}`}
+        alt={`Flag from ${props.name}`}
         className={ styles.flag }
       />
       <div className={ styles.infoSection }>
         <div className={ styles.title }>{props.name}</div>
         <div className={ styles.subTitle }>{props.continent}</div>
-        <Link to={`/countries/${props.id}`}>
-          <button className={ styles.button }>Detail</button>
-        </Link>
+        <BrowserRouter>
+          <Link to={`/countries/${props.id}`}>
+            <button className={ styles.button }>Detail</button>
+          </Link>
+        </BrowserRouter>
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ const getCountries = async (req, res) => {
         },
         include: Activity
       })
-      if(!result) return res.status(200).json({msg: 'No countries.'})
+      if(result.length === 0) return res.status(404).json({msg: 'No countries'})
     } else {
       result = await Country.findAll({include: Activity});
     }

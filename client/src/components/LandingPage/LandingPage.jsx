@@ -16,9 +16,11 @@ const LandingPage = () => {
           </div>
         </div>
         <div className= { styles.globe }>
-          <Link to="/countries">
-            <button>Start</button>
-          </Link>
+          {/* <BrowserRouter> */}
+            <Link to="/countries">
+              <button>Start</button>
+            </Link>
+          {/* </BrowserRouter> */}
         </div>
       </div>
       <div className={ styles.footer }>
