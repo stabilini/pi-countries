@@ -7,6 +7,7 @@ import styles from './Order.module.css';
 const Order = () => {
   const dispatch = useDispatch();
   const order = useSelector(state => state.order);
+  const theme = useSelector(state => state.theme);
 
   const handleSubmit1 = e => {
     e.preventDefault();
@@ -29,7 +30,7 @@ const Order = () => {
   };
 
   return (
-    <div className={ styles.container }>
+    <div className={ `${styles.container} ${styles[theme]}` }>
       <div className={ `${styles.title} ${styles.small}` }>
         Order
       </div>

@@ -39,7 +39,8 @@ const CreateActivity = () => {
   });
   const [errors, setErrors] = useState({});
 
-  let countries = useSelector(state => state.countries);
+  const countries = useSelector(state => state.countries);
+  const theme = useSelector(state => state.theme);
 
   const handleInputChange = e => {
     setInput({
@@ -97,9 +98,9 @@ const CreateActivity = () => {
 
   return (
     <>
-      <div className={ styles.createActivityBackground }></div>
+      <div className={ `${styles.createActivityBackground} ${styles[theme]}` }></div>
       <div className={ styles.container }>
-        <form className={ styles.form }>
+        <form className={ `${styles.form} ${styles[theme]}` }>
           <div className={ styles.section }>
             <label>Activity name:</label>
             <input
@@ -109,7 +110,7 @@ const CreateActivity = () => {
               onChange={handleInputChange}/>
           </div>
           { errors.name ? 
-            <div className={ styles.error }>{errors.name}</div>
+            <div className={ `${styles.error} ${styles[theme]}` }>{errors.name}</div>
             :
             <div className={ styles.noerror }></div>
           }
@@ -137,7 +138,7 @@ const CreateActivity = () => {
               onChange={handleInputChange} /> days.
           </div>
           { errors.duration ? 
-            <div className={ styles.error }>{errors.duration}</div>
+            <div className={ `${styles.error} ${styles[theme]}` }>{errors.duration}</div>
             :
             <div className={ styles.noerror }></div>
           }
@@ -159,7 +160,7 @@ const CreateActivity = () => {
               value={input.country}
               onChange={handleInputChange}
             />
-            <div className={ styles.box }>
+            <div className={ `${styles.box} ${styles[theme]}` }>
               <ol>
                 {countries
                   .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
@@ -183,14 +184,14 @@ const CreateActivity = () => {
             <div>Selected: {input.countries.length}</div>
           </div>
           { errors.countries ? 
-            <div className={ styles.error }>{errors.countries}</div>
+            <div className={ `${styles.error} ${styles[theme]}` }>{errors.countries}</div>
             :
             <div className={ styles.noerror }></div>
           }
           <div className={ styles.section }>
-            <button onClick={handleSubmit} disabled={!input.name || !input.duration || errors.name || errors.duration || input.countries.length === 0 ? true : false}>Create activity</button>
+            <button onClick={handleSubmit} className={ `${styles.button} ${styles[theme]}` } disabled={!input.name || !input.duration || errors.name || errors.duration || input.countries.length === 0 ? true : false}>Create activity</button>
             <Link to="/countries">
-              <button>Back to list</button>
+              <button className={ `${styles.button} ${styles[theme]}` }>Back to list</button>
             </Link>
           </div>
         </form>

@@ -6,54 +6,98 @@ describe('Country model', () => {
     .catch((err) => {
       console.error('Unable to connect to the database:', err);
     }));
+  
   describe('Validators', () => {
-    beforeEach(() => Country.sync({ force: true }));
-    describe('name', () => {
-      it('should throw an error if name is null', (done) => {
-        Country.create({})
-          .then(() => done(new Error('It requires a valid name')))
-          .catch(() => done());
-      });
-      it('should throw an error if ID is invalid', (done) => {
-        Country.create({})
-          .then(() => done(new Error('It requires a valid name')))
-          .catch(() => done());
-      });
-      it('should work when its a valid name', () => {
-        Country.create({ });
+    beforeEach(async () => await Country.sync({ force: true }));
+    
+    it('should throw an error if missing required fields', async () => {
+      try {
+        const test = await Country.create({
+          subregion: 'South America',
+          area: 2780400,
+          population: 45376763
+        })
+        expect(test).not.to.be.an('error');
+      } catch (err) {
+        expect(err).to.be.an('error');
+      }
+    });
+
+    it('should throw an error if ID has more than 3 characters', async () => {
+      try {
+        const test = await Country.create({
+          name: 'Argentina',
+          id: 'AAAA',
+          flag: 'https://flagcdn.com/w320/ar.png',
+          capital: 'Buenos Aires',
+          continent: 'South America',
+          subregion: 'South America',
+          area: 2780400,
+          population: 45376763
+        })
+        expect(test).not.to.be.an('error');
+      } catch (err) {
+        expect(err).to.be.an('error');
+      }
+    });
+
+    it('should throw an error if area is not a number', async () => {
+      try {
+        const test = await Country.create({
+          name: 'Argentina',
+          id: 'AAA',
+          flag: 'https://flagcdn.com/w320/ar.png',
+          capital: 'Buenos Aires',
+          continent: 'South America',
+          subregion: 'South America',
+          area: '2780400',
+          population: 45376763
+        })
+        expect(test).not.to.be.an('error');
+      } catch (err) {
+        expect(err).to.be.an('error');
+      }
+    });
+
+    it('should throw an error if population is not a number', async () => {
+      try {
+        const test = await Country.create({
+          name: 'Argentina',
+          id: 'AAA',
+          flag: 'https://flagcdn.com/w320/ar.png',
+          capital: 'Buenos Aires',
+          continent: 'South America',
+          subregion: 'South America',
+          area: 2780400,
+          population: '45376763'
+        })
+        expect(test).not.to.be.an('error');
+      } catch (err) {
+        expect(err).to.be.an('error');
+      }
+    });
+
+    it('should create the country if all required fields are ok', async () => {
+      const test = await Country.create({
+        name: 'Argentina',
+        id: 'ARG',
+        flag: 'https://flagcdn.com/w320/ar.png',
+        capital: 'Buenos Aires',
+        continent: 'South America',
+        subregion: 'South America',
+        area: 2780400,
+        population: 45376763
+      })
+      expect(test.toJSON()).to.include({
+        name: 'Argentina',
+        id: 'ARG',
+        flag: 'https://flagcdn.com/w320/ar.png',
+        capital: 'Buenos Aires',
+        continent: 'South America',
+        subregion: 'South America',
+        area: 2780400,
+        population: 45376763      
       });
     });
   });
 });
-
-// describe('Country model', () => {
-//   before(() => conn.authenticate()
-//     .catch((err) => {
-//       console.error('Unable to connect to the database:', err);
-//     }));
-
-//   describe('Validators', () => {
-//     before(() => Country.sync({ force: true }));
-    
-//     describe('name', () => {
-//       it('should throw an error if name is null', async (done) => {
-//         expect.assertions(1);
-//         return Country.create({ id: 'ARG' }).catch(e => {
-//           expect(e).toMatch('Rejected Promise')
-//         });
-//         // expect.assertions(1);
-//         // try {
-//         //   await Country.create({ id: 'ARG' });
-//         // } catch (error) {
-//         //   expect(error).toBeDefined();
-//         // }
-//         // Country.create({ name: 'Argentina' })
-//         //   .then(() => done(new Error('It requires a valid name')))
-//         //   .catch(() => done());
-//       });
-//       // it('should work when its a valid name', () => {
-//       //   Country.create({ name: 'Argentina' });
-//       // });
-//     });
-//   });
-// });

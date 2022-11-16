@@ -5,7 +5,8 @@ import { filterBy, getFilterActivities } from '../../redux/actions';
 import styles from './FilterActivity.module.css'
 
 const FilterContinent = () => {
-  let activities = useSelector(state => state.filterActivity);
+  const activities = useSelector(state => state.filterActivity);
+  const theme = useSelector(state => state.theme);
 
   const dispatch = useDispatch();
 
@@ -19,7 +20,7 @@ const FilterContinent = () => {
   }, [dispatch]);
 
   return (
-    <div className={ styles.container }>
+    <div className={ `${styles.container} ${styles[theme]}` }>
       <div className={ styles.title }>
         Activity 
       </div>

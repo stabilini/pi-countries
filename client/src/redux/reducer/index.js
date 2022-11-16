@@ -8,7 +8,8 @@ import {
   COUNTRIES_FILTER_CONTINENT,
   COUNTRIES_FILTER_ACTIVITY,
   SET_PAGE_VIEW,
-  FILTER_ACTIVITY
+  FILTER_ACTIVITY,
+  SET_THEME
   } from '../actions';
 
 const initialState = {
@@ -27,6 +28,7 @@ const initialState = {
   },
   page: 1,
   order: {},
+  theme: 'Light'
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -84,6 +86,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         page: Number(action.payload)
+      }
+    case SET_THEME:
+      return {
+        ...state,
+        theme: action.payload
       }
     default:
       return state;

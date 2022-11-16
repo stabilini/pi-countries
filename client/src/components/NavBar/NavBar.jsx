@@ -1,5 +1,5 @@
-import { getCountries } from '../../redux/actions';
-import { useDispatch } from 'react-redux';
+import { getCountries, setTheme } from '../../redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
@@ -14,9 +14,11 @@ function NavBar() {
 
   const [input, setInput] = useState('');
   
+  const theme = useSelector(state => state.theme);
+
   const dispatch = useDispatch();
 
-  const manejarCambio = e => {
+  const handleInputChange = e => {
     setInput(e.target.value);
   };
 
@@ -34,12 +36,19 @@ function NavBar() {
     }
   };
 
+  // MEJORAR ESTO, QUE SEA UN INPUT SELECT CON VARIAS OPCIONES DE TEMAS
+  const toggleTheme = e => {
+    e.preventDefault();
+    dispatch(setTheme(e.target.value));
+  };
+
   useEffect(() => {
     if (name) setInput(name);
+    
   }, [name]);
 
   return (
-    <div className={ styles.container }>
+    <div className={ `${styles.container} ${styles[theme]}` }>
       <div className={ styles.logoContainer }>
         <img src={logo} alt='logo' className={ styles.logo }/>
       </div>
@@ -49,21 +58,28 @@ function NavBar() {
             type="text"
             placeholder="Type text..."
             size="10"
-            onChange={manejarCambio}
+            onChange={handleInputChange}
             value={input}
             onKeyUp={useEnter}
           />
-          <button onClick={handleSubmit}>
+          <button onClick={handleSubmit} className={ `${styles.button} ${styles[theme]}` }>
             Search
           </button>
         </div>
           <Link to="/newactivity">
-            <button>Create activity</button>
+            <button className={ `${styles.button} ${styles[theme]}` }>Create activity</button>
           </Link>
       </div>
       <div className={ styles.exitContainer }>
+        <select  className={ `${styles.button} ${styles[theme]}` } name="theme" id="theme" onChange={toggleTheme} value={theme}>
+          <option value="Light">Light</option>
+          <option value="Dark">Dark</option>
+          {/* <option value="Retro">Retro</option> */}
+          <option value="Zen">Zen</option>
+          <option value="Comp">Comp</option>
+        </select>
         <Link to="/">
-          <button>Exit</button>
+          <button className={ `${styles.button} ${styles[theme]}` }>Exit</button>
         </Link>
       </div>
     </div>

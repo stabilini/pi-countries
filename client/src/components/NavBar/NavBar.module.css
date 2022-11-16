@@ -1,5 +1,22 @@
+@import '../../themes.css'; 
+
+.Light {
+  background: var(--Light-background-color);
+}
+
+.Dark {
+  background: var(--Dark-background-color)
+}
+
+.Zen {
+  background: var(--Zen-background-color)
+}
+
+.Comp {
+  background: var(--Comp-background-color)
+}
+
 .container {
-  background: rgba(149, 149, 149, 0.9);
   padding: 5px;
   display: flex;
   height: 100%;
@@ -15,11 +32,12 @@
 }
 
 .logo {
-height: 64px;
+  height: 64px;
 }
 
 .centerContainer {
   width: 100%;
+  min-width: 200px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -33,17 +51,15 @@ height: 64px;
 }
 
 .exitContainer {
-  width: 80px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
 
-
-.container button {
+.button {
   margin: 3px;
   min-width: 60px;
-  border: 2px solid #1A1A1A;
   border-radius: 10px;
   cursor: pointer;
   display: inline-block;
@@ -57,9 +73,28 @@ height: 64px;
   will-change: transform;
 }
 
-.button {
-  background-color: transparent;
-  color: #222222;
+.button.Light {
+  background-color: var(--Light-button-background-color);
+  border: 2px solid var(--Light-button-border-color);
+  color: var(--Light-button-text-color)
+}
+
+.button.Dark {
+  background-color: var(--Dark-button-background-color);
+  border: 2px solid var(--Dark-button-border-color);
+  color: var(--Dark-button-text-color)
+}
+
+.button.Zen {
+  background-color: var(--Zen-button-background-color);
+  border: 2px solid var(--Zen-button-border-color);
+  color: var(--Zen-button-text-color)
+}
+
+.button.Comp {
+  background-color: var(--Comp-button-background-color);
+  border: 2px solid var(--Comp-button-border-color);
+  color: var(--Comp-button-text-color)
 }
 
 .button:disabled {
@@ -78,17 +113,25 @@ height: 64px;
   transform: translateY(0);
 }
 
-@media (max-width: 499px) {
+@media (max-width: 599px) {
   .logoContainer {
     display: none;
   }
+  .exitContainer {
+    width: 160px;
+    
+  }
 }
 
-@media (min-width: 500px) {
+@media (min-width: 600px) {
   .logoContainer {
     width: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .exitContainer {
+    width: 260px;
+    
   }
 }

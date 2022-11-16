@@ -1,7 +1,30 @@
+@import '../../themes.css'; 
+
+.Light {
+  background: var(--Light-pagination-background-color);
+  border: 2px solid var(--Light-pagination-border-color);
+  color: var(--Light-pagination-text-color);
+}
+
+.Dark {
+  background: var(--Dark-pagination-background-color);
+  border: 2px solid var(--Dark-pagination-border-color);
+  color: var(--Dark-pagination-text-color);
+}
+
+.Zen {
+  background: var(--Zen-pagination-background-color);
+  border: 2px solid var(--Zen-pagination-border-color);
+  color: var(--Zen-pagination-text-color);
+}
+
+.Comp {
+  background: var(--Comp-pagination-background-color);
+  border: 2px solid var(--Comp-pagination-border-color);
+  color: var(--Comp-pagination-text-color);
+}
+
 .container{
-  background: rgba(246, 246, 138, 0.929);
-  /* background: rgba(165, 165, 94, 0.90); */
-  border: 2px solid yellow;
   border-radius: 15px;
   text-align: center;
   margin-bottom: 4px;

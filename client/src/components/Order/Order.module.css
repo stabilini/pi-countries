@@ -1,10 +1,33 @@
+@import '../../themes.css'; 
+
+.Light {
+  background: var(--Light-order-background-color);
+  border: 2px solid var(--Light-order-border-color);
+  color: var(--Light-order-text-color);
+}
+
+.Dark {
+  background: var(--Dark-order-background-color);
+  border: 2px solid var(--Dark-order-border-color);
+  color: var(--Dark-order-text-color);
+}
+
+.Zen {
+  background: var(--Zen-order-background-color);
+  border: 2px solid var(--Zen-order-border-color);
+  color: var(--Zen-order-text-color);
+}
+
+.Comp {
+  background: var(--Comp-order-background-color);
+  border: 2px solid var(--Comp-order-border-color);
+  color: var(--Comp-order-text-color);
+}
+
 .container{
   display: flex;
   flex-wrap: wrap;
-  background: rgb(255, 120, 120);
-  /* background: rgba(177, 83, 83, 0.95); */
   border-radius: 15px;
-  border: 2px solid red;
 }
   
 .title {

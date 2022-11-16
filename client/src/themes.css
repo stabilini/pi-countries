@@ -1,0 +1,245 @@
+:root {
+  /* --- LIGHT THEME --- */
+  --Light-background-color: aliceblue;
+  
+  --Light-button-background-color: rgb(189, 224, 254);
+  --Light-button-border-color: rgb(205, 180, 219);
+  --Light-button-text-color: rgb(25, 25, 25);
+  
+  --Light-continent-background-color: rgb(255, 200, 221);
+  --Light-continent-border-color: rgb(205, 180, 219);
+  --Light-continent-text-color: rgb(25, 25, 25);
+  
+  --Light-activity-background-color: rgb(255, 200, 221);
+  --Light-activity-border-color: rgb(205, 180, 219);
+  --Light-activity-text-color: rgb(25, 25, 25);
+
+  --Light-order-background-color: rgb(255, 200, 221);
+  --Light-order-border-color: rgb(205, 180, 219);
+  --Light-order-text-color: rgb(25, 25, 25);
+
+  --Light-pagination-background-color: rgb(255, 200, 221);
+  --Light-pagination-border-color: rgb(205, 180, 219);
+  --Light-pagination-text-color: rgb(25, 25, 25);
+
+  --Light-countries-background-color: rgb(223, 233, 233);
+  --Light-countries-border-color: rgb(25, 25, 25);
+  --Light-countries-background: url('./assets/background-countries-light.jpg');
+
+  --Light-country-background-color: rgb(223, 233, 233);
+  --Light-country-border-color: rgb(0, 0, 0);
+  --Light-country-text-color: rgb(25, 25, 25);
+  --Light-flag-shadow-color: rgba(0, 0, 0, 0.25);
+
+  --Light-home-background-color: rgb(183, 181, 195);
+  --Light-home-border-color: rgb(205, 180, 219);
+
+  --Light-detail-background-color: rgb(223, 233, 233);
+  --Light-detail-background: url('./assets/background-detail-light.jpg');
+  --Light-detail-shadow1-color: rgb(179, 179, 179);
+  --Light-detail-shadow2-color: rgb(230, 230, 230);
+  --Light-detail-border-color: rgb(0, 0, 0);
+  --Light-detail-text-color: rgb(25, 25, 25);
+  --Light-detail-activity-container-bgcolor: rgb(240, 255, 255);
+  --Light-detail-activity-container-border: rgb(0, 0, 0);
+  --Light-detail-activity-container-color: rgb(0, 0, 0);
+
+  --Light-create-background-color: rgb(223, 233, 233);
+  --Light-create-background: url('./assets/background-createactivity-light.jpg');
+  --Light-create-shadow1-color: rgb(179, 179, 179);
+  --Light-create-shadow2-color: rgb(230, 230, 230);
+  --Light-create-border-color: rgb(0, 0, 0);
+  --Light-create-text-color: rgb(25, 25, 25);
+  --Light-create-box-container-gradient1: rgba(149, 250, 193, 0.654);
+  --Light-create-box-container-gradient2: rgba(121, 250, 119, 0.694);
+  --Light-create-box-container-bgcolor: rgb(0, 0, 0);
+  --Light-create-box-container-color: rgb(0, 0, 0);
+  --Light-create-error-bgcolor: rgba(240, 225, 185, 0.687);
+  --Light-create-error-color: red;
+
+
+  /* --- DARK THEME --- */
+  --Dark-background-color: rgb(17, 14, 27);
+  
+  --Dark-button-background-color: rgb(60, 22, 47);
+  --Dark-button-border-color: rgb(103, 41, 41);
+  --Dark-button-text-color: rgb(226, 179, 190);
+
+  --Dark-continent-background-color: rgb(92, 22, 46);
+  --Dark-continent-border-color: rgb(25, 21, 40);
+  --Dark-continent-text-color: rgb(226, 179, 190);
+
+  --Dark-activity-background-color: rgb(92, 22, 46);
+  --Dark-activity-border-color: rgb(25, 21, 40);
+  --Dark-activity-text-color: rgb(226, 179, 190);
+
+  --Dark-order-background-color: rgb(92, 22, 46);
+  --Dark-order-border-color: rgb(25, 21, 40);
+  --Dark-order-text-color: rgb(226, 179, 190);
+
+  --Dark-pagination-background-color: rgb(92, 22, 46);
+  --Dark-pagination-border-color: rgb(25, 21, 40);
+  --Dark-pagination-text-color: rgb(226, 179, 190);
+
+  --Dark-countries-background-color: rgb(223, 233, 233);
+  --Dark-countries-border-color: rgb(25, 25, 25);
+  --Dark-countries-background: url('./assets/background-countries-dark.jpg');
+
+  --Dark-country-background-color: rgb(92, 22, 46);
+  --Dark-country-border-color: rgb(25, 21, 40);
+  --Dark-country-text-color: rgb(226, 179, 190);
+  --Dark-flag-shadow-color: rgba(161, 161, 161, 0.25);
+
+  --Dark-home-background-color: rgb(41, 6, 18);
+  --Dark-home-border-color: rgb(25, 21, 40);
+
+  --Dark-detail-background-color: rgb(92, 22, 46);
+  --Dark-detail-background: url('./assets/background-detail-dark.jpg');
+  --Dark-detail-shadow1-color: rgb(25, 21, 40);
+  --Dark-detail-shadow2-color: rgb(230, 230, 230);
+  --Dark-detail-border-color: rgb(0, 0, 0);
+  --Dark-detail-text-color: rgb(226, 179, 190);
+  --Dark-detail-activity-container-bgcolor: rgb(128, 93, 93);
+  --Dark-detail-activity-container-border: rgb(0, 0, 0);
+  --Dark-detail-activity-container-color: rgb(0, 0, 0);
+
+  --Dark-create-background-color: rgb(92, 22, 46);
+  --Dark-create-background: url('./assets/background-createactivity-dark.jpg');
+  --Dark-create-shadow1-color: rgb(25, 21, 40);
+  --Dark-create-shadow2-color: rgb(230, 230, 230);
+  --Dark-create-border-color: rgb(0, 0, 0);
+  --Dark-create-text-color: rgb(226, 179, 190);
+  --Dark-create-box-container-gradient1: rgba(149, 250, 193, 0.654);
+  --Dark-create-box-container-gradient2: rgba(121, 250, 119, 0.694);
+  --Dark-create-box-container-bgcolor: rgb(0, 0, 0);
+  --Dark-create-box-container-color: rgb(0, 0, 0);
+  --Dark-create-error-bgcolor: rgba(254, 247, 178, 0.687);
+  --Dark-create-error-color: rgb(84, 34, 34);
+
+
+  /* --- RETRO THEME --- */
+  --Retro-background-color: brown;
+  
+  
+  /* --- ZEN THEME --- */
+  --Zen-background-color: rgb(255, 255, 255);
+  
+  --Zen-button-background-color: rgb(255, 255, 255);
+  --Zen-button-border-color: rgb(70, 70, 70);
+  --Zen-button-text-color: rgb(0, 0, 0);
+
+  --Zen-continent-background-color: rgb(255, 255, 255);
+  --Zen-continent-border-color: rgb(0, 0, 0);
+  --Zen-continent-text-color: rgb(0, 0, 0);
+
+  --Zen-activity-background-color: rgb(255, 255, 255);
+  --Zen-activity-border-color: rgb(0, 0, 0);
+  --Zen-activity-text-color: rgb(0, 0, 0);
+
+  --Zen-order-background-color: rgb(255, 255, 255);
+  --Zen-order-border-color: rgb(0, 0, 0);
+  --Zen-order-text-color: rgb(0, 0, 0);
+
+  --Zen-pagination-background-color: rgb(255, 255, 255);
+  --Zen-pagination-border-color: rgb(0, 0, 0);
+  --Zen-pagination-text-color: rgb(0, 0, 0);
+
+  --Zen-countries-background-color: rgb(255, 255, 255);
+  --Zen-countries-border-color: rgb(25, 25, 25);
+  /* --Zen-countries-background: url('./assets/background-countries-light.jpg'); */
+
+  --Zen-country-background-color: rgb(255, 255, 255);
+  --Zen-country-border-color: rgb(25, 21, 40);
+  --Zen-country-text-color: rgb(0, 0, 0);
+  --Zen-flag-shadow-color: rgba(255, 255, 255, 0);
+
+  --Zen-home-background-color: rgb(222, 222, 222);
+  --Zen-home-border-color: rgb(0, 0, 0);
+
+  --Zen-detail-background-color: rgb(255, 255, 255);
+  /* --Zen-detail-background: url('./assets/background-detail.jpg'); */
+  --Zen-detail-shadow1-color: rgb(255, 255, 255);
+  --Zen-detail-shadow2-color: rgba(0, 0, 0, 0);
+  --Zen-detail-border-color: rgb(0, 0, 0);
+  --Zen-detail-text-color: rgb(0, 0, 0);
+  --Zen-detail-activity-container-bgcolor: rgb(255, 255, 255);
+  --Zen-detail-activity-container-border: rgb(0, 0, 0);
+  --Zen-detail-activity-container-color: rgb(0, 0, 0);
+
+  --Zen-create-background-color: rgb(255, 255, 255);
+  /* --Zen-create-background: url('./assets/background-createactivity-dark.png'); */
+  --Zen-create-shadow1-color: rgb(255, 255, 255);
+  --Zen-create-shadow2-color: rgba(0, 0, 0, 0);
+  --Zen-create-border-color: rgb(0, 0, 0);
+  --Zen-create-text-color: rgb(0, 0, 0);
+  --Zen-create-box-container-gradient1: rgb(255, 255, 255);
+  --Zen-create-box-container-gradient2: rgba(186, 186, 186, 0.421);
+  --Zen-create-box-container-bgcolor: rgb(0, 0, 0);
+  --Zen-create-box-container-color: rgb(0, 0, 0);
+  --Zen-create-error-bgcolor: rgb(246, 73, 73);
+  --Zen-create-error-color: rgb(255, 255, 255);
+  
+
+
+  /* --- COMPONENTS THEME --- */
+  --Comp-background-color: rgb(189, 189, 189);
+  
+  --Comp-button-background-color: rgb(255, 255, 255);
+  --Comp-button-border-color: rgb(70, 70, 70);
+  --Comp-button-text-color: rgb(0, 0, 0);
+
+  --Comp-continent-background-color: rgb(80, 180, 80);
+  --Comp-continent-border-color: rgb(0, 255, 0);
+  --Comp-continent-text-color: rgb(255, 255, 255);
+
+  --Comp-activity-background-color: rgb(80, 80, 180);
+  --Comp-activity-border-color: rgb(0, 0, 255);
+  --Comp-activity-text-color: rgb(255, 255, 255);
+
+  --Comp-order-background-color: rgb(180, 80, 80);
+  --Comp-order-border-color: rgb(255, 0, 0);
+  --Comp-order-text-color: rgb(255, 255, 255);
+
+  --Comp-pagination-background-color: rgb(180, 180, 0);
+  --Comp-pagination-border-color: rgb(255, 255, 0);
+  --Comp-pagination-text-color: rgb(0, 0, 0);
+
+  --Comp-countries-background-color: rgb(223, 233, 233);
+  --Comp-countries-border-color: rgb(25, 25, 25);
+  --Comp-countries-background: url('./assets/background-countries-light.jpg');
+
+  --Comp-country-background-color: rgb(255, 255, 255);
+  --Comp-country-border-color: rgb(25, 21, 40);
+  --Comp-country-text-color: rgb(0, 0, 0);
+  --Comp-flag-shadow-color: rgba(127, 127, 127, 0.411);
+
+  --Comp-home-background-color: rgb(222, 222, 222);
+  --Comp-home-border-color: rgb(0, 0, 0);
+
+  --Comp-detail-background-color: rgb(255, 255, 255);
+  /* --Comp-detail-background: url('./assets/background-detail.jpg'); */
+  --Comp-detail-shadow1-color: rgb(25, 21, 40);
+  --Comp-detail-shadow2-color: rgb(196, 196, 196);
+  --Comp-detail-border-color: rgb(0, 0, 0);
+  --Comp-detail-text-color: rgb(0, 0, 0);
+  --Comp-detail-activity-container-bgcolor: rgb(200, 200, 200);
+  --Comp-detail-activity-container-border: rgb(0, 0, 0);
+  --Comp-detail-activity-container-color: rgb(0, 0, 0);
+
+  --Comp-create-background-color: rgb(255, 255, 255);
+  /* --Comp-create-background: url('./assets/background-createactivity-dark.png'); */
+  --Comp-create-shadow1-color: rgb(25, 21, 40);
+  --Comp-create-shadow2-color: rgb(196, 196, 196);
+  --Comp-detail-border-color: rgb(0, 0, 0);
+  --Comp-create-text-color: rgb(0, 0, 0);
+  --Comp-create-box-container-gradient1: rgba(149, 216, 250, 0.654);
+  --Comp-create-box-container-gradient2: rgba(119, 180, 250, 0.694);
+  --Comp-create-box-container-bgcolor: rgb(0, 0, 0);
+  --Comp-create-box-container-color: rgb(0, 0, 0);
+  --Comp-create-error-bgcolor: rgba(254, 247, 178, 0.687);
+  --Comp-create-error-color: rgb(84, 34, 34);
+
+
+}
+
+

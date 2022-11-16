@@ -1,5 +1,30 @@
+@import '../../themes.css'; 
+
+.Light {
+  background: var(--Light-country-background-color);
+  border: 2px solid var(--Light-country-border-color);
+  color: var(--Light-country-text-color);
+}
+
+.Dark {
+  background: var(--Dark-country-background-color);
+  border: 2px solid var(--Dark-country-border-color);
+  color: var(--Dark-country-text-color);
+}
+
+.Zen {
+  background: var(--Zen-country-background-color);
+  border: 2px solid var(--Zen-country-border-color);
+  color: var(--Zen-country-text-color);
+}
+
+.Comp {
+  background: var(--Comp-country-background-color);
+  border: 2px solid var(--Comp-country-border-color);
+  color: var(--Comp-country-text-color);
+}
+
 .container {
-  border: 2px solid rgb(0, 0, 0);
   border-bottom-left-radius: 60px;
   border-bottom-right-radius: 60px;
   display: flex;
@@ -8,14 +33,28 @@
   font-family:  Arial, Helvetica, sans-serif;
   max-width: 210px;
   margin-bottom: 8px;
-  background-color: rgb(223, 223, 223);
 }
 
 .flag {
   width: 100%;
-  /* max-height: 2000px; */
   margin-bottom: 5px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  border: 0;
+}
+
+.flag.Light {
+  box-shadow: var(--Light-flag-shadow-color) 0 8px 15px;
+}
+
+.flag.Dark {
+  box-shadow: var(--Dark-flag-shadow-color) 0 8px 15px;
+} 
+
+.flag.Zen {
+  box-shadow: var(--Zen-flag-shadow-color) 0 8px 15px;
+}
+
+.flag.Comp {
+  box-shadow: var(--Comp-flag-shadow-color) 0 8px 15px;
 }
 
 .title {
@@ -37,11 +76,10 @@
   margin-top: auto;
 }
 
-.container button {
+.button {
   width: 100px;
   margin: 3px;
   min-width: 50px;
-  border: 2px solid #1A1A1A;
   border-radius: 10px;
   cursor: pointer;
   display: inline-block;
@@ -55,9 +93,28 @@
   will-change: transform;
 }
 
-.button {
-  background-color: transparent;
-  color: #222222;
+.button.Light {
+  background-color: var(--Light-button-background-color);
+  border: 2px solid var(--Light-button-border-color);
+  color: var(--Light-button-text-color)
+}
+
+.button.Dark {
+  background-color: var(--Dark-button-background-color);
+  border: 2px solid var(--Dark-button-border-color);
+  color: var(--Dark-button-text-color)
+}
+
+.button.Zen {
+  background-color: var(--Zen-button-background-color);
+  border: 2px solid var(--Zen-button-border-color);
+  color: var(--Zen-button-text-color)
+}
+
+.button.Comp {
+  background-color: var(--Comp-button-background-color);
+  border: 2px solid var(--Comp-button-border-color);
+  color: var(--Comp-button-text-color)
 }
 
 .button:disabled {

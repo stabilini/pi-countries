@@ -1,8 +1,28 @@
+@import '../../themes.css'; 
+
+.Light {
+  background: var(--Light-home-background-color);
+  border: 2px solid var(--Light-home-text-color);
+}
+
+.Dark {
+  background: var(--Dark-home-background-color);
+  border: 2px solid var(--Dark-home-text-color);
+}
+
+.Zen {
+  background: var(--Zen-home-background-color);
+  border: 2px solid var(--Zen-home-text-color);
+}
+
+.Comp {
+  background: var(--Comp-home-background-color);
+  border: 2px solid var(--Comp-home-text-color);
+}
+
 .container {
-  border: 2px solid black;
   max-width: 1300px;
   margin: auto;
-  background-color: rgb(195, 188, 181);
 }
 
 .container .header {
@@ -49,10 +69,10 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-      "header     header"
-      "order      order"
-      "continent  activity"
-      "countries  countries";
+      'header     header'
+      'order      order'
+      'continent  activity'
+      'countries  countries';
   }
   .grouped {
     display: none;
@@ -69,8 +89,8 @@
     grid-template-columns: minmax(150px, 1fr) 5fr;
     grid-template-rows: 70px auto;
     grid-template-areas:
-      "header     header"
-      "grouped    countries";
+      'header     header'
+      'grouped    countries';
   }
   .order {
     display: none;
@@ -90,9 +110,9 @@
     grid-template-columns: minmax(150px, 1fr) 5fr minmax(150px, 1fr);
     grid-template-rows: 70px auto;
     grid-template-areas:
-      "header     header    header"
-      "order      order     order"
-      "continent  countries activity";
+      'header     header    header'
+      'order      order     order'
+      'continent  countries activity';
   }
   .grouped {
     display: none;

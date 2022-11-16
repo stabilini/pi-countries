@@ -1,8 +1,31 @@
+@import '../../themes.css'; 
+
+.Light {
+  background: var(--Light-continent-background-color);
+  border: 2px solid var(--Light-continent-border-color);
+  color: var(--Light-continent-text-color);
+}
+
+.Dark {
+  background: var(--Dark-continent-background-color);
+  border: 2px solid var(--Dark-continent-border-color);
+  color: var(--Dark-continent-text-color);
+}
+
+.Zen {
+  background: var(--Zen-continent-background-color);
+  border: 2px solid var(--Zen-continent-border-color);
+  color: var(--Zen-continent-text-color);
+}
+
+.Comp {
+  background: var(--Comp-continent-background-color);
+  border: 2px solid var(--Comp-continent-border-color);
+  color: var(--Comp-continent-text-color);
+}
+
 .container{
-  background: rgb(124, 255, 124);
-  /* background: rgba(89, 182, 89, 0.95); */
   border-radius: 15px;
-  border: 2px solid green;
   min-height: 170px;
 }
  

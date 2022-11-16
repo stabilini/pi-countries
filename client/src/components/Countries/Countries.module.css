@@ -1,10 +1,31 @@
+@import '../../themes.css'; 
+
 .container {
-  border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding-top: 6px ;
-  background: url("../../assets/background-countries-light.jpg") center;
   background-size: cover;
   min-height: 300px;
 }
+
+.container.Light {
+  border: 1px solid var(--Light-countries-border-color);
+  background: var(--Light-countries-background) center;
+}
+
+.container.Dark {
+  border: 1px solid var(--Dark-countries-border-color);
+  background: var(--Dark-countries-background) center;
+}
+
+.container.Zen {
+  border: 1px solid var(--Zen-countries-border-color);
+  /* background: var(--Zen-countries-background) center; */
+}
+
+.container.Comp {
+  border: 1px solid var(--Comp-countries-border-color);
+  background: var(--Comp-countries-background) center;
+}
+

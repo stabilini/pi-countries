@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDetail } from '../../redux/actions';
@@ -6,10 +6,11 @@ import { getDetail } from '../../redux/actions';
 import styles from './Detail.module.css';
 
 const Detail = () => {
-  const { id } = useParams(); // viene como objeto
+  const { id } = useParams();
 
   const dispatch = useDispatch();
   const detail = useSelector(state => state.detail)[0];
+  let theme = useSelector(state => state.theme);
   
   useEffect(() => {
     dispatch(getDetail(id));
@@ -17,9 +18,9 @@ const Detail = () => {
 
   return (
     <>
-      <div className={ styles.detailBackground }></div>
+      <div className={ `${styles.detailBackground} ${styles[theme]}` }></div>
       <div className={ styles.container }>
-        <span className={ styles.detail }>
+        <span className={ `${styles.detail} ${styles[theme]}` }>
         {
         detail ? (
           <>
@@ -53,7 +54,7 @@ const Detail = () => {
                     <div className={ styles.activities }>
                     {detail.activities.map(ac => {
                         return (
-                          <div className={ styles.activityContainer }>
+                          <div className={ `${styles.activityContainer} ${styles[theme]}` }>
                             <div className={ styles.activityName }>{ac.name}</div>
                             <div >
                               <div className={ styles.activityDetail }>Skill: {ac.skill} {['😊', '😎', '😮', '😬', '😱'][ac.skill - 1]}</div>
@@ -81,14 +82,11 @@ const Detail = () => {
             <h3>
               An error ocurred, there are no details.
             </h3>
-            <Link to="/countries">
-              <button className={ styles.button }>Back to list</button>
-            </Link> 
           </div>
           )
         }
           <Link to="/countries">
-            <button className={ styles.button }>Back to list</button>
+            <button className={ `${styles.button} ${styles[theme]}` }>Back to list</button>
           </Link> 
         </span>
       </div>

@@ -1,3 +1,5 @@
+@import '../../themes.css'; 
+
 .container {
   display: flex;
   justify-content: center;
@@ -6,18 +8,47 @@
 
 .detail {
   text-align: center;
-  border: 2px solid black;
   border-radius: 15px;
   width: 85%;
-  
   margin-top: 4vh;
   max-width: 550px;
   min-width: 220px;
+}
 
-  background: rgb(228, 233, 231);
+.detail.Light {
+  background: var(--Light-detail-background-color);
+  border: 2px solid var(--Light-detail-border-color);
   box-shadow:
-    0 0 0 3px hsl(0, 0%, 70%),
-    0 0 0 5px hsl(0, 0%, 90%);
+    0 0 0 3px var(--Light-detail-shadow1-color),
+    0 0 0 5px var(--Light-detail-shadow2-color);
+  color: var(--Light-detail-text-color);
+}
+
+.detail.Dark {
+  background: var(--Dark-detail-background-color);
+  border: 2px solid var(--Dark-detail-border-color);
+  box-shadow:
+    0 0 0 3px var(--Dark-detail-shadow1-color),
+    0 0 0 5px var(--Dark-detail-shadow2-color);
+  color: var(--Dark-detail-text-color);
+}
+
+.detail.Zen {
+  background: var(--Zen-detail-background-color);
+  border: 2px solid var(--Zen-detail-border-color);
+  box-shadow:
+    0 0 0 3px var(--Zen-detail-shadow1-color),
+    0 0 0 5px var(--Zen-detail-shadow2-color);
+  color: var(--Zen-detail-text-color);
+}
+
+.detail.Comp {
+  background: var(--Comp-detail-background-color);
+  border: 2px solid var(--Comp-detail-border-color);
+  box-shadow:
+    0 0 0 3px var(--Comp-detail-shadow1-color),
+    0 0 0 5px var(--Comp-detail-shadow2-color);
+  color: var(--Comp-detail-text-color);
 }
 
 .section {
@@ -60,17 +91,38 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  /* align-items: center; */
   width: 100%;
 }
 
 .activityContainer {
-  border: 1px solid black;
   border-radius: 10px;
   margin: 5px;
   padding: 5px;
   min-width: 140px;
-  background-color: azure;
+}
+
+.activityContainer.Light {
+  background: var(--Light-detail-activity-container-bgcolor);
+  border: 1px solid var(--Light-detail-activity-container-border);
+  color: var(--Light-detail-activity-container-color);
+}
+
+.activityContainer.Dark {
+  background: var(--Dark-detail-activity-container-bgcolor);
+  border: 1px solid var(--Dark-detail-activity-container-border);
+  color: var(--Dark-detail-activity-container-color);
+}
+
+.activityContainer.Zen {
+  background: var(--Zen-detail-activity-container-bgcolor);
+  border: 1px solid var(--Zen-detail-activity-container-border);
+  color: var(--Zen-detail-activity-container-color);
+}
+
+.activityContainer.Comp {
+  background: var(--Comp-detail-activity-container-bgcolor);
+  border: 1px solid var(--Comp-detail-activity-container-border);
+  color: var(--Comp-detail-activity-container-color);
 }
 
 .activityName {
@@ -91,13 +143,31 @@
 }
 
 .detailBackground {
-  background: url("../../assets/background-detail.jpg") repeat;
   height: 100vh;
-  animation-name: slide;
   animation-timing-function: ease;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
+
+.detailBackground.Light {
+  background: var(--Light-detail-background) repeat;
+  animation-name: slide;
+}
+
+.detailBackground.Dark {
+  background: var(--Dark-detail-background) repeat;
+  animation-name: slide;
+}
+
+/* .detailBackground.Zen {
+  background: var(--Zen-detail-background) repeat;
+  animation-name: slide;
+}
+
+.detailBackground.Comp {
+  background: var(--Comp-detail-background) repeat;
+  animation-name: slide;
+} */
 
 @media (max-width: 349px) {
   .detailBackground{
@@ -127,12 +197,11 @@
 }
 
 
-.container button {
+.button {
   width: 140px;
   height: 30px;
   margin: 6px;
   min-width: 50px;
-  border: 2px solid #1A1A1A;
   border-radius: 10px;
   cursor: pointer;
   display: inline-block;
@@ -146,9 +215,28 @@
   will-change: transform;
 }
 
-.button {
-  background-color: transparent;
-  color: #222222;
+.button.Light {
+  background-color: var(--Light-button-background-color);
+  border: 2px solid var(--Light-button-border-color);
+  color: var(--Light-button-text-color)
+}
+
+.button.Dark {
+  background-color: var(--Dark-button-background-color);
+  border: 2px solid var(--Dark-button-border-color);
+  color: var(--Dark-button-text-color)
+}
+
+.button.Zen {
+  background-color: var(--Zen-button-background-color);
+  border: 2px solid var(--Zen-button-border-color);
+  color: var(--Zen-button-text-color)
+}
+
+.button.Comp {
+  background-color: var(--Comp-button-background-color);
+  border: 2px solid var(--Comp-button-border-color);
+  color: var(--Comp-button-text-color)
 }
 
 .button:disabled {

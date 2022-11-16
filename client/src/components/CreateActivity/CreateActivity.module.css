@@ -1,3 +1,5 @@
+@import '../../themes.css'; 
+
 .container {
   display: flex;
   justify-content: center;
@@ -6,18 +8,47 @@
 
 .form {
   text-align: center;
-  border: 2px solid black;
   border-radius: 15px;
   width: 85%;
-  
   margin-top: 4vh;
   max-width: 500px;
   min-width: 220px;
+}
 
-  background: rgb(228, 233, 231);
+.form.Light {
+  background: var(--Light-create-background-color);
+  border: 2px solid var(--Light-create-border-color);
   box-shadow:
-    0 0 0 3px hsl(0, 0%, 70%),
-    0 0 0 5px hsl(0, 0%, 90%);
+    0 0 0 3px var(--Light-create-shadow1-color),
+    0 0 0 5px var(--Light-create-shadow2-color);
+  color: var(--Light-create-text-color);
+}
+
+.form.Dark {
+  background: var(--Dark-create-background-color);
+  border: 2px solid var(--Dark-create-border-color);
+  box-shadow:
+    0 0 0 3px var(--Dark-create-shadow1-color),
+    0 0 0 5px var(--Dark-create-shadow2-color);
+  color: var(--Dark-create-text-color);
+}
+
+.form.Zen {
+  background: var(--Zen-create-background-color);
+  border: 2px solid var(--Zen-create-border-color);
+  box-shadow:
+    0 0 0 3px var(--Zen-create-shadow1-color),
+    0 0 0 5px var(--Zen-create-shadow2-color);
+  color: var(--Zen-create-text-color);
+}
+
+.form.Comp {
+  background: var(--Comp-create-background-color);
+  border: 2px solid var(--Comp-create-border-color);
+  box-shadow:
+    0 0 0 3px var(--Comp-create-shadow1-color),
+    0 0 0 5px var(--Comp-create-shadow2-color);
+  color: var(--Comp-create-text-color);
 }
 
 .section {
@@ -41,27 +72,84 @@
 }
 
 .box{
-  height: 220px;
+  height: 200px;
   width: 100%;
   overflow: auto;
   text-align: left;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   padding-left: 12px;
-  color:rgb(6, 24, 24);
-  border: 1px solid black;
   margin: 10px;
+}
 
-  background: rgb(63,177,251);
-  background: radial-gradient(circle, rgba(149, 250, 193, 0.654) 0%, rgba(121, 250, 119, 0.694) 100%);
+.box.Light {
+  color: var(--Light-create-box-container-bgcolor);
+  border: 1px solid var(--Light-create-box-container-bgcolor);
+  background:
+    radial-gradient(
+      circle,
+      var(--Light-create-box-container-gradient1) 0%,
+      var(--Light-create-box-container-gradient2) 100%
+      );
+}
+
+.box.Dark {
+  color: var(--Dark-create-box-container-bgcolor);
+  border: 1px solid var(--Dark-create-box-container-bgcolor);
+  background:
+    radial-gradient(
+      circle,
+      var(--Dark-create-box-container-gradient1) 0%,
+      var(--Dark-create-box-container-gradient2) 100%
+      );
+}
+
+.box.Zen {
+  color: var(--Zen-create-box-container-bgcolor);
+  border: 1px solid var(--Zen-create-box-container-bgcolor);
+  background:
+    radial-gradient(
+      circle,
+      var(--Zen-create-box-container-gradient1) 0%,
+      var(--Zen-create-box-container-gradient2) 100%
+      );
+}
+
+.box.Comp {
+  color: var(--Comp-create-box-container-bgcolor);
+  border: 1px solid var(--Comp-create-box-container-bgcolor);
+  background:
+    radial-gradient(
+      circle,
+      var(--Comp-create-box-container-gradient1) 0%,
+      var(--Comp-create-box-container-gradient2) 100%
+      );
 }
 
 .error {
   border: 1px solid black;
   padding: 1px 5px 1px 5px;
-  color: red;
-  background-color: rgba(240, 225, 185, 0.687);
   font-size: 0.75em;
+}
+
+.error.Light {
+  color: var(--Light-create-error-color);
+  background: var(--Light-create-error-bgcolor);
+}
+
+.error.Dark {
+  color: var(--Dark-create-error-color);
+  background: var(--Dark-create-error-bgcolor);
+}
+
+.error.Zen {
+  color: var(--Zen-create-error-color);
+  background: var(--Zen-create-error-bgcolor);
+}
+
+.error.Comp {
+  color: var(--Comp-create-error-color);
+  background: var(--Comp-create-error-bgcolor);
 }
 
 .noerror {
@@ -70,12 +158,28 @@
 }
 
 .createActivityBackground {
-  background: url("../../assets/background-createactivity-dark.png") repeat-x;
   height: 100vh;
-  animation-name: slide;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
+
+.createActivityBackground.Light {
+  background: var(--Light-create-background) repeat-x;
+  animation-name: slide;
+}
+
+.createActivityBackground.Dark {
+  background: var(--Dark-create-background) repeat-x;
+  animation-name: slide;
+}
+
+/* .createActivityBackground.Zen {
+  background: var(--Zen-create-background) repeat-x;
+}
+
+.createActivityBackground.Comp {
+  background: var(--Comp-create-background) repeat-x;
+} */
 
 @media (max-width: 349px) {
   .createActivityBackground{
@@ -104,12 +208,11 @@
   }
 }
 
-.container button {
+.button {
   width: 140px;
   height: 30px;
   margin: 6px;
   min-width: 50px;
-  border: 2px solid #1A1A1A;
   border-radius: 10px;
   cursor: pointer;
   display: inline-block;
@@ -123,9 +226,28 @@
   will-change: transform;
 }
 
-.button {
-  background-color: transparent;
-  color: #222222;
+.button.Light {
+  background-color: var(--Light-button-background-color);
+  border: 2px solid var(--Light-button-border-color);
+  color: var(--Light-button-text-color)
+}
+
+.button.Dark {
+  background-color: var(--Dark-button-background-color);
+  border: 2px solid var(--Dark-button-border-color);
+  color: var(--Dark-button-text-color)
+}
+
+.button.Comp {
+  background-color: var(--Comp-button-background-color);
+  border: 2px solid var(--Comp-button-border-color);
+  color: var(--Comp-button-text-color)
+}
+
+.button.Zen {
+  background-color: var(--Zen-button-background-color);
+  border: 2px solid var(--Zen-button-border-color);
+  color: var(--Zen-button-text-color)
 }
 
 .button:disabled {

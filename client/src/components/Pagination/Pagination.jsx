@@ -39,8 +39,9 @@ const Pagination = () => {
   const dispatch = useDispatch();
   const countries = useSelector(state => state.countries);
   const page = useSelector(state => state.page); // para luego ver mediante CSS en que pagina estoy
-  
-  const visibles = countries.filter(pais => pais.c_visible && pais.a_visible).length
+  const theme = useSelector(state => state.theme);
+
+  const visibles = countries.filter(pais => pais.c_visible && pais.a_visible).length;
   const pages = Math.ceil((visibles - 9) / 10) + 1;
   const maxPages = 5;
 
@@ -68,7 +69,7 @@ const Pagination = () => {
   
   return (
     visibles < 9 ? null :
-    <div className={ styles.container }>
+    <div className={ `${styles.container} ${styles[theme]}` }>
       {
       <>
         { pages <= maxPages ?

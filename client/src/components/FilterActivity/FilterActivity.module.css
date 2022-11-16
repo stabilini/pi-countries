@@ -1,8 +1,31 @@
+@import '../../themes.css'; 
+
+.Light {
+  background: var(--Light-activity-background-color);
+  border: 2px solid var(--Light-activity-border-color);
+  color: var(--Light-activity-text-color);
+}
+
+.Dark {
+  background: var(--Dark-activity-background-color);
+  border: 2px solid var(--Dark-activity-border-color);
+  color: var(--Dark-activity-text-color);
+}
+
+.Zen {
+  background: var(--Zen-activity-background-color);
+  border: 2px solid var(--Zen-activity-border-color);
+  color: var(--Zen-activity-text-color);
+}
+
+.Comp {
+  background: var(--Comp-activity-background-color);
+  border: 2px solid var(--Comp-activity-border-color);
+  color: var(--Comp-activity-text-color);
+}
+
 .container{
-  background: rgb(129, 163, 254);
-  /* background: rgba(133, 134, 223, 0.95); */
   border-radius: 15px;
-  border: 2px solid blue;
   min-height: 170px;
 }
  

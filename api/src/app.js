@@ -1,7 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const routes = require('./routes/index.js');
 const axios = require('axios');
 
@@ -16,16 +16,18 @@ server.name = 'API';
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
-// server.use(morgan('dev'));
+// server.use(morgan('dev')); // deshabilitado para que los tests no salgon entrecortados
 server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
+  res.header('Access-Control-Allow-Origin', '*'); // * para aceptar conexiones de cualquier lado
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
 });
 
-
+// ------- ESTO SALE --------
+// TIENE QUE IR A OTRO LADO? NO SE, VER SI SE PUEDE DEPLOYAR CAMBIANDO
+// EL BULKCREATE POR EL FOR COMO ESTABA ANTES
 // obtiene los datos de la API y los guarda en la DB, solo se ejecuta al levantar el back
 // VER FRANCO 12 REACT REDUX 46.33 DEL LECTURE QUE EXPLICA ALGO DE AXIOS (para sacar el let countries = data.data)
 axios
@@ -47,6 +49,7 @@ axios
   .catch(error => {
     console.log(error);
   });
+// ------- ESTO SALE --------
 
 server.use('/', routes);
 

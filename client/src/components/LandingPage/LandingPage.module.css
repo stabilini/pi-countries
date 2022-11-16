@@ -37,7 +37,7 @@
   border: 1px solid black;
   background-color: rgba(0, 0, 0, 0.3);
   padding: 12px;
-  bottom: 60px;
+  bottom: 30px;
   margin-top: 50vh;
   position: sticky;
 }
@@ -81,7 +81,7 @@
 }
 
 .landingBackground {
-  background: url("../../assets/background-landingpage.jpg") center;
+  background: url('../../assets/background-landingpage.jpg') center;
   height: 100vh;
   animation-name: animatedBackground;
   animation-timing-function: cubic-bezier(.41,.01,.62,.97);
