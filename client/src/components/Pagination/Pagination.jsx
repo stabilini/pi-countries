@@ -37,11 +37,18 @@ const Pagination = () => {
   const [shownPages, setShownPages] = useState([2,3,4,5,6]);
 
   const dispatch = useDispatch();
-  const countries = useSelector(state => state.countries);
-  const page = useSelector(state => state.page); // para luego ver mediante CSS en que pagina estoy
-  const theme = useSelector(state => state.theme);
 
-  const visibles = countries.filter(pais => pais.c_visible && pais.a_visible).length;
+  const countries = useSelector(state => state.countries);
+  const continents = useSelector(state => state.filterContinent);
+  const activities = useSelector(state => state.filterActivity);
+  const theme = useSelector(state => state.theme);
+  const page = useSelector(state => state.page);
+
+  let keys_c = Object.keys(continents).filter(k => continents[k] === true)
+  let keys_a = Object.keys(activities).filter(k => activities[k] === true)
+
+  const visibles = countries.filter(c => keys_c.includes(c.continent) && c.activities.some(obj => keys_a.includes(obj.name))).length
+
   const pages = Math.ceil((visibles - 9) / 10) + 1;
   const maxPages = 5;
 

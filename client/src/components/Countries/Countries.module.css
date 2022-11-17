@@ -6,7 +6,7 @@
   justify-content: space-evenly;
   padding-top: 6px ;
   background-size: cover;
-  min-height: 300px;
+  min-height: 500px;
 }
 
 .container.Light {
@@ -29,3 +29,36 @@
   background: var(--Comp-countries-background) center;
 }
 
+.noResult {
+  margin: 20px;
+  padding: 30px;
+  text-align: center;
+  height: 80px;
+  border: 2px solid var(--Light-countries-border-color);
+  background: var(--Light-countries-background-color);
+  filter: opacity(80%);
+}
+
+.noResult.Light {
+  border: 2px solid var(--Light-countries-border-color);
+  background: var(--Light-countries-background-color);
+  color: var(--Light-countries-text-color);
+}
+
+.noResult.Dark {
+  border: 2px solid var(--Dark-countries-border-color);
+  background: var(--Dark-countries-background-color);
+  color: var(--Dark-countries-text-color);
+}
+
+.noResult.Zen {
+  border: 2px solid var(--Zen-countries-border-color);
+  background: var(--Zen-countries-background-color);
+  color: var(--Zen-countries-text-color);
+}
+
+.noResult.Comp {
+  border: 2px solid var(--Comp-countries-border-color);
+  background: var(--Comp-countries-background-color);
+  color: var(--Comp-countries-text-color);
+}

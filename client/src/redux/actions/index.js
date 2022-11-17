@@ -6,11 +6,10 @@ export const SET_PAGE_VIEW = 'SET_PAGE_VIEW';
 export const FILTER_ACTIVITY = 'FILTER_ACTIVITY';
 export const COUNTRIES_ORDER_ASC = 'COUNTRIES_ORDER_ASC';
 export const COUNTRIES_ORDER_DES = 'COUNTRIES_ORDER_DES';
+export const COUNTRIES_ORDER_RANDOM = 'COUNTRIES_ORDER_RANDOM';
 export const COUNTRIES_FILTER_CONTINENT = 'COUNTRIES_FILTER_CONTINENT';
 export const COUNTRIES_FILTER_ACTIVITY = 'COUNTRIES_FILTER_ACTIVITY';
 export const SET_THEME = 'SET_THEME';
-
-
 
 export const URL = 'http://localhost:3001/';
 
@@ -18,7 +17,6 @@ export const getCountries = (name) => {
   return function(dispatch) {
     return fetch(name ? URL + 'countries?name=' + name : URL + 'countries')
       .then(res => res.json())
-      .then(obj => obj.map(v => ({...v, c_visible: true, a_visible: true}))) // agrego la propiedad visible para los filtros por continente y actividades
       .then(obj => obj.map(v => v.activities.length === 0 ? {...v, activities: [{name: 'Sin actividades'}]} : {...v}))
       .then(obj => dispatch({type: GET_COUNTRIES, payload: obj}))
   }
@@ -70,10 +68,15 @@ export const orderCountries = (field, order) => {
         type: COUNTRIES_ORDER_ASC,
         payload: field
       })
-    } else {
+    } else if (order === 'desc') {
       return dispatch({
         type: COUNTRIES_ORDER_DES,
         payload: field
+      })
+    } else {
+      return dispatch({
+        type: COUNTRIES_ORDER_RANDOM,
+        payload: 'random'
       })
     }
   }

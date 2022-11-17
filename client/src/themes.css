@@ -5,7 +5,13 @@
   --Light-button-background-color: rgb(189, 224, 254);
   --Light-button-border-color: rgb(205, 180, 219);
   --Light-button-text-color: rgb(25, 25, 25);
+
   
+  
+  --Light-checkbox-unchecked-color: rgb(197, 124, 124);
+  --Light-checkbox-hover-color: rgb(144, 61, 61);
+  --Light-checkbox-checked-color: rgb(55, 55, 55);
+
   --Light-continent-background-color: rgb(255, 200, 221);
   --Light-continent-border-color: rgb(205, 180, 219);
   --Light-continent-text-color: rgb(25, 25, 25);
@@ -24,6 +30,7 @@
 
   --Light-countries-background-color: rgb(223, 233, 233);
   --Light-countries-border-color: rgb(25, 25, 25);
+  --Light-countries-text-color: rgb(25, 25, 25);
   --Light-countries-background: url('./assets/background-countries-light.jpg');
 
   --Light-country-background-color: rgb(223, 233, 233);
@@ -65,6 +72,10 @@
   --Dark-button-border-color: rgb(103, 41, 41);
   --Dark-button-text-color: rgb(226, 179, 190);
 
+  --Dark-checkbox-unchecked-color: rgb(255, 255, 255);
+  --Dark-checkbox-hover-color: rgb(70, 70, 70);
+  --Dark-checkbox-checked-color: rgb(200, 200, 200);
+
   --Dark-continent-background-color: rgb(92, 22, 46);
   --Dark-continent-border-color: rgb(25, 21, 40);
   --Dark-continent-text-color: rgb(226, 179, 190);
@@ -81,8 +92,9 @@
   --Dark-pagination-border-color: rgb(25, 21, 40);
   --Dark-pagination-text-color: rgb(226, 179, 190);
 
-  --Dark-countries-background-color: rgb(223, 233, 233);
+  --Dark-countries-background-color: rgb(92, 22, 46);
   --Dark-countries-border-color: rgb(25, 25, 25);
+  --Dark-countries-text-color: rgb(226, 179, 190);
   --Dark-countries-background: url('./assets/background-countries-dark.jpg');
 
   --Dark-country-background-color: rgb(92, 22, 46);
@@ -118,7 +130,7 @@
 
 
   /* --- RETRO THEME --- */
-  --Retro-background-color: brown;
+  --Retro-background-color: rgb(187, 187, 187);
   
   
   /* --- ZEN THEME --- */
@@ -127,6 +139,10 @@
   --Zen-button-background-color: rgb(255, 255, 255);
   --Zen-button-border-color: rgb(70, 70, 70);
   --Zen-button-text-color: rgb(0, 0, 0);
+
+  --Zen-checkbox-unchecked-color: rgb(200, 200, 200);
+  --Zen-checkbox-hover-color: rgb(130, 130, 130);
+  --Zen-checkbox-checked-color: rgb(0, 0, 0);
 
   --Zen-continent-background-color: rgb(255, 255, 255);
   --Zen-continent-border-color: rgb(0, 0, 0);
@@ -146,6 +162,7 @@
 
   --Zen-countries-background-color: rgb(255, 255, 255);
   --Zen-countries-border-color: rgb(25, 25, 25);
+  --Zen-countries-text-color: rgb(0, 0, 0);
   /* --Zen-countries-background: url('./assets/background-countries-light.jpg'); */
 
   --Zen-country-background-color: rgb(255, 255, 255);
@@ -176,8 +193,8 @@
   --Zen-create-box-container-gradient2: rgba(186, 186, 186, 0.421);
   --Zen-create-box-container-bgcolor: rgb(0, 0, 0);
   --Zen-create-box-container-color: rgb(0, 0, 0);
-  --Zen-create-error-bgcolor: rgb(246, 73, 73);
-  --Zen-create-error-color: rgb(255, 255, 255);
+  --Zen-create-error-bgcolor: rgb(179, 179, 179);
+  --Zen-create-error-color: rgb(0, 0, 0);
   
 
 
@@ -187,6 +204,10 @@
   --Comp-button-background-color: rgb(255, 255, 255);
   --Comp-button-border-color: rgb(70, 70, 70);
   --Comp-button-text-color: rgb(0, 0, 0);
+
+  --Comp-checkbox-unchecked-color: rgb(255, 255, 255);
+  --Comp-checkbox-hover-color: rgb(70, 70, 70);
+  --Comp-checkbox-checked-color: rgb(200, 200, 200);
 
   --Comp-continent-background-color: rgb(80, 180, 80);
   --Comp-continent-border-color: rgb(0, 255, 0);
@@ -206,6 +227,7 @@
 
   --Comp-countries-background-color: rgb(223, 233, 233);
   --Comp-countries-border-color: rgb(25, 25, 25);
+  --Comp-countries-text-color: rgb(0, 0, 0);
   --Comp-countries-background: url('./assets/background-countries-light.jpg');
 
   --Comp-country-background-color: rgb(255, 255, 255);

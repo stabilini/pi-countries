@@ -1,8 +1,11 @@
 import React, { Fragment, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { createActivity, getCountries } from '../../redux/actions';
+
+import Button from '../Button/Button';
+import Checkbox from '../Checkbox/Checkbox';
+import RadioButton from '../RadioButton/RadioButton';
 
 import styles from './CreateActivity.module.css';
 
@@ -119,9 +122,10 @@ const CreateActivity = () => {
             {
               [1,2,3,4,5].map(i => (
                 <Fragment key={i}>
-                  <input type="radio" id={i} name="skill" value={i}
+                  <RadioButton name='skill' value={i} onChange={handleInputChange} defaultChecked={i === +input.skill ? true : false } />
+                  {/* <input type="radio" id={i} name="skill" value={i}
                   onChange={handleInputChange} checked={i === +input.skill ? true : false }/>
-                  <label>{i}</label>
+                  <label>{i}</label> */}
                 </Fragment>
               ))
             }
@@ -169,14 +173,7 @@ const CreateActivity = () => {
                   )
                   .map(country => (
                     <li key={country.id}>
-                      <input
-                        type="checkbox"
-                        name={country.id}
-                        id={country.id}
-                        onChange={handleInputCountries}
-                        checked={input.countries.includes(country.id) ? true : false}
-                      />
-                      {country.name}
+                      <Checkbox text={country.name} onChange={handleInputCountries} defaultChecked={input.countries.includes(country.id) ? true : false} />
                     </li>
                   ))}
               </ol>
@@ -189,10 +186,14 @@ const CreateActivity = () => {
             <div className={ styles.noerror }></div>
           }
           <div className={ styles.section }>
-            <button onClick={handleSubmit} className={ `${styles.button} ${styles[theme]}` } disabled={!input.name || !input.duration || errors.name || errors.duration || input.countries.length === 0 ? true : false}>Create activity</button>
-            <Link to="/countries">
-              <button className={ `${styles.button} ${styles[theme]}` }>Back to list</button>
-            </Link>
+          {
+            !input.name || !input.duration || errors.name || errors.duration || input.countries.length === 0
+            ?
+            <Button text='Create activity' disabled={ true } />
+            :
+            <Button onClick={handleSubmit} text='Create activity' />
+          }
+            <Button link='/countries' text='Back to list' />
           </div>
         </form>
       </div>

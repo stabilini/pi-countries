@@ -9,17 +9,16 @@ const Country = props => {
   
   return (
     <div key={props.id} className={ `${styles.container} ${styles[theme]}` }>
-      <img
-        src={props.flag}
-        alt={`Flag from ${props.name}`}
-        className={ `${styles.flag} ${styles[theme]}` }
-      />
+      <Link to={`/countries/${props.id}`}>
+        <img
+          src={props.flag}
+          alt={`Flag from ${props.name}`}
+          className={ `${styles.flag} ${styles[theme]}` }
+        />
+      </Link>
       <div className={ styles.infoSection }>
         <div className={ styles.title }>{props.name}</div>
         <div className={ styles.subTitle }>{props.continent}</div>
-        <Link to={`/countries/${props.id}`}>
-          <button className={ `${styles.button} ${styles[theme]}` }>Detail</button>
-        </Link>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector  } from 'react-redux';
 import { filterBy } from '../../redux/actions';
+import Checkbox from '../Checkbox/Checkbox';
 
 import styles from './FilterContinent.module.css'
 
@@ -22,13 +23,7 @@ const FilterContinent = () => {
       </div>
       {Object.keys(continents).map(cont => (
         <div key={cont}>
-          <input
-            type="checkbox"
-            onChange={handleInputChange}
-            name={cont}
-            defaultChecked={continents[cont]}
-          />
-          {cont}
+          <Checkbox text={cont} onChange={handleInputChange} defaultChecked={continents[cont]} />
         </div>
       ))}
     </div>

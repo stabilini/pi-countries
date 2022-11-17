@@ -17,12 +17,20 @@ const Countries = () => {
   const countries = useSelector(state => state.countries);
   const continents = useSelector(state => state.filterContinent);
   const activities = useSelector(state => state.filterActivity);
+  const order = useSelector(state => state.order);
   const theme = useSelector(state => state.theme);
 
   let keys_c = Object.keys(continents).filter(k => continents[k] === true)
   let keys_a = Object.keys(activities).filter(k => activities[k] === true)
 
-  const filtered = countries.filter(c => keys_c.includes(c.continent) && c.activities.some(obj => keys_a.includes(obj.name)))
+  let filtered = countries.filter(c => keys_c.includes(c.continent) && c.activities.some(obj => keys_a.includes(obj.name)))
+
+  if (Object.keys(order)[0] === 'asc') {
+    filtered = filtered.slice().sort((a, b) => a[order.asc] > b[order.asc] ? 1 : -1);
+  } else if (Object.keys(order)[0] === 'desc' ){
+    filtered = filtered.slice().sort((a, b) => a[order.desc] < b[order.desc] ? 1 : -1);
+  } 
+  
   const page = useSelector(state => state.page);
 
   useEffect(() => {
@@ -51,7 +59,7 @@ const Countries = () => {
             );
           })
       ) : (
-        <h2>Sin resultados</h2>
+        <h3 className={ `${styles.noResult} ${styles[theme]}` }>No results for given search options</h3>
       )}
     </div>
   );
