@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
-import { getCountries } from '../../redux/actions';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
 
-import styles from './NavBar.module.css';
+import { getCountries } from '../../redux/actions';
+
 import logo from '../../assets/logo-globe.png';
 import SelectTheme from '../SelectTheme/SelectTheme';
 import Button from '../Button/Button';
+import Input from '../Input/Input';
+
+import styles from './NavBar.module.css';
 
 function NavBar() {
   const useQuery = () => new URLSearchParams(useLocation().search);
@@ -30,14 +32,6 @@ function NavBar() {
     dispatch(getCountries(input));
   };
 
-  const useEnter = e => {
-    if (e.keyCode === 13) {
-      e.preventDefault();
-      //no conviene usar el siguiente dispatch porque llama al back, pero el readme del PI pide que se use la ruta con query
-      dispatch(getCountries(input));
-    }
-  };
-
   useEffect(() => {
     if (name) setInput(name);
   }, [name]);
@@ -49,14 +43,13 @@ function NavBar() {
       </div>
       <div className={ styles.centerContainer }>
         <div className={ styles.center }>
-          <input
-            type="text"
+          <Input
+            label=''
+            type='text'
+            name='name'
             placeholder="Type text..."
-            size="10"
-            onChange={handleInputChange}
             value={input}
-            onKeyUp={useEnter}
-          />
+            onChange={handleInputChange} />
           <Button text='Search' onClick={handleSubmit} />
         </div>
           <Button link='/newactivity' text='Create activity' />

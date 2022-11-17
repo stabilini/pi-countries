@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { filterBy, getFilterActivities } from '../../redux/actions';
 
 import Checkbox from '../Checkbox/Checkbox';
+
 import styles from './FilterActivity.module.css'
+
 
 const FilterContinent = () => {
   const activities = useSelector(state => state.filterActivity);

@@ -1,9 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector  } from 'react-redux';
+
 import { filterBy } from '../../redux/actions';
+
 import Checkbox from '../Checkbox/Checkbox';
 
 import styles from './FilterContinent.module.css'
+
 
 const FilterContinent = () => {
   const continents = useSelector(state => state.filterContinent);

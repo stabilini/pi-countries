@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+
 import { getDetail } from '../../redux/actions';
 
 import Button from '../Button/Button';
 
 import styles from './Detail.module.css';
+
 
 const Detail = () => {
   const { id } = useParams();

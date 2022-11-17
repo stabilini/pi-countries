@@ -1,0 +1,50 @@
+@import '../../themes.css'; 
+
+
+.label {
+  margin-right: 4px;
+}
+
+.input {
+  margin-right: 4px;
+  border-radius: 5px;
+}
+
+.input.Light {
+  background: var(--Light-input-background-color);
+  border: var(--Light-input-border-color);
+  color: var(--Light-input-text-color)
+}
+
+.input.Dark {
+  background: var(--Dark-input-background-color);
+  border: var(--Dark-input-border-color);
+  color: var(--Dark-input-text-color)
+}
+
+.input.Zen {
+  background: var(--Zen-input-background-color);
+  border: var(--Zen-input-border-color);
+  color: var(--Zen-input-text-color)
+}
+
+.input:focus {
+  border: 2px solid red;
+  outline: none;
+}
+
+.input:focus.Light {
+  border: var(--Light-input-focus);
+}
+
+.input:focus.Dark {
+  border: var(--Dark-input-focus);
+}
+
+.input:focus.Zen {
+  border: var(--Zen-input-focus);
+}
+
+.input:focus.Comp {
+  border: var(--Comp-input-focus);
+}

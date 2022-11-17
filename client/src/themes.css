@@ -2,30 +2,44 @@
   /* --- LIGHT THEME --- */
   --Light-background-color: aliceblue;
   
-  --Light-button-background-color: rgb(189, 224, 254);
-  --Light-button-border-color: rgb(205, 180, 219);
-  --Light-button-text-color: rgb(25, 25, 25);
+  --Light-button-background-color: rgb(213, 236, 255);
+  --Light-button-border-color: rgb(73, 117, 221);
+  --Light-button-text-color: rgb(40, 40, 40);
+  --Light-button-hover-bgcolor: rgb(34, 34, 34);
+  --Light-button-hover-shadow: rgb(0, 0, 0, 0.25);
 
+  --Light-button2-background-color: rgb(213, 236, 255);
+  --Light-button2-border-color: rgb(34, 34, 34);
+  --Light-button2-text-color: rgb(40, 40, 40);
+  --Light-button2-selected-bgcolor: rgb(34, 34, 34);
+  --Light-button2-selected-shadow: rgb(0, 0, 0, 0.25) 0 8px 15px;
+  --Light-button2-selected-color: rgb(255, 255, 255);
+  --Light-button2-hover-bgcolor: rgb(34, 34, 34);
+  --Light-button2-hover-shadow: rgb(0, 0, 0, 0.25);
+
+  --Light-input-background-color: rgb(255, 255, 255);
+  --Light-input-border-color: 1px solid rgb(0, 0, 0);
+  --Light-input-text-color: rgb(0, 0, 0);
+  --Light-input-focus: 2px solid rgb(0, 102, 255);
   
-  
-  --Light-checkbox-unchecked-color: rgb(197, 124, 124);
-  --Light-checkbox-hover-color: rgb(144, 61, 61);
+  --Light-checkbox-unchecked-color: rgb(181, 194, 200);
+  --Light-checkbox-hover-color: rgb(87, 43, 210);
   --Light-checkbox-checked-color: rgb(55, 55, 55);
 
-  --Light-continent-background-color: rgb(255, 200, 221);
-  --Light-continent-border-color: rgb(205, 180, 219);
+  --Light-continent-background-color: rgb(231, 230, 255);
+  --Light-continent-border-color: rgb(115, 117, 227);
   --Light-continent-text-color: rgb(25, 25, 25);
   
-  --Light-activity-background-color: rgb(255, 200, 221);
-  --Light-activity-border-color: rgb(205, 180, 219);
+  --Light-activity-background-color: rgb(231, 230, 255);
+  --Light-activity-border-color: rgb(115, 117, 227);
   --Light-activity-text-color: rgb(25, 25, 25);
 
-  --Light-order-background-color: rgb(255, 200, 221);
-  --Light-order-border-color: rgb(205, 180, 219);
+  --Light-order-background-color: rgb(231, 230, 255);
+  --Light-order-border-color: rgb(115, 117, 227);
   --Light-order-text-color: rgb(25, 25, 25);
 
-  --Light-pagination-background-color: rgb(255, 200, 221);
-  --Light-pagination-border-color: rgb(205, 180, 219);
+  --Light-pagination-background-color: rgb(231, 230, 255);
+  --Light-pagination-border-color: rgb(115, 117, 227);
   --Light-pagination-text-color: rgb(25, 25, 25);
 
   --Light-countries-background-color: rgb(223, 233, 233);
@@ -38,7 +52,7 @@
   --Light-country-text-color: rgb(25, 25, 25);
   --Light-flag-shadow-color: rgba(0, 0, 0, 0.25);
 
-  --Light-home-background-color: rgb(183, 181, 195);
+  --Light-home-background-color: rgb(251, 239, 230);
   --Light-home-border-color: rgb(205, 180, 219);
 
   --Light-detail-background-color: rgb(223, 233, 233);
@@ -61,6 +75,7 @@
   --Light-create-box-container-gradient2: rgba(121, 250, 119, 0.694);
   --Light-create-box-container-bgcolor: rgb(0, 0, 0);
   --Light-create-box-container-color: rgb(0, 0, 0);
+  --Light-ordered-list-color: rgb(0, 0, 0);
   --Light-create-error-bgcolor: rgba(240, 225, 185, 0.687);
   --Light-create-error-color: red;
 
@@ -69,69 +84,86 @@
   --Dark-background-color: rgb(17, 14, 27);
   
   --Dark-button-background-color: rgb(60, 22, 47);
-  --Dark-button-border-color: rgb(103, 41, 41);
-  --Dark-button-text-color: rgb(226, 179, 190);
+  --Dark-button-border-color: rgb(121, 61, 61);
+  --Dark-button-text-color: rgb(232, 222, 224);
+  --Dark-button-hover-bgcolor: rgb(134, 80, 80);
+  --Dark-button-hover-shadow: rgb(0, 0, 0, 0.25);
 
-  --Dark-checkbox-unchecked-color: rgb(255, 255, 255);
-  --Dark-checkbox-hover-color: rgb(70, 70, 70);
-  --Dark-checkbox-checked-color: rgb(200, 200, 200);
+  --Dark-button2-background-color: rgb(110, 64, 58);
+  --Dark-button2-border-color: rgb(121, 61, 61);
+  --Dark-button2-text-color: rgb(232, 222, 224);
+  --Dark-button2-selected-bgcolor: rgb(177, 94, 94);
+  --Dark-button2-selected-shadow: rgb(0, 0, 0, 0.25) 0 8px 15px;
+  --Dark-button2-selected-color: rgb(36, 4, 4);
+  --Dark-button2-hover-bgcolor: rgb(230, 67, 67);
+  --Dark-button2-hover-shadow: rgba(122, 43, 43, 0.25);
+
+  --Dark-input-background-color: rgb(121, 121, 121);
+  --Dark-input-border-color: 1px solid rgb(121, 61, 61);
+  --Dark-input-text-color: rgb(231, 231, 231);
+  --Dark-input-focus: 2px solid rgb(248, 240, 125);
+
+  --Dark-checkbox-unchecked-color: rgb(149, 93, 93);
+  --Dark-checkbox-hover-color: rgb(213, 29, 29);
+  --Dark-checkbox-checked-color: rgb(183, 40, 40);
 
   --Dark-continent-background-color: rgb(92, 22, 46);
-  --Dark-continent-border-color: rgb(25, 21, 40);
-  --Dark-continent-text-color: rgb(226, 179, 190);
+  --Dark-continent-border-color: rgb(136, 106, 106);
+  --Dark-continent-text-color: rgb(232, 222, 224);
 
   --Dark-activity-background-color: rgb(92, 22, 46);
-  --Dark-activity-border-color: rgb(25, 21, 40);
-  --Dark-activity-text-color: rgb(226, 179, 190);
+  --Dark-activity-border-color: rgb(136, 106, 106);
+  --Dark-activity-text-color: rgb(232, 222, 224);
 
   --Dark-order-background-color: rgb(92, 22, 46);
-  --Dark-order-border-color: rgb(25, 21, 40);
-  --Dark-order-text-color: rgb(226, 179, 190);
+  --Dark-order-border-color: rgb(136, 106, 106);
+  --Dark-order-text-color: rgb(232, 222, 224);
 
   --Dark-pagination-background-color: rgb(92, 22, 46);
-  --Dark-pagination-border-color: rgb(25, 21, 40);
-  --Dark-pagination-text-color: rgb(226, 179, 190);
+  --Dark-pagination-border-color: rgb(136, 106, 106);
+  --Dark-pagination-text-color: rgb(232, 222, 224);
 
   --Dark-countries-background-color: rgb(92, 22, 46);
   --Dark-countries-border-color: rgb(25, 25, 25);
-  --Dark-countries-text-color: rgb(226, 179, 190);
+  --Dark-countries-text-color: rgb(232, 222, 224);
   --Dark-countries-background: url('./assets/background-countries-dark.jpg');
 
   --Dark-country-background-color: rgb(92, 22, 46);
-  --Dark-country-border-color: rgb(25, 21, 40);
-  --Dark-country-text-color: rgb(226, 179, 190);
-  --Dark-flag-shadow-color: rgba(161, 161, 161, 0.25);
+  --Dark-country-border-color: rgb(153, 133, 73);
+  --Dark-country-text-color: rgb(232, 222, 224);
+  --Dark-flag-shadow-color: rgba(255, 38, 38, 0.34);
 
   --Dark-home-background-color: rgb(41, 6, 18);
   --Dark-home-border-color: rgb(25, 21, 40);
 
   --Dark-detail-background-color: rgb(92, 22, 46);
   --Dark-detail-background: url('./assets/background-detail-dark.jpg');
-  --Dark-detail-shadow1-color: rgb(25, 21, 40);
-  --Dark-detail-shadow2-color: rgb(230, 230, 230);
-  --Dark-detail-border-color: rgb(0, 0, 0);
-  --Dark-detail-text-color: rgb(226, 179, 190);
+  --Dark-detail-shadow1-color: rgb(113, 101, 103);
+  --Dark-detail-shadow2-color: rgb(115, 33, 33);
+  --Dark-detail-border-color: rgb(40, 4, 4);
+  --Dark-detail-text-color: rgb(232, 222, 224);
   --Dark-detail-activity-container-bgcolor: rgb(128, 93, 93);
   --Dark-detail-activity-container-border: rgb(0, 0, 0);
   --Dark-detail-activity-container-color: rgb(0, 0, 0);
 
   --Dark-create-background-color: rgb(92, 22, 46);
   --Dark-create-background: url('./assets/background-createactivity-dark.jpg');
-  --Dark-create-shadow1-color: rgb(25, 21, 40);
-  --Dark-create-shadow2-color: rgb(230, 230, 230);
-  --Dark-create-border-color: rgb(0, 0, 0);
-  --Dark-create-text-color: rgb(226, 179, 190);
-  --Dark-create-box-container-gradient1: rgba(149, 250, 193, 0.654);
-  --Dark-create-box-container-gradient2: rgba(121, 250, 119, 0.694);
+  --Dark-create-shadow1-color: rgb(113, 101, 103);
+  --Dark-create-shadow2-color: rgb(115, 33, 33);
+  --Dark-create-border-color: rgb(40, 4, 4);
+  --Dark-create-text-color: rgb(232, 222, 224);
+  --Dark-create-box-container-gradient1: rgba(14, 70, 38, 0.66);
+  --Dark-create-box-container-gradient2: rgba(4, 36, 3, 0.69);
   --Dark-create-box-container-bgcolor: rgb(0, 0, 0);
   --Dark-create-box-container-color: rgb(0, 0, 0);
+  --Dark-ordered-list-color: rgb(221, 202, 202);
   --Dark-create-error-bgcolor: rgba(254, 247, 178, 0.687);
   --Dark-create-error-color: rgb(84, 34, 34);
 
 
   /* --- RETRO THEME --- */
   --Retro-background-color: rgb(187, 187, 187);
-  
+  /* solo terminar si hay tiempo */
   
   /* --- ZEN THEME --- */
   --Zen-background-color: rgb(255, 255, 255);
@@ -139,6 +171,22 @@
   --Zen-button-background-color: rgb(255, 255, 255);
   --Zen-button-border-color: rgb(70, 70, 70);
   --Zen-button-text-color: rgb(0, 0, 0);
+  --Zen-button-hover-bgcolor: rgb(170, 170, 170);
+  --Zen-button-hover-shadow: rgba(122, 43, 43, 0.25);
+
+  --Zen-button2-background-color: rgb(255, 255, 255);
+  --Zen-button2-border-color: rgb(0, 0, 0);
+  --Zen-button2-text-color: rgb(0, 0, 0);
+  --Zen-button2-selected-bgcolor: rgb(92, 92, 92);
+  --Zen-button2-selected-shadow: rgb(0, 0, 0, 0.25) 0 8px 15px;
+  --Zen-button2-selected-color: rgb(255, 255, 255);
+  --Zen-button2-hover-bgcolor: rgb(170, 170, 170);
+  --Zen-button2-hover-shadow: rgba(122, 43, 43, 0.25);
+
+  --Zen-input-background-color: rgb(255, 255, 255);
+  --Zen-input-border-color: 1px solid rgb(0, 0, 0);
+  --Zen-input-text-color: rgb(0, 0, 0);
+  --Zen-input-focus: 2px dashed rgb(0, 0, 0);
 
   --Zen-checkbox-unchecked-color: rgb(200, 200, 200);
   --Zen-checkbox-hover-color: rgb(130, 130, 130);
@@ -193,6 +241,7 @@
   --Zen-create-box-container-gradient2: rgba(186, 186, 186, 0.421);
   --Zen-create-box-container-bgcolor: rgb(0, 0, 0);
   --Zen-create-box-container-color: rgb(0, 0, 0);
+  --Zen-ordered-list-color: rgb(0, 0, 0);
   --Zen-create-error-bgcolor: rgb(179, 179, 179);
   --Zen-create-error-color: rgb(0, 0, 0);
   
@@ -204,24 +253,40 @@
   --Comp-button-background-color: rgb(255, 255, 255);
   --Comp-button-border-color: rgb(70, 70, 70);
   --Comp-button-text-color: rgb(0, 0, 0);
+  --Comp-button-hover-bgcolor: rgb(46, 192, 41);
+  --Comp-button-hover-shadow: rgba(122, 43, 43, 0.25);
+
+  --Comp-button2-background-color: rgb(223, 221, 221);
+  --Comp-button2-border-color: rgb(22, 16, 16);
+  --Comp-button2-text-color: rgb(46, 46, 46);
+  --Comp-button2-selected-bgcolor: rgb(121, 121, 121);
+  --Comp-button2-selected-shadow: rgb(0, 0, 0, 0.25) 0 8px 15px;
+  --Comp-button2-selected-color: rgb(255, 255, 255);
+  --Comp-button2-hover-bgcolor: rgb(170, 170, 170);
+  --Comp-button2-hover-shadow: rgba(122, 43, 43, 0.25);
+
+  --Comp-input-background-color: rgb(255, 255, 255);
+  --Comp-input-border-color: 1px solid rgb(131, 131, 131);
+  --Comp-input-text-color: rgb(0, 0, 0);
+  --Comp-input-focus: 2px dashed rgb(53, 230, 77);  
 
   --Comp-checkbox-unchecked-color: rgb(255, 255, 255);
-  --Comp-checkbox-hover-color: rgb(70, 70, 70);
-  --Comp-checkbox-checked-color: rgb(200, 200, 200);
+  --Comp-checkbox-hover-color: rgb(149, 149, 149);
+  --Comp-checkbox-checked-color: rgb(0, 0, 0);
 
   --Comp-continent-background-color: rgb(80, 180, 80);
   --Comp-continent-border-color: rgb(0, 255, 0);
   --Comp-continent-text-color: rgb(255, 255, 255);
 
-  --Comp-activity-background-color: rgb(80, 80, 180);
+  --Comp-activity-background-color: rgb(106, 106, 191);
   --Comp-activity-border-color: rgb(0, 0, 255);
   --Comp-activity-text-color: rgb(255, 255, 255);
 
-  --Comp-order-background-color: rgb(180, 80, 80);
+  --Comp-order-background-color: rgb(206, 107, 107);
   --Comp-order-border-color: rgb(255, 0, 0);
   --Comp-order-text-color: rgb(255, 255, 255);
 
-  --Comp-pagination-background-color: rgb(180, 180, 0);
+  --Comp-pagination-background-color: rgb(219, 219, 128);
   --Comp-pagination-border-color: rgb(255, 255, 0);
   --Comp-pagination-text-color: rgb(0, 0, 0);
 
@@ -238,26 +303,27 @@
   --Comp-home-background-color: rgb(222, 222, 222);
   --Comp-home-border-color: rgb(0, 0, 0);
 
-  --Comp-detail-background-color: rgb(255, 255, 255);
+  --Comp-detail-background-color: rgb(238, 193, 106);
   /* --Comp-detail-background: url('./assets/background-detail.jpg'); */
-  --Comp-detail-shadow1-color: rgb(25, 21, 40);
-  --Comp-detail-shadow2-color: rgb(196, 196, 196);
-  --Comp-detail-border-color: rgb(0, 0, 0);
+  --Comp-detail-shadow1-color: rgb(106, 81, 58);
+  --Comp-detail-shadow2-color: rgb(249, 136, 17);
+  --Comp-detail-border-color: rgb(255, 255, 255);
   --Comp-detail-text-color: rgb(0, 0, 0);
-  --Comp-detail-activity-container-bgcolor: rgb(200, 200, 200);
-  --Comp-detail-activity-container-border: rgb(0, 0, 0);
+  --Comp-detail-activity-container-bgcolor: rgb(248, 215, 150);
+  --Comp-detail-activity-container-border: rgb(247, 158, 64);
   --Comp-detail-activity-container-color: rgb(0, 0, 0);
 
-  --Comp-create-background-color: rgb(255, 255, 255);
+  --Comp-create-background-color: rgb(205, 255, 250);
   /* --Comp-create-background: url('./assets/background-createactivity-dark.png'); */
-  --Comp-create-shadow1-color: rgb(25, 21, 40);
-  --Comp-create-shadow2-color: rgb(196, 196, 196);
-  --Comp-detail-border-color: rgb(0, 0, 0);
+  --Comp-create-shadow1-color: rgb(137, 176, 217);
+  --Comp-create-shadow2-color: rgb(0, 255, 207);
+  --Comp-create-border-color: rgb(255, 255, 255);
   --Comp-create-text-color: rgb(0, 0, 0);
   --Comp-create-box-container-gradient1: rgba(149, 216, 250, 0.654);
-  --Comp-create-box-container-gradient2: rgba(119, 180, 250, 0.694);
+  --Comp-create-box-container-gradient2: rgba(165, 203, 253, 0.31);
   --Comp-create-box-container-bgcolor: rgb(0, 0, 0);
   --Comp-create-box-container-color: rgb(0, 0, 0);
+  --Comp-ordered-list-color: rgb(0, 0, 0);
   --Comp-create-error-bgcolor: rgba(254, 247, 178, 0.687);
   --Comp-create-error-color: rgb(84, 34, 34);
 

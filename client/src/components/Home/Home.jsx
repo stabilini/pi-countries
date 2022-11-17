@@ -10,6 +10,7 @@ import FilterActivity from '../FilterActivity/FilterActivity.jsx';
 
 import styles from './Home.module.css';
 
+
 const Home = () => {
   const theme = useSelector(state => state.theme);
 

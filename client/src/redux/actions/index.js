@@ -1,3 +1,5 @@
+import allCountries from './allCountries.json';
+
 export const GET_COUNTRIES = 'GET_COUNTRIES';
 export const GET_DETAIL = 'GET_DETAIL';
 export const GET_ACTIVITIES = 'GET_ACTIVITIES';
@@ -16,15 +18,45 @@ export const URL = 'http://localhost:3001/';
 export const getCountries = (name) => {
   return function(dispatch) {
     return fetch(name ? URL + 'countries?name=' + name : URL + 'countries')
+      // .then(() => {
+      //     let result = allCountries.map(c => ({
+      //       id: c.cca3,
+      //       name: c.name.common,
+      //       flag: c.flags.png,
+      //       continent: c.continents[0],
+      //       capital: c.capital ? c.capital[0] : 'n/d',
+      //       subregion: c.subregion ? c.subregion : 'n/d',
+      //       area: c.area >= 0 ? c.area : 0,
+      //       population: c.population >= 0 ? c.population : 0,
+      //       activities: []
+      //     }))
+      //     if (name) return result.filter(f => f.name.includes(name));
+      //     return result;
+      //   })
       .then(res => res.json())
       .then(obj => obj.map(v => v.activities.length === 0 ? {...v, activities: [{name: 'Sin actividades'}]} : {...v}))
       .then(obj => dispatch({type: GET_COUNTRIES, payload: obj}))
+      .catch(error => console.log(error))
   }
 };
 
 export const getDetail = (id) => {
   return function(dispatch) {
     return fetch(URL + 'countries/' + id)
+      // .then(() => {
+      //   let result = allCountries.map(c => ({
+      //     id: c.cca3,
+      //     name: c.name.common,
+      //     flag: c.flags.png,
+      //     continent: c.continents[0],
+      //     capital: c.capital ? c.capital[0] : 'n/d',
+      //     subregion: c.subregion ? c.subregion : 'n/d',
+      //     area: c.area >= 0 ? c.area : 0,
+      //     population: c.population >= 0 ? c.population : 0,
+      //     activities: []
+      //   }))
+      //   return result.filter(f => f.id === id);
+      // })
       .then(res => res.json())
       .then(obj => dispatch({type: GET_DETAIL, payload: obj}))
   }

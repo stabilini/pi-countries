@@ -49,26 +49,77 @@
   width: 30px;
   height: 30px;
   background-color: transparent;
-  color: #222222;
   font-size: 1em;
+}
+
+.normalPage.Light {
+  color: var(--Light-button2-text-color);
+}
+
+.normalPage.Dark {
+  color: var(--Dark-button2-text-color);
+}
+
+.normalPage.Zen {
+  color: var(--Zen-button2-text-color);
+}
+
+.normalPage.Comp {
+  color: var(--Comp-button2-text-color);
 }
 
 .actualPage {
   width: 36px;
   height: 36px;
-  color: #fff;
-  background-color: #1A1A1A;
   font-size: 1.3em;
-  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
+}
+
+.actualPage.Light {
+  color: var(--Light-button2-text-color);
+  background-color: var(--Light-button2-background-color);
+  box-shadow: var(--Light-button2-selected-shadow);
+}
+
+.actualPage.Dark {
+  color: var(--Dark-button2-text-color);
+  background-color: var(--Dark-button2-background-color);
+  box-shadow: var(--Dark-button2-selected-shadow);
+}
+
+.actualPage.Zen {
+  color: var(--Zen-button2-text-color);
+  background-color: var(--Zen-button2-background-color);
+  box-shadow: var(--Zen-button2-selected-shadow);
+}
+
+.actualPage.Comp {
+  color: var(--Comp-button2-text-color);
+  background-color: var(--Comp-button2-background-color);
+  box-shadow: var(--Comp-button2-selected-shadow);
 }
 
 .skipPage {
   width: 30px;
   height: 22px;
   background-color: transparent;
-  color: #222222;
   font-size: .8em;
+}
+
+.skipPage.Light {
+  color: var(--Light-button2-text-color);
+}
+
+.skipPage.Dark {
+  color: var(--Dark-button2-text-color);
+}
+
+.skipPage.Zen {
+  color: var(--Zen-button2-text-color);
+}
+
+.skipPage.Comp {
+  color: var(--Comp-button2-text-color);
 }
 
 button:disabled {
@@ -76,10 +127,31 @@ button:disabled {
 }
 
 button:hover {
-  color: #fff;
-  background-color: #1A1A1A;
-  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
+}
+
+button:hover.Light {
+  color: #fff;
+  background-color: var(--Light-button2-hover-bgcolor);
+  box-shadow: var(--Light-button2-hover-shadow) 0 8px 15px;
+}
+
+button:hover.Dark {
+  color: var(--Dark-button2-text-color);
+  background-color: var(--Dark-button2-hover-bgcolor);
+  box-shadow: var(--Dark-button2-hover-shadow) 0 8px 15px;
+}
+
+button:hover.Zen {
+  color: #fff;
+  background-color: var(--Zen-button2-hover-bgcolor);
+  box-shadow: var(--Zen-button2-hover-shadow) 0 8px 15px;
+}
+
+button:hover.Comp {
+  color: #fff;
+  background-color: var(--Comp-button2-hover-bgcolor);
+  box-shadow: var(--Comp-button2-hover-shadow) 0 8px 15px;
 }
 
 button:active {
@@ -92,12 +164,3 @@ button:active {
     display: none;
   }
 }
-
-/* @media (min-width: 500px) {
-  .logoContainer {
-    width: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-} */

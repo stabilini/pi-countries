@@ -1,8 +1,10 @@
 import React from 'react';
-import { setTheme } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { setTheme } from '../../redux/actions';
+
 import styles from './SelectTheme.module.css';
+
 
 function SelectTheme() {
   const theme = useSelector(state => state.theme);

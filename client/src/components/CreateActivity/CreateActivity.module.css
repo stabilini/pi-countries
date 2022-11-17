@@ -12,7 +12,7 @@
   width: 85%;
   margin-top: 4vh;
   max-width: 500px;
-  min-width: 220px;
+  min-width: 260px;
 }
 
 .form.Light {
@@ -59,10 +59,40 @@
   justify-content: center;
 }
 
-.section label {
-  margin-right: 3px;
+.skill {
+  display: flex;
+  margin-left: -12px;
+  align-items: center;
+  justify-content: center;
 }
 
+.label {
+  margin-right: 4px;
+}
+
+.skillLabel {
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orderedList.Light {
+  color: var(--Light-ordered-list-color);
+}
+
+.orderedList.Dark {
+  color: var(--Dark-ordered-list-color);
+}
+
+.orderedList.Zen {
+  color: var(--Zen-ordered-list-color);
+}
+
+.orderedList.Comp {
+  color: var(--Comp-ordered-list-color);
+}
+/*
 .section input {
   margin-right: 3px;
 }
@@ -70,6 +100,11 @@
 .numberInput {
   width: 50px;
 }
+
+.input:focus {
+  border: 2px solid red;
+  outline: none;
+} */
 
 .box{
   height: 200px;
@@ -128,6 +163,8 @@
 
 .error {
   border: 1px solid black;
+  margin-top: 2px;
+  margin-bottom: 4px;
   padding: 1px 5px 1px 5px;
   font-size: 0.75em;
 }
@@ -159,6 +196,8 @@
 }
 
 .noerror {
+  margin-top: 2px;
+  margin-bottom: 4px;
   padding: 1px 5px 1px 5px;
   height: 1.15em;
 }
