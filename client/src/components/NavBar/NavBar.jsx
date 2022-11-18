@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
 
 import { getCountries } from '../../redux/actions';
 
@@ -12,9 +11,6 @@ import Input from '../Input/Input';
 import styles from './NavBar.module.css';
 
 function NavBar() {
-  const useQuery = () => new URLSearchParams(useLocation().search);
-  const query = useQuery();
-  const name = query.get('name');
 
   const [input, setInput] = useState('');
   
@@ -31,10 +27,6 @@ function NavBar() {
     //no conviene usar el siguiente dispatch porque llama al back, pero el readme del PI pide que se use la ruta con query
     dispatch(getCountries(input));
   };
-
-  useEffect(() => {
-    if (name) setInput(name);
-  }, [name]);
 
   return (
     <div className={ `${styles.container} ${styles[theme]}` }>

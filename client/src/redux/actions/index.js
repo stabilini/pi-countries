@@ -75,7 +75,8 @@ export const getFilterActivities = () => {
   return function(dispatch) {
     return fetch(URL + 'activities')
       .then(res => res.json())
-      .then(obj => ({...obj, 'Sin actividades': true}))
+      // obj ahora es un array de objetos
+      // .then(obj => ({...obj, 'Sin actividades': true}))
       .then(obj => dispatch({type: FILTER_ACTIVITY, payload: obj}))
   }
 }
