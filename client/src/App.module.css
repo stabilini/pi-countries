@@ -1,0 +1,21 @@
+@import './themes.css'; 
+
+.background {
+  height: 100vh;
+}
+
+.background.Light {
+  background: var(--Light-app-background) center;
+}
+
+.background.Dark {
+  background: var(--Dark-app-background) center;
+}
+
+.background.Zen {
+  background: var(--Zen-app-background);
+}
+
+.background.Comp {
+  background: var(--Comp-app-background);
+}

@@ -1,5 +1,8 @@
 :root {
   /* --- LIGHT THEME --- */
+  /* --Light-app-background: rgb(236, 211, 211); */
+  --Light-app-background: url('./assets/app-background-light.png');
+
   --Light-background-color: aliceblue;
   
   --Light-button-background-color: rgb(213, 236, 255);
@@ -81,6 +84,8 @@
 
 
   /* --- DARK THEME --- */
+  --Dark-app-background: url('./assets/app-background-dark.png');
+
   --Dark-background-color: rgb(17, 14, 27);
   
   --Dark-button-background-color: rgb(60, 22, 47);
@@ -166,6 +171,8 @@
   /* solo terminar si hay tiempo */
   
   /* --- ZEN THEME --- */
+  --Zen-app-background: rgb(255, 255, 255);
+  
   --Zen-background-color: rgb(255, 255, 255);
   
   --Zen-button-background-color: rgb(255, 255, 255);
@@ -248,6 +255,8 @@
 
 
   /* --- COMPONENTS THEME --- */
+  --Comp-app-background: url('./assets/app-background-comp.jpg') repeat;
+
   --Comp-background-color: rgb(189, 189, 189);
   
   --Comp-button-background-color: rgb(255, 255, 255);

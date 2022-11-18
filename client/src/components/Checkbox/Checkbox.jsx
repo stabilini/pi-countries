@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import styles from './Checkbox.module.css';
 
-function Checkbox({text, onChange, defaultChecked}) {
+function Checkbox({name, text, onChange, defaultChecked}) {
 
   const theme = useSelector(state => state.theme);
 
@@ -14,7 +14,7 @@ function Checkbox({text, onChange, defaultChecked}) {
           className={ `${styles.checkbox} ${styles[theme]}` }
           type="checkbox"
           onChange={onChange}
-          name={text}
+          name={name}
           defaultChecked={defaultChecked}
         />
         <span className={ `${styles.checkmark} ${styles[theme]}` }></span>

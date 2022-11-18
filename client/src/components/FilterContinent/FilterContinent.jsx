@@ -26,7 +26,7 @@ const FilterContinent = () => {
       </div>
       {Object.keys(continents).map(cont => (
         <div key={cont}>
-          <Checkbox text={cont} onChange={handleInputChange} defaultChecked={continents[cont]} />
+          <Checkbox name={cont} text={cont} onChange={handleInputChange} defaultChecked={continents[cont]} />
         </div>
       ))}
     </div>

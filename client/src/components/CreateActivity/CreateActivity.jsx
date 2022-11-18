@@ -153,7 +153,7 @@ const CreateActivity = () => {
                   )
                   .map(country => (
                     <li key={country.id}>
-                      <Checkbox text={country.name} onChange={handleInputCountries} defaultChecked={input.countries.includes(country.id) ? true : false} />
+                      <Checkbox name={country.id} text={country.name} onChange={handleInputCountries} defaultChecked={input.countries.includes(country.id) ? true : false} />
                     </li>
                   ))}
               </ol>
