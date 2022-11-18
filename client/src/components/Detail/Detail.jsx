@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { getDetail } from '../../redux/actions';
 
 import Button from '../Button/Button';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.jsx';
+
 
 import styles from './Detail.module.css';
 
@@ -15,13 +17,24 @@ const Detail = () => {
   const dispatch = useDispatch();
   const detail = useSelector(state => state.detail)[0];
   let theme = useSelector(state => state.theme);
-  
+  const [isLoading, setIsLoading] = useState(false);
+
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   dispatch(getDetail(id));
+   
+  //   return setIsLoading(false);
+  // })
+
   useEffect(() => {
     dispatch(getDetail(id));
   }, [id, dispatch]);
 
   return (
     <>
+      {
+        isLoading ? <LoadingSpinner /> :
+        <>
       <div className={ `${styles.detailBackground} ${styles[theme]}` }></div>
       <div className={ styles.container }>
         <span className={ `${styles.detail} ${styles[theme]}` }>
@@ -58,7 +71,7 @@ const Detail = () => {
                     <div className={ styles.activities }>
                     {detail.activities.map(ac => {
                         return (
-                          <div className={ `${styles.activityContainer} ${styles[theme]}` }>
+                          <div key={ac.name} className={ `${styles.activityContainer} ${styles[theme]}` }>
                             <div className={ styles.activityName }>{ac.name}</div>
                             <div >
                               <div className={ styles.activityDetail }>Skill: {ac.skill} {['😊', '😎', '😮', '😬', '😱'][ac.skill - 1]}</div>
@@ -92,6 +105,8 @@ const Detail = () => {
           <Button link='/countries' text='Back to list' />
         </span>
       </div>
+      </>
+}
     </>
   );
 };

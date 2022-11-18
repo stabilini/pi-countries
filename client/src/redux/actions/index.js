@@ -1,4 +1,4 @@
-import allCountries from './allCountries.json';
+// import allCountries from './allCountries.json';
 
 export const GET_COUNTRIES = 'GET_COUNTRIES';
 export const GET_DETAIL = 'GET_DETAIL';
@@ -30,11 +30,14 @@ export const getCountries = (name) => {
       //       population: c.population >= 0 ? c.population : 0,
       //       activities: []
       //     }))
+      //     result[0].activities = [{ name: "Golf" }, { name: "Paseo"}]
+      //     result[1].activities = [{ name: "Golf" }]
+      //     result[2].activities = [{ name: "Paseo"}]
       //     if (name) return result.filter(f => f.name.includes(name));
       //     return result;
       //   })
       .then(res => res.json())
-      .then(obj => obj.map(v => v.activities.length === 0 ? {...v, activities: [{name: 'Sin actividades'}]} : {...v}))
+      .then(obj => obj.map(v => v.activities.length === 0 ? {...v, activities: [{name: 'No activities'}]} : {...v}))
       .then(obj => dispatch({type: GET_COUNTRIES, payload: obj}))
       .catch(error => console.log(error))
   }
@@ -55,6 +58,9 @@ export const getDetail = (id) => {
       //     population: c.population >= 0 ? c.population : 0,
       //     activities: []
       //   }))
+      //   result[0].activities = [{ name: "Golf" }, { name: "Paseo"}]
+      //   result[1].activities = [{ name: "Golf" }]
+      //   result[2].activities = [{ name: "Paseo"}]
       //   return result.filter(f => f.id === id);
       // })
       .then(res => res.json())
@@ -66,7 +72,6 @@ export const getActivities = () => {
   return function(dispatch) {
     return fetch(URL + 'activities')
       .then(res => res.json())
-      .then(obj => ({...obj, 'Sin actividades': true}))
       .then(obj => dispatch({type: GET_ACTIVITIES, payload: obj}))
   }
 }
@@ -75,8 +80,6 @@ export const getFilterActivities = () => {
   return function(dispatch) {
     return fetch(URL + 'activities')
       .then(res => res.json())
-      // obj ahora es un array de objetos
-      // .then(obj => ({...obj, 'Sin actividades': true}))
       .then(obj => dispatch({type: FILTER_ACTIVITY, payload: obj}))
   }
 }

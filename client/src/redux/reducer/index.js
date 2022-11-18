@@ -16,9 +16,8 @@ import {
 const initialState = {
   countries: [],
   detail: {},
-  // activities: [],
   filterActivity: {
-    'Sin actividades': true
+    'No activities': true
   },
   filterContinent: {
     Africa: true,
@@ -60,8 +59,6 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filterActivity: {...state.filterActivity, ...action.payload}
-        // PAYLOAD es un array de objetos 
-        // agregar algo que mire si el estado actual tiene 'sin actividades', si lo tiene no lo agrega, si no lo tiene lo agrega
       }
     case COUNTRIES_ORDER_ASC:
       return {

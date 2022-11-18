@@ -26,7 +26,8 @@
 
 .container{
   border-radius: 15px;
-  min-height: 170px;
+  min-height: 50px;
+  max-height: 170px;
 }
  
 .title {
@@ -34,4 +35,11 @@
   font-weight: bold;
   text-align: center;
   text-decoration: underline;
+}
+
+.box{
+  width: 100%;
+  overflow-y: auto;
+  max-height: 150px;
+  display: block;
 }

@@ -16,8 +16,6 @@ const Countries = () => {
   let keys_c = Object.keys(continents).filter(k => continents[k] === true)
   let keys_a = Object.keys(activities).filter(k => activities[k] === true)
 
-  console.log(keys_a);
-
   let filtered = countries.filter(c => keys_c.includes(c.continent) && c.activities.some(obj => keys_a.includes(obj.name)))
 
   if (Object.keys(order)[0] === 'asc') {

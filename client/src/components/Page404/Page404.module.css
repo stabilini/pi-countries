@@ -1,0 +1,74 @@
+@import '../../themes.css'; 
+
+.container {
+  display: flex;
+  justify-content: center;
+
+}
+
+.detail {
+  text-align: center;
+  border-radius: 15px;
+  width: 85%;
+  margin-top: 4vh;
+  max-width: 550px;
+  min-width: 260px;
+  padding-bottom: 10px;
+}
+
+.detail.Light {
+  background: var(--Light-detail-background-color);
+  border: 2px solid var(--Light-detail-border-color);
+  box-shadow:
+    0 0 0 3px var(--Light-detail-shadow1-color),
+    0 0 0 5px var(--Light-detail-shadow2-color);
+  color: var(--Light-detail-text-color);
+}
+
+.detail.Dark {
+  background: var(--Dark-detail-background-color);
+  border: 2px solid var(--Dark-detail-border-color);
+  box-shadow:
+    0 0 0 3px var(--Dark-detail-shadow1-color),
+    0 0 0 5px var(--Dark-detail-shadow2-color);
+  color: var(--Dark-detail-text-color);
+}
+
+.detail.Zen {
+  background: var(--Zen-detail-background-color);
+  border: 2px solid var(--Zen-detail-border-color);
+  box-shadow:
+    0 0 0 3px var(--Zen-detail-shadow1-color),
+    0 0 0 5px var(--Zen-detail-shadow2-color);
+  color: var(--Zen-detail-text-color);
+}
+
+.detail.Comp {
+  background: var(--Comp-detail-background-color);
+  border: 2px solid var(--Comp-detail-border-color);
+  box-shadow:
+    0 0 0 3px var(--Comp-detail-shadow1-color),
+    0 0 0 5px var(--Comp-detail-shadow2-color);
+  color: var(--Comp-detail-text-color);
+}
+
+.text404 {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 8em;
+}
+
+.msg1 {
+  font-size: 1.7em;
+  margin-bottom: 0px;
+}
+
+.msg2 {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.image {
+  max-height: 350px;
+}

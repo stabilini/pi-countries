@@ -28,11 +28,13 @@ const FilterContinent = () => {
       <div className={ styles.title }>
         Activity 
       </div>
+      <div className={ styles.box }>
       {Object.keys(activities).map(act => (
         <div key={act}>
           <Checkbox text={act} name={act} onChange={handleInputChange} defaultChecked={activities[act]} />
         </div>
       ))}
+      </div>
     </div>
   );
 };

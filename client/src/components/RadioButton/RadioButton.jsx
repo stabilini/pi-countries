@@ -22,17 +22,6 @@ function RadioButton({name, value, onChange, defaultChecked}) {
         <span className={ `${styles.checkmark} ${styles[theme]}` }></span>
       </label>
       {value}
-      {/* <label className={ `${styles.label} ${styles[theme]}` }>
-        <input
-          className={ `${styles.checkbox} ${styles[theme]}` }
-          type="checkbox"
-          onChange={onChange}
-          name={text}
-          defaultChecked={defaultChecked}
-        />
-        <span className={ `${styles.checkmark} ${styles[theme]}` }></span>
-        </label>
-      {text}  */}
     </>
   );
 }
