@@ -1,7 +1,6 @@
 import { 
   GET_COUNTRIES,
   GET_DETAIL,
-  GET_ACTIVITIES,
   CREATE_ACTIVITY,
   COUNTRIES_ORDER_ASC,
   COUNTRIES_ORDER_DES,
@@ -39,6 +38,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_COUNTRIES:
       return {
         ...state,
+        detail: {},
         countries: action.payload,
       };
     case GET_DETAIL:

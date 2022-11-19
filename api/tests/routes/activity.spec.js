@@ -66,11 +66,11 @@ describe('Activity routes', () => {
   describe('POST an activity', () => {
     it('should get 200 when posting succesfully an activity', async () => {
       const res = await request(app).post('/activities').send(activity2);
-      expect(res.statusCode).to.eql(200);
+      expect(res.statusCode).to.eql(201);
     });
     it('the response should be an object', async () => {
       const res = await request(app).post('/activities').send(activity2);
-      expect(res.statusCode).to.eql(200);
+      expect(res.statusCode).to.eql(201);
     });
     it('should get -Activity created- msg when creating activity', async () => {
       const res = await request(app).post('/activities').send(activity2);

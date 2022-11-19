@@ -17,7 +17,7 @@ const getUser = async (req, res) => {
           ]
         }
       });
-      if(result.length === 0) return res.status(404).json({msg: 'Invalid user credentials'});
+      if(result.length === 0) return res.status(400).json({msg: 'Invalid user credentials'});
     } else {
       result = await User.findAll();
       if(result.length === 0) return res.status(404).json({msg: 'No users'})

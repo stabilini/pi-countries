@@ -48,6 +48,7 @@ function NavBar() {
       </div>
       <div className={ styles.exitContainer }>
         <SelectTheme />
+        <Button link='/about' text='About' />
         <Button link='/' text='Exit' />
       </div>
     </div>

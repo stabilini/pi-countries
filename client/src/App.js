@@ -7,6 +7,7 @@ import Home from './components/Home/Home.jsx';
 import Detail from './components/Detail/Detail.jsx'
 import CreateActivity from './components/CreateActivity/CreateActivity.jsx'
 import Page404 from './components/Page404/Page404.jsx';
+import About from './components/About/About.jsx';
 
 import styles from './App.module.css';
 import './App.css';
@@ -26,8 +27,11 @@ function App() {
         <Route exact path='/countries/:id'>
           <Detail />
         </Route>
-        <Route path='/newactivity'>
+        <Route exact path='/newactivity'>
           <CreateActivity />
+        </Route>
+        <Route exact path='/about'>
+          <About />
         </Route>
         <Route path="*">
           <Page404 />

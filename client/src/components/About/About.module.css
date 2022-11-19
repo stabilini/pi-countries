@@ -1,0 +1,158 @@
+@import '../../themes.css'; 
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.about {
+  text-align: center;
+  border-radius: 15px;
+  width: 85%;
+  margin-top: 4vh;
+  padding-bottom: 15px;
+  max-width: 550px;
+  min-width: 260px;
+}
+
+.about.Light {
+  background: var(--Light-about-background-color);
+  border: 2px solid var(--Light-about-border-color);
+  box-shadow:
+    0 0 0 3px var(--Light-about-shadow1-color),
+    0 0 0 5px var(--Light-about-shadow2-color);
+  color: var(--Light-about-text-color);
+}
+
+.about.Dark {
+  background: var(--Dark-about-background-color);
+  border: 2px solid var(--Dark-about-border-color);
+  box-shadow:
+    0 0 0 3px var(--Dark-about-shadow1-color),
+    0 0 0 5px var(--Dark-about-shadow2-color);
+  color: var(--Dark-about-text-color);
+}
+
+.about.Zen {
+  background: var(--Zen-about-background-color);
+  border: 2px solid var(--Zen-about-border-color);
+  box-shadow:
+    0 0 0 3px var(--Zen-about-shadow1-color),
+    0 0 0 5px var(--Zen-about-shadow2-color);
+  color: var(--Zen-about-text-color);
+}
+
+.about.Comp {
+  background: var(--Comp-about-background-color);
+  border: 2px solid var(--Comp-about-border-color);
+  box-shadow:
+    0 0 0 3px var(--Comp-about-shadow1-color),
+    0 0 0 5px var(--Comp-about-shadow2-color);
+  color: var(--Comp-about-text-color);
+}
+
+.sectionTitle {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.35em;
+  margin-top: 20px;
+}
+
+.sectionSubtitle {
+  font-size: 1.2em;
+  text-decoration: underline;
+}
+
+.sectionDetail {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.sectionDetail ul {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.sectionDetail li {
+  text-align: left;
+  margin-left: -10px;
+}
+
+.text {
+  padding: 5px 10px 5px 10px;
+  font-size: 1.1em;
+}
+
+.Light a {
+  color: var(--Light-about-link);
+}
+
+.Dark a {
+  color: var(--Dark-about-link);
+}
+
+.Zen a {
+  color: var(--Zen-about-link);
+  text-decoration: dashed;
+}
+
+.Comp a {
+  color: var(--Comp-about-link);
+  text-decoration: dashed;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.detailsContainer {
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 5px;
+  min-width: 200px;
+}
+
+.detailsContainer li {
+  margin-left: -20px; 
+}
+.detailsContainer.Light {
+  background: var(--Light-about-detail-container-bgcolor);
+  border: 1px solid var(--Light-about-detail-container-border);
+  color: var(--Light-about-detail-container-color);
+}
+
+.detailsContainer.Dark {
+  background: var(--Dark-about-detail-container-bgcolor);
+  border: 1px solid var(--Dark-about-detail-container-border);
+  color: var(--Dark-about-detail-container-color);
+}
+
+.detailsContainer.Zen {
+  background: var(--Zen-about-detail-container-bgcolor);
+  border: 1px solid var(--Zen-about-detail-container-border);
+  color: var(--Zen-about-detail-container-color);
+}
+
+.detailsContainer.Comp {
+  background: var(--Comp-about-detail-container-bgcolor);
+  border: 1px solid var(--Comp-about-detail-container-border);
+  color: var(--Comp-about-detail-container-color);
+}
+
+.activityName {
+  display: flex;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.activityDetail {
+  margin-left: 12px;
+  display: flex;
+}

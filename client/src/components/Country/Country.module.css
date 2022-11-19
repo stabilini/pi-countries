@@ -25,15 +25,11 @@
 }
 
 .container {
-  border-bottom-left-radius: 60px;
-  border-bottom-right-radius: 60px;
   display: flex;
   text-align: center;
   flex-direction: column;
   font-family:  Arial, Helvetica, sans-serif;
-  max-width: 210px;
   margin-bottom: 8px;
-  max-height: 280px;
 }
 
 .flag {
@@ -71,17 +67,47 @@
 }
 
 .title {
-  font-size: 1.25em;
-  margin: 3px;
   margin-top: auto;
-
 }
 
 .subTitle {
-  font-size: 1em;
-  margin: 3px;
   margin-top: auto;
+}
 
+@media (max-width: 459px) {
+  .container {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    max-width: 120px;
+    max-height: 320px;
+  }
+  .title {
+    font-size: 1.05em;
+    margin: 2px;
+  }
+  .subTitle {
+    font-size: 0.85em;
+    margin: 2px;
+    margin-top: auto;
+  }  
+}
+
+@media (min-width: 460px) {
+  .container {
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    max-width: 210px;
+    max-height: 280px;
+  }
+  .title {
+    font-size: 1.25em;
+    margin: 3px;
+  }
+  .subTitle {
+    font-size: 1em;
+    margin: 3px;
+    margin-top: auto;
+  }  
 }
 
 .infoSection {

@@ -82,6 +82,15 @@
   --Light-create-error-bgcolor: rgba(240, 225, 185, 0.687);
   --Light-create-error-color: red;
 
+  --Light-about-background-color: rgb(223, 233, 233);
+  --Light-about-shadow1-color: rgb(179, 179, 179);
+  --Light-about-shadow2-color: rgb(230, 230, 230);
+  --Light-about-border-color: rgb(0, 0, 0);
+  --Light-about-text-color: rgb(25, 25, 25);
+  --Light-about-link: rgb(43, 201, 93);
+  --Light-about-detail-container-bgcolor: rgb(240, 255, 255);
+  --Light-about-detail-container-border: rgb(0, 0, 0);
+  --Light-about-detail-container-color: rgb(0, 0, 0);
 
   /* --- DARK THEME --- */
   --Dark-app-background: url('./assets/app-background-dark.png');
@@ -165,6 +174,15 @@
   --Dark-create-error-bgcolor: rgba(254, 247, 178, 0.687);
   --Dark-create-error-color: rgb(84, 34, 34);
 
+  --Dark-about-background-color: rgb(92, 22, 46);
+  --Dark-about-shadow1-color: rgb(113, 101, 103);
+  --Dark-about-shadow2-color: rgb(115, 33, 33);
+  --Dark-about-border-color: rgb(40, 4, 4);
+  --Dark-about-text-color: rgb(232, 222, 224);
+  --Dark-about-link: rgb(251, 184, 49);
+  --Dark-about-detail-container-bgcolor: rgb(128, 93, 93);
+  --Dark-about-detail-container-border: rgb(0, 0, 0);
+  --Dark-about-detail-container-color: rgb(196, 186, 186);
 
   /* --- RETRO THEME --- */
   --Retro-background-color: rgb(187, 187, 187);
@@ -231,7 +249,7 @@
   --Zen-detail-background-color: rgb(255, 255, 255);
   /* --Zen-detail-background: url('./assets/background-detail.jpg'); */
   --Zen-detail-shadow1-color: rgb(255, 255, 255);
-  --Zen-detail-shadow2-color: rgba(0, 0, 0, 0);
+  --Zen-detail-shadow2-color: rgb(0, 0, 0);
   --Zen-detail-border-color: rgb(0, 0, 0);
   --Zen-detail-text-color: rgb(0, 0, 0);
   --Zen-detail-activity-container-bgcolor: rgb(255, 255, 255);
@@ -252,6 +270,15 @@
   --Zen-create-error-bgcolor: rgb(179, 179, 179);
   --Zen-create-error-color: rgb(0, 0, 0);
   
+  --Zen-about-background-color: rgb(255, 255, 255);
+  --Zen-about-shadow1-color: rgb(255, 255, 255);
+  --Zen-about-shadow2-color: rgb(0, 0, 0);
+  --Zen-about-border-color: rgb(0, 0, 0);
+  --Zen-about-text-color: rgb(0, 0, 0);
+  --Zen-about-link: rgb(126, 126, 126);
+  --Zen-about-detail-container-bgcolor: rgb(255, 255, 255);
+  --Zen-about-detail-container-border: rgb(0, 0, 0);
+  --Zen-about-detail-container-color: rgb(0, 0, 0);
 
 
   /* --- COMPONENTS THEME --- */
@@ -336,7 +363,15 @@
   --Comp-create-error-bgcolor: rgba(254, 247, 178, 0.687);
   --Comp-create-error-color: rgb(84, 34, 34);
 
-
+  --Comp-about-background-color: rgb(181, 244, 154);
+  --Comp-about-shadow1-color: rgb(130, 223, 77);
+  --Comp-about-shadow2-color: rgb(63, 215, 116);
+  --Comp-about-border-color: rgb(225, 75, 75);
+  --Comp-about-text-color: rgb(0, 0, 0);
+  --Comp-about-link: rgb(230, 8, 8);
+  --Comp-about-detail-container-bgcolor: rgb(148, 245, 208);
+  --Comp-about-detail-container-border: rgb(35, 32, 32);
+  --Comp-about-detail-container-color: rgb(0, 0, 0);
 }
 
 

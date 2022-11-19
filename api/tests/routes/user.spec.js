@@ -60,7 +60,7 @@ describe('User routes', () => {
     });
     it("should get 404 when mail and password don't combine", async () => {
       const res = await request(app).get("/users").send(user3);
-      expect(res.statusCode).to.eql(404);
+      expect(res.statusCode).to.eql(400);
     });
     it("should get 'Invalid user credentials' msg", async () => {
       const res = await request(app).get("/users").send(user4);
@@ -68,29 +68,29 @@ describe('User routes', () => {
     });
   });
   describe("CREATE user", () => {
-    it("should get 200 when creating a user", async () => {
+    it("should get 201 when creating a user", async () => {
       const res = await request(app).post("/users").send(user3);
-      expect(res.statusCode).to.eql(200);
+      expect(res.statusCode).to.eql(201);
     });
     it("should get 'User created' msg", async () => {
       const res = await request(app).post("/users").send(user4);
       expect(res.body).to.eql({msg: 'User created'});
     });
-    it("should get 404 when creating a user with missing mail", async () => {
+    it("should get 400 when creating a user with missing mail", async () => {
       const res = await request(app).post("/users").send({mail: "test@test.com"});
-      expect(res.statusCode).to.eql(404);
+      expect(res.statusCode).to.eql(400);
     });
     it("should get 'Missing information' msg", async () => {
       const res = await request(app).post("/users").send({mail: "test@test.com"});
-      expect(res.statusCode).to.eql(404);
+      expect(res.statusCode).to.eql(400);
     });
-    it("should get 404 when creating a user with missing password", async () => {
+    it("should get 400 when creating a user with missing password", async () => {
       const res = await request(app).post("/users").send({pass: "anydata"});
-      expect(res.statusCode).to.eql(404);
+      expect(res.statusCode).to.eql(400);
     });
     it("should get 'Missing information' msg", async () => {
       const res = await request(app).post("/users").send({pass: "anydata"});
-      expect(res.statusCode).to.eql(404);
+      expect(res.statusCode).to.eql(400);
     });
   });
   describe("UPDATE user", () => {
@@ -110,7 +110,7 @@ describe('User routes', () => {
                                                           mail: "wrong@mail.com",
                                                           pass: "anydata" 
                                                         });
-      expect(res.statusCode).to.eql(404);
+      expect(res.statusCode).to.eql(400);
     });
     it("should get 'Invalid user credentials' msg", async () => {
       const res = await request(app).put("/users").send({
@@ -140,7 +140,7 @@ describe('User routes', () => {
                                                             mail: "rick@astley.com",
                                                             pass: "wrongpassword" 
                                                           });
-      expect(res.statusCode).to.eql(404);
+      expect(res.statusCode).to.eql(400);
     });
     it("should get 'Invalid user credentials' msg", async () => {
       const res = await request(app).delete("/users").send({

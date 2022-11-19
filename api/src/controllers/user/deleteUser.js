@@ -24,10 +24,10 @@ const deleteUser = async (req, res) => {
             pass: hashedpass
           },
         });
-        res.status(200).json({msg: 'User deleted'});
+        return res.status(200).json({msg: 'User deleted'});
       }
     }
-    res.status(404).json({msg: 'Invalid user credentials'});
+    res.status(400).json({msg: 'Invalid user credentials'});
   } catch (error) {
     res.status(500).json({err: 'Conection to DB failed.', error})
   }

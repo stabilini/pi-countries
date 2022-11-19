@@ -16,23 +16,16 @@
   background: var(--Comp-background-color)
 }
 
-.container {
-  padding: 5px;
-  display: flex;
-  height: 100%;
+.logo {
+  height: 64px;
 }
 
-.container button {
-  margin-left: 4px;
-  height: 30px;
+.container {
+  height: 100%;
 }
 
 .container input {
   height: 24px;
-}
-
-.logo {
-  height: 64px;
 }
 
 .centerContainer {
@@ -52,30 +45,55 @@
 
 .exitContainer {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
 
 @media (max-width: 599px) {
-  .logoContainer {
-    display: none;
+  .container {
+    padding: 0px;
   }
+  
+  .container button {
+    margin-left: 1px;
+    height: 24px;
+  }
+  
   .exitContainer {
     width: 160px;
-    
+    width: 100%;
   }
+
 }
 
 @media (min-width: 600px) {
+  .container {
+    padding: 4px;
+    display: flex;
+  }
+  
+  .container button {
+    margin-left: 3px;
+    height: 30px;
+  }
+  
+  .exitContainer {
+    width: 350px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 659px) {
   .logoContainer {
-    width: 90px;
+    display: none;
+  }
+}
+
+@media (min-width: 660px) {
+  .logoContainer {
+    width: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .exitContainer {
-    width: 260px;
-    
   }
 }
