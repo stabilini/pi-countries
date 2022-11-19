@@ -7,7 +7,7 @@ import travolta from './../../assets/pulp-fiction-john-travolta.gif';
 import styles from './Page404.module.css';
 
 function Page404() {
-
+  
   const theme = useSelector(state => state.theme);
 
   return (

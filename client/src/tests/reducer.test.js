@@ -4,21 +4,25 @@ import {
   GET_DETAIL,
   GET_ACTIVITIES,
   CREATE_ACTIVITY,
-  FILTER_ACTIVITY,
   COUNTRIES_ORDER_ASC,
   COUNTRIES_ORDER_DES,
+  COUNTRIES_ORDER_RANDOM,
   COUNTRIES_FILTER_CONTINENT,
   COUNTRIES_FILTER_ACTIVITY,
   SET_PAGE_VIEW,
+  FILTER_ACTIVITY,
+  SET_THEME
 } from '../redux/actions/index';
 
 
-xdescribe('Reducer', () => {
+describe('Reducer', () => {
   const state = {
     countries: [],
     detail: {},
-    // activities: [],
-    filterActivity: {},
+    activity: {},
+    filterActivity: {
+      'No activities': true,
+    },
     filterContinent: {
       Africa: true,
       Antarctica: true,
@@ -29,27 +33,12 @@ xdescribe('Reducer', () => {
       'North America': true,
     },
     page: 1,
-    order: {},
+    order: { asc: 'name' },
+    theme: 'Light',
   };
 
   it('Should return initial state if no valid type is passed', () => {
-    expect(rootReducer(undefined, [])).toEqual({
-      countries: [],
-      detail: {},
-      // activities: [],
-      filterActivity: {},
-      filterContinent: {
-        Africa: true,
-        Antarctica: true,
-        Asia: true,
-        Europe: true,
-        Oceania: true,
-        'South America': true,
-        'North America': true,
-      },
-      page: 1,
-      order: {},
-    });
+    expect(rootReducer(undefined, [])).toEqual(state);
   });
 
   it('Should load countries when action GET_COUNTRIES is called', () => {
@@ -71,31 +60,26 @@ xdescribe('Reducer', () => {
     expect(result).toHaveProperty('detail', {id: 1});
   });
 
-  // TESTING DE GET ACTIVITIES ?????????
-
-  xit('Should create an activity when action CREATE_ACTIVITY is called', () => {
+  it('Should create an activity when action CREATE_ACTIVITY is called', () => {
     const result = rootReducer(state, {
       type: CREATE_ACTIVITY,
       payload: {id: 1},
     });
-    //{ name, skill, duration, season, countries } lo que va al back
-    // EL PROBLEMA ESTA EN QUE EN EL STATE ESTA COMENTADO
-    // activities ... LO QUE VIENE EN EL PAYLOAD ES LA RESPUESTA
-    // DEL SERVIDOR CON EL MENSAJE Activity created o algo asi
     expect(result).not.toEqual(state);
-    // expect(result).toHaveProperty('detail', {id: 1});
+    expect(result).toHaveProperty('activity', {id: 1});
   });
 
   it('Should set activity filter when action FILTER_ACTIVITY is called', () => {
     const result = rootReducer(state, {
       type: FILTER_ACTIVITY,
-      payload: {Running: true},
+      payload: {'Running': true},
     });
     expect(result).not.toEqual(state);
-    expect(result).toHaveProperty('filterActivity', {Running: true});
+    expect(result).toHaveProperty('filterActivity');
+    expect(result.filterActivity).toHaveProperty('Running');
   });
 
-  it('Should order countries alphabetically ascending when action COUNTRIES_ORDER_ASC is called', () => {
+  xit('Should order countries by name ascending when action COUNTRIES_ORDER_ASC is called', () => {
     const result = rootReducer(state, {
       type: COUNTRIES_ORDER_ASC,
       payload: 'name',
@@ -104,7 +88,7 @@ xdescribe('Reducer', () => {
     expect(result).toHaveProperty('order', {asc: 'name'});
   });
 
-  it('Should order countries alphabetically descending when action COUNTRIES_ORDER_DES is called', () => {
+  it('Should order countries by name descending when action COUNTRIES_ORDER_DES is called', () => {
     const result = rootReducer(state, {
       type: COUNTRIES_ORDER_DES,
       payload: 'name',
@@ -131,29 +115,43 @@ xdescribe('Reducer', () => {
     expect(result).toHaveProperty('order', {desc: 'population'});
   });
 
-  // LOS DOS FILTROS VER SI VAN, CREO QUE NO SE USAN MAS
-  // PORQUE NO FILTRA POR 
-  xit('Should filter countries by continent when action COUNTRIES_FILTER_CONTINENT is called', () => {
-    state.countries = [
-        { continent: 'Europe' },
-        { continent: 'Asia' },
-        { continent: 'America' }
-    ]
+  it('Should order countries randomly when action COUNTRIES_ORDER_RANDOM is called', () => {
     const result = rootReducer(state, {
-      type: COUNTRIES_FILTER_CONTINENT,
-      payload: 'Europe',
+      type: COUNTRIES_ORDER_RANDOM,
+      payload: null,
     });
     expect(result).not.toEqual(state);
-    expect(result.countries).toHaveLength(1);
   });
 
-  xit('Should filter countries by activities when action COUNTRIES_FILTER_ACTIVITY is called', () => {
+  it('Should filter countries by continent when action COUNTRIES_FILTER_CONTINENT is called', () => {
     const result = rootReducer(state, {
-      type: COUNTRIES_FILTER_ACTIVITY,
-      payload: 'Fishing',
+      type: COUNTRIES_FILTER_CONTINENT,
+      payload: {
+        Africa: false,
+        Antarctica: true,
+        Asia: true,
+        Europe: true,
+        Oceania: true,
+        'South America': true,
+        'North America': true,
+      },
     });
     expect(result).not.toEqual(state);
-    expect(result).toHaveProperty('filterContinent');
+    expect(result.filterContinent.Africa).toBe(false);
+    expect(result.filterContinent.Asia).toBe(true);
+  });
+
+  it('Should filter countries by activities when action COUNTRIES_FILTER_ACTIVITY is called', () => {
+    const result = rootReducer(state, {
+      type: COUNTRIES_FILTER_ACTIVITY,
+      payload: {
+        Fishing: false,
+        Running: true,
+      },
+    });
+    expect(result).not.toEqual(state);
+    expect(result.filterActivity.Fishing).toBe(false);
+    expect(result.filterActivity.Running).toBe(true);
   });
 
   it('Should set page view from pagination when action SET_PAGE_VIEW is called', () => {
@@ -163,5 +161,14 @@ xdescribe('Reducer', () => {
     });
     expect(result).not.toEqual(state);
     expect(result).toHaveProperty('page', 5);
+  });
+
+  it('Should set theme when action SET_THEME is called', () => {
+    const result = rootReducer(state, {
+      type: SET_THEME,
+      payload: 'Dark',
+    });
+    expect(result).not.toEqual(state);
+    expect(result).toHaveProperty('theme', 'Dark');
   });
 });

@@ -21,16 +21,15 @@ export function createTestStore() {
   return store;
 }
 
-describe('<LandingPage />', () => {
+xdescribe('<LandingPage />', () => {
   
   beforeEach(() => {
     store = createTestStore();
   });
   
 
-  test('render LandingPage component', async () => {
+  test('render Detail component', async () => {
     // Create redux store
-    console.log(store);
     const { findByText } = render(
       <Provider store={ store }>
         <BrowserRouter>
@@ -39,6 +38,7 @@ describe('<LandingPage />', () => {
       </Provider>
     );
     await findByText('Continent');
+    await findByText('Activities');
     // render(<LandingPage />);
     // expect(screen.getByRole('button')).toHaveTextContent('Start');
     // expect(screen.getByText('Start')).toHaveAttribute('href', '/countries');

@@ -2,7 +2,6 @@
 
 export const GET_COUNTRIES = 'GET_COUNTRIES';
 export const GET_DETAIL = 'GET_DETAIL';
-export const GET_ACTIVITIES = 'GET_ACTIVITIES';
 export const CREATE_ACTIVITY = 'CREATE_ACTIVITY';
 export const SET_PAGE_VIEW = 'SET_PAGE_VIEW';
 export const FILTER_ACTIVITY = 'FILTER_ACTIVITY';
@@ -65,14 +64,6 @@ export const getDetail = (id) => {
       // })
       .then(res => res.json())
       .then(obj => dispatch({type: GET_DETAIL, payload: obj}))
-  }
-}
-
-export const getActivities = () => {
-  return function(dispatch) {
-    return fetch(URL + 'activities')
-      .then(res => res.json())
-      .then(obj => dispatch({type: GET_ACTIVITIES, payload: obj}))
   }
 }
 

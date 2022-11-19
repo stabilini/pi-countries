@@ -16,6 +16,7 @@ import {
 const initialState = {
   countries: [],
   detail: {},
+  activity: {},
   filterActivity: {
     'No activities': true
   },
@@ -45,15 +46,10 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         detail: action.payload,
       }
-    case GET_ACTIVITIES:
-      return {
-        ...state,
-        activities: action.payload,
-      }
     case CREATE_ACTIVITY:
       return {
         ...state,
-        activities: [...state.activities, action.payload],
+        activity: action.payload,
       }
     case FILTER_ACTIVITY:
       return {

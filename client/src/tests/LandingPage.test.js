@@ -21,7 +21,7 @@ export function createTestStore() {
   return store;
 }
 
-describe('<LandingPage />', () => {
+xdescribe('<LandingPage />', () => {
   
   beforeEach(() => {
     store = createTestStore();
