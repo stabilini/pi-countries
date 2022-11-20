@@ -9,6 +9,7 @@ export const COUNTRIES_ORDER_RANDOM = 'COUNTRIES_ORDER_RANDOM';
 export const COUNTRIES_FILTER_CONTINENT = 'COUNTRIES_FILTER_CONTINENT';
 export const COUNTRIES_FILTER_ACTIVITY = 'COUNTRIES_FILTER_ACTIVITY';
 export const SET_THEME = 'SET_THEME';
+export const SET_ERROR = 'SET_ERROR';
 
 export const URL = 'http://localhost:3001/';
 
@@ -16,9 +17,12 @@ export const getCountries = (name) => {
   return function(dispatch) {
     return fetch(name ? URL + 'countries?name=' + name : URL + 'countries')
       .then(res => res.json())
-      .then(obj => obj.map(v => v.activities.length === 0 ? {...v, activities: [{name: 'No activities'}]} : {...v}))
-      .then(obj => dispatch({type: GET_COUNTRIES, payload: obj}))
-      .catch(error => console.log(error))
+      .then(obj => obj.status === 'ok' ?
+                    dispatch({type: GET_COUNTRIES, payload: obj.data.map(v => v.activities.length === 0 ? {...v, activities: [{name: 'No activities'}]} : {...v})})
+                    :
+                    dispatch({type: SET_ERROR, payload: obj.msg})
+      )
+      .catch(error => dispatch({type: SET_ERROR, payload: error.msg}))
   }
 };
 
@@ -26,17 +30,25 @@ export const getDetail = (id) => {
   return function(dispatch) {
     return fetch(URL + 'countries/' + id)
       .then(res => res.json())
-      .then(obj => dispatch({type: GET_DETAIL, payload: obj}))
+      .then(obj => obj.status === 'ok' ?
+                    dispatch({type: GET_DETAIL, payload: obj.data})
+                    :
+                    dispatch({type: SET_ERROR, payload: obj.msg})
+      )
+      .catch(error => dispatch({type: SET_ERROR, payload: error.msg}))
   }
 }
-
-
 
 export const getFilterActivities = () => {
   return function(dispatch) {
     return fetch(URL + 'activities')
       .then(res => res.json())
-      .then(obj => dispatch({type: FILTER_ACTIVITY, payload: obj}))
+      .then(obj => obj.status === 'ok' ?
+                    dispatch({type: FILTER_ACTIVITY, payload: obj.data})
+                    :
+                    dispatch({type: SET_ERROR, payload: obj.msg})
+      )
+      .catch(error => dispatch({type: SET_ERROR, payload: error.msg}))
   }
 }
 
@@ -48,8 +60,12 @@ export const createActivity = (payload) => {
                   headers: {'Content-type': 'application/json; charset=UTF-8'}
                 })
       .then(res => res.json())
-      .then(obj => dispatch({type: CREATE_ACTIVITY, payload: obj}))
-      .catch(error => console.log(error))
+      .then(obj => obj.status === 'ok' ?
+                    dispatch({type: CREATE_ACTIVITY, payload: obj.data})
+                    :       
+                    dispatch({type: SET_ERROR, payload: 'obj.msg'})
+      )
+      .catch(error => dispatch({type: SET_ERROR, payload: error.msg}))
   }
 }
 
@@ -104,6 +120,15 @@ export const setTheme = (theme) => {
     return dispatch({
       type: SET_THEME,
       payload: theme
+    })
+  }
+}
+
+export const cleanError = () => {
+  return function(dispatch) {
+    return dispatch({
+      TYPE: SET_ERROR,
+      payload: ''
     })
   }
 }

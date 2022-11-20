@@ -43,11 +43,11 @@ describe('User routes', () => {
     });
     it("should return 2 users", async () => {
       const res = await request(app).get("/users");
-      expect(res.body.length).to.eql(2);
+      expect(res.body.data.length).to.eql(2);
     });
     it("the response should be an array", async () => {
       const res = await request(app).get("/users");
-      expect(res.statusCode).to.eql(200);
+      expect(res.body.data).to.be.an('array');
     });
   })
   describe("GET user by mail and password", () => {
@@ -62,9 +62,9 @@ describe('User routes', () => {
       const res = await request(app).get("/users").send(user3);
       expect(res.statusCode).to.eql(400);
     });
-    it("should get 'Invalid user credentials' msg", async () => {
+    it("should get 'Invalid user credentials.' msg", async () => {
       const res = await request(app).get("/users").send(user4);
-      expect(res.body).to.eql({msg: 'Invalid user credentials'});
+      expect(res.body.msg).to.eql('Invalid user credentials.');
     });
   });
   describe("CREATE user", () => {
@@ -72,25 +72,28 @@ describe('User routes', () => {
       const res = await request(app).post("/users").send(user3);
       expect(res.statusCode).to.eql(201);
     });
-    it("should get 'User created' msg", async () => {
+    it("should get 'User created.' msg", async () => {
       const res = await request(app).post("/users").send(user4);
-      expect(res.body).to.eql({msg: 'User created'});
+      expect(res.body.msg).to.eql('User created.');
     });
     it("should get 400 when creating a user with missing mail", async () => {
-      const res = await request(app).post("/users").send({mail: "test@test.com"});
-      expect(res.statusCode).to.eql(400);
-    });
-    it("should get 'Missing information' msg", async () => {
-      const res = await request(app).post("/users").send({mail: "test@test.com"});
+      const res = await request(app).post("/users").send({pass: "anydata"});
       expect(res.statusCode).to.eql(400);
     });
     it("should get 400 when creating a user with missing password", async () => {
-      const res = await request(app).post("/users").send({pass: "anydata"});
+      const res = await request(app).post("/users").send({pass: "nico@stabilini.com"});
       expect(res.statusCode).to.eql(400);
     });
-    it("should get 'Missing information' msg", async () => {
-      const res = await request(app).post("/users").send({pass: "anydata"});
-      expect(res.statusCode).to.eql(400);
+    it("should get 'Missing information.' msg", async () => {
+      const res = await request(app).post("/users").send({mail: "test@test.com"});
+      expect(res.body.msg).to.eql('Missing information.');
+    });
+    it("should get 'Bad email format.' msg when using invalid email", async () => {
+      const res = await request(app).post("/users").send({
+                                                            mail: "not.a.valid.email",
+                                                            pass: "valid.pass"
+                                                          });
+      expect(res.body.msg).to.eql('Bad email format.');
     });
   });
   describe("UPDATE user", () => {
@@ -101,9 +104,9 @@ describe('User routes', () => {
                                                         });
       expect(res.statusCode).to.eql(200);
     });
-    it("should get 'User created' msg", async () => {
+    it("should get 'User updated.' msg", async () => {
       const res = await request(app).put("/users").send(user4);
-      expect(res.body).to.eql({msg: 'User updated'});
+      expect(res.body.msg).to.eql('User updated.');
     });
     it("should get 404 when updating a user with wrong credentials", async () => {
       const res = await request(app).put("/users").send({
@@ -112,12 +115,12 @@ describe('User routes', () => {
                                                         });
       expect(res.statusCode).to.eql(400);
     });
-    it("should get 'Invalid user credentials' msg", async () => {
+    it("should get 'Invalid user credentials.' msg", async () => {
       const res = await request(app).put("/users").send({
                                                           mail: "wrongmail",
                                                           pass: "anydata" 
                                                         });
-      expect(res.body).to.eql({msg: 'Invalid user credentials'});
+      expect(res.body.msg).to.eql('Invalid user credentials.');
     });
   });
   describe("DELETE user", () => {
@@ -128,12 +131,12 @@ describe('User routes', () => {
                                                           });
       expect(res.statusCode).to.eql(200);
     });
-    it("should get 'User deleted' msg", async () => {
+    it("should get 'User deleted.' msg", async () => {
       const res = await request(app).delete("/users").send({
                                                             mail: "donald@trump.com",
                                                             pass: "56789"
                                                           });
-      expect(res.body).to.eql({msg: 'User deleted'});
+      expect(res.body.msg).to.eql('User deleted.');
     });
     it("should get 404 when deleting a user with wrong credentials", async () => {
       const res = await request(app).delete("/users").send({
@@ -142,12 +145,12 @@ describe('User routes', () => {
                                                           });
       expect(res.statusCode).to.eql(400);
     });
-    it("should get 'Invalid user credentials' msg", async () => {
+    it("should get 'Invalid user credentials.' msg", async () => {
       const res = await request(app).delete("/users").send({
                                                             mail: "elon@musk.com",
                                                             pass: "wrongpassword" 
                                                           });
-      expect(res.body).to.eql({msg: 'Invalid user credentials'});
+      expect(res.body.msg).to.eql('Invalid user credentials.');
     });
   });
 });

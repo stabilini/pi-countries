@@ -9,7 +9,8 @@ import {
   COUNTRIES_FILTER_ACTIVITY,
   SET_PAGE_VIEW,
   FILTER_ACTIVITY,
-  SET_THEME
+  SET_THEME,
+  SET_ERROR
   } from '../actions';
 
 const initialState = {
@@ -30,7 +31,8 @@ const initialState = {
   },
   page: 1,
   order: { asc: 'name'},
-  theme: 'Light'
+  theme: 'Light',
+  error: ''
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -93,6 +95,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         theme: action.payload
+      }
+    case SET_ERROR:
+      return {
+        ...state,
+        error: action.payload
       }
     default:
       return state;

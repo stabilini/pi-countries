@@ -59,7 +59,7 @@ describe('Activity routes', () => {
     });
     it('the response should be an object', async () => {
       const res = await request(app).get('/activities');
-      expect(res.statusCode).to.eql(200);
+      expect(res.body).to.be.an('object');
     });
   });
 
@@ -70,15 +70,19 @@ describe('Activity routes', () => {
     });
     it('the response should be an object', async () => {
       const res = await request(app).post('/activities').send(activity2);
-      expect(res.statusCode).to.eql(201);
+      expect(res.body).to.be.an('object');
+    });
+    it('should get -ok- status when creating activity', async () => {
+      const res = await request(app).post('/activities').send(activity2);
+      expect(res.body.status).to.eql('ok');
     });
     it('should get -Activity created- msg when creating activity', async () => {
       const res = await request(app).post('/activities').send(activity2);
-      expect(res.body).to.eql({msg: 'Activity created and linked'});
+      expect(res.body.msg).to.eql('Activity created and linked.');
     });
     it('should get -Activity created and linked- msg when also sending countries', async () => {
       const res = await request(app).post('/activities').send(activity2);
-      expect(res.body).to.eql({msg: 'Activity created and linked'});
+      expect(res.body.msg).to.eql('Activity created and linked.');
     });
   })
 });

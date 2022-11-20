@@ -5,13 +5,20 @@
   justify-content: center;
 }
 
+.langButton {
+  position: relative;
+  top: 5px;
+  right: 5px;
+  text-align: right;
+}
+
 .about {
   text-align: center;
   border-radius: 15px;
   width: 85%;
   margin-top: 4vh;
   padding-bottom: 15px;
-  max-width: 550px;
+  max-width: 700px;
   min-width: 260px;
 }
 
@@ -55,7 +62,18 @@
   font-weight: bold;
   font-style: italic;
   font-size: 1.35em;
-  margin-top: 20px;
+}
+
+@media (max-width: 499px) {
+  .sectionTitle {
+    margin-top: 0px;
+  }
+}
+
+@media (min-width: 500px) {
+  .sectionTitle {
+    margin-top: -25px;
+  }
 }
 
 .sectionSubtitle {

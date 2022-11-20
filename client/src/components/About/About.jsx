@@ -23,7 +23,9 @@ const About = () => {
     <>
       <div className={ styles.container }>
         <span className={ `${styles.about} ${styles[theme]}` }>
-          <Button onClick={handleSubmit} text={lang === 'esp' ? 'English' : 'Español'} />
+          <div className={ styles.langButton }>
+            <Button onClick={handleSubmit} text={lang === 'esp' ? 'English' : 'Español'}/>
+          </div>
           <div className={ styles.sectionTitle }>
             {lang === 'esp' ? `Acerca de este proyecto` : `About this project`}
           </div>
@@ -64,9 +66,9 @@ const About = () => {
           </div>
           <div className={ styles.text }>
             {lang === 'esp' ?
-              `Se realizan 48 tests en al backend y 16 en el frontend.`
+              `Se realizan 49 tests en al backend y 16 en el frontend.`
               :
-              `48 tests in backend and 16 in frontend.`
+              `49 tests in backend and 16 in frontend.`
             }
           </div>
           <div className={ styles.text }>

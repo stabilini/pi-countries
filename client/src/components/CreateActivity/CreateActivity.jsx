@@ -92,8 +92,8 @@ const CreateActivity = () => {
   }, [dispatch])
 
   const handleSubmit = e => {
-    // setIsLoading(true);
     e.preventDefault();
+    // setIsLoading(true);
     dispatch(createActivity(input));
     setInput({
       name: '',

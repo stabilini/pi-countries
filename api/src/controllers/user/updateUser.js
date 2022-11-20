@@ -12,12 +12,12 @@ const updateUser = async (req, res) => {
           mail: mail,
         },
       });
-      if(result[0] === 0) return res.status(400).json({msg: 'Invalid user credentials'});
-      return res.status(200).json({msg: 'User updated'});
+      if(result[0] === 0) return res.status(400).json({status: 'error', msg: 'Invalid user credentials.', data: []});
+      return res.status(200).json({status: 'ok', msg: 'User updated.', data: result});
     }
-    res.status(400).json({msg: 'Invalid user credentials'});
+    res.status(400).json({status: 'error', msg: 'Invalid user credentials.', data: []});
   } catch (error) {
-    res.status(500).json({err: 'Conection to DB failed.', error})
+    res.status(500).json({status: 'error', msg: 'Conection to DB failed.', data: error})
   }
 };
 

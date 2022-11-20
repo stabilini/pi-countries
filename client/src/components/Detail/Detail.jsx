@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { getDetail } from '../../redux/actions';
+import { getDetail, cleanerro } from '../../redux/actions';
 
 import Button from '../Button/Button';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.jsx';
@@ -16,7 +16,8 @@ const Detail = () => {
 
   const dispatch = useDispatch();
   const detail = useSelector(state => state.detail)[0];
-  let theme = useSelector(state => state.theme);
+  const error = useSelector(state => state.error);
+  const theme = useSelector(state => state.theme);
   const [isLoading, setIsLoading] = useState(false);
 
   // useEffect(() => {
@@ -97,7 +98,7 @@ const Detail = () => {
         ) : (
           <div className={ styles.section }>
             <h3>
-              An error ocurred, there are no details.
+              An error ocurred: {error}
             </h3>
           </div>
           )

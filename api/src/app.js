@@ -25,31 +25,7 @@ server.use((req, res, next) => {
   next();
 });
 
-// ------- ESTO SALE --------
-// TIENE QUE IR A OTRO LADO? NO SE, VER SI SE PUEDE DEPLOYAR CAMBIANDO
-// EL BULKCREATE POR EL FOR COMO ESTABA ANTES
-// obtiene los datos de la API y los guarda en la DB, solo se ejecuta al levantar el back
-// VER FRANCO 12 REACT REDUX 46.33 DEL LECTURE QUE EXPLICA ALGO DE AXIOS (para sacar el let countries = data.data)
-axios
-  .get('https://restcountries.com/v3.1/all')
-  .then(data => {
-    let bulk = data.data.map(c => ({
-      id: c.cca3,
-      name: c.name.common,
-      flag: c.flags.png,
-      continent: c.continents[0],
-      capital: c.capital ? c.capital[0] : 'n/d',
-      subregion: c.subregion ? c.subregion : 'n/d',
-      area: c.area >= 0 ? c.area : 0,
-      population: c.population >= 0 ? c.population : 0
-    }))
-    Country.bulkCreate(bulk);
-  })
-  .then(console.log('Countries loaded from external API.'))
-  .catch(error => {
-    console.log(error);
-  });
-// ------- ESTO SALE --------
+
 
 server.use('/', routes);
 

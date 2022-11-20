@@ -31,7 +31,7 @@ describe('Country routes', () => {
     });
     it("the response should be an array", async () => {
       const res = await request(app).get("/countries");
-      expect(res.statusCode).to.eql(200);
+      expect(res.body.data).to.be.an('array');
     });
   })
   describe("GET country by params", () => {
@@ -43,9 +43,9 @@ describe('Country routes', () => {
       const res = await request(app).get("/countries/ZZZ");
       expect(res.statusCode).to.eql(404);
     });
-    it("should get 'No countries.' msg", async () => {
+    it("should get 'No country.' msg", async () => {
       const res = await request(app).get("/countries/ZZZ");
-      expect(res.body).to.eql({msg: 'No countries'});
+      expect(res.body.msg).to.eql('No countries.');
     });
   });
   describe("GET country by query", () => {
@@ -59,7 +59,7 @@ describe('Country routes', () => {
     });
     it("should get 'No countries.' msg", async () => {
       const res = await request(app).get("/countries?name=zzz");
-      expect(res.body).to.eql({msg: 'No countries'});
+      expect(res.body.msg).to.eql('No countries.');
     });
   });
 });
