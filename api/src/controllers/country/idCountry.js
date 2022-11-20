@@ -2,6 +2,8 @@ const { Country, Activity } = require('../../db.js');
 
 const findByIdCountry = async (req, res) => {
   try {
+    // Para testear demora del servidor
+    // await new Promise(resolve => setTimeout(resolve, 3000));
     let { idCountry } = req.params;
     if (idCountry.length > 3) return res.status(404).json({status: 'error', msg: 'Invalid ID length.', data: []});
     let result = await Country.findAll({

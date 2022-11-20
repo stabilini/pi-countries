@@ -1,12 +1,13 @@
 @import '../../themes.css'; 
 
 .spinnerLoading {
-  width: 50px;
-  height: 50px;
-  border: 10px solid #f3f3f3; /* Light grey */
-  border-top: 10px solid #383636; /* Blue */
-  border-radius: 50%;
-  animation: spinner 1.5s linear infinite;
+  width: 120px;
+  height: 120px;
+  animation: spinner 3s linear infinite;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  margin: auto;
 }
 
 .spinnerContainer {
@@ -16,24 +17,43 @@
   height: 350px;
 }
 
-.spinnerLoading.Light {
-  border: 10px solid #f3f3f3; /* Light grey */
-  border-top: 10px solid #383636; /* Blue */
+.text {
+  font-size: 2em;
+  font-style: italic;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.text.Light {
+  color: var(--Light-detail-text-color);
+  background: var(--Light-detail-background-color);
+  border: 1px solid var(--Light-detail-shadow1-color);
+}
+
+.text.Dark {
+  color: var(--Dark-detail-text-color);
+  background: var(--Dark-detail-background-color);
+  border: 1px solid var(--Dark-detail-shadow1-color);
+}
+
+.text.Zen {
+  color: var(--Zen-detail-text-color);
+  background: var(--Zen-detail-background-color);
+  border: 1px solid var(--Zen-detail-shadow1-color);
+}
+
+.text.Comp {
+  color: var(--Comp-detail-text-color);
+  background: var(--Comp-detail-background-color);
+  border: 1px solid var(--Comp-detail-shadow1-color);
 }
 
 .spinnerLoading.Dark {
-  border: 10px solid #f3f3f3; /* Light grey */
-  border-top: 10px solid #383636; /* Blue */
-}
-
-.spinnerLoading.Zen {
-  border: 10px solid #f3f3f3; /* Light grey */
-  border-top: 10px solid #383636; /* Blue */
+  filter: invert();
 }
 
 .spinnerLoading.Comp {
-  border: 10px solid #f3f3f3; /* Light grey */
-  border-top: 10px solid #383636; /* Blue */
+  filter: sepia();
 }
 
 @keyframes spinner {

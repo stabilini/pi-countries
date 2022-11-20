@@ -66,9 +66,9 @@ const About = () => {
           </div>
           <div className={ styles.text }>
             {lang === 'esp' ?
-              `Se realizan 49 tests en al backend y 16 en el frontend.`
+              `Se realizan 50 tests en al backend y 16 en el frontend.`
               :
-              `49 tests in backend and 16 in frontend.`
+              `50 tests in backend and 16 in frontend.`
             }
           </div>
           <div className={ styles.text }>

@@ -1,7 +1,9 @@
 import { 
   GET_COUNTRIES,
   GET_DETAIL,
+  CLEAN_DETAIL,
   CREATE_ACTIVITY,
+  CLEAN_ACTIVITY,
   COUNTRIES_ORDER_ASC,
   COUNTRIES_ORDER_DES,
   COUNTRIES_ORDER_RANDOM,
@@ -10,7 +12,8 @@ import {
   SET_PAGE_VIEW,
   FILTER_ACTIVITY,
   SET_THEME,
-  SET_ERROR
+  SET_ERROR,
+  SET_LOADING
   } from '../actions';
 
 const initialState = {
@@ -32,7 +35,8 @@ const initialState = {
   page: 1,
   order: { asc: 'name'},
   theme: 'Light',
-  error: ''
+  error: '',
+  loading: false
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -40,10 +44,16 @@ const rootReducer = (state = initialState, action) => {
     case GET_COUNTRIES:
       return {
         ...state,
-        detail: {},
         countries: action.payload,
+        error: '',
       };
     case GET_DETAIL:
+      return {
+        ...state,
+        detail: action.payload,
+        error: '',
+      }
+    case CLEAN_DETAIL:
       return {
         ...state,
         detail: action.payload,
@@ -52,6 +62,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         activity: action.payload,
+        error: '',
+      }
+    case CLEAN_ACTIVITY:
+      return {
+        ...state,
+        detail: action.payload,
       }
     case FILTER_ACTIVITY:
       return {
@@ -100,6 +116,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload
+      }
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: action.payload
       }
     default:
       return state;

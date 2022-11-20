@@ -2,8 +2,9 @@ import rootReducer from '../redux/reducer/index';
 import {
   GET_COUNTRIES,
   GET_DETAIL,
-  GET_ACTIVITIES,
+  CLEAN_DETAIL,
   CREATE_ACTIVITY,
+  CLEAN_ACTIVITY,
   COUNTRIES_ORDER_ASC,
   COUNTRIES_ORDER_DES,
   COUNTRIES_ORDER_RANDOM,
@@ -21,7 +22,7 @@ describe('Reducer', () => {
     detail: {},
     activity: {},
     filterActivity: {
-      'No activities': true,
+      'No activities': true
     },
     filterContinent: {
       Africa: true,
@@ -33,8 +34,10 @@ describe('Reducer', () => {
       'North America': true,
     },
     page: 1,
-    order: { asc: 'name' },
+    order: { asc: 'name'},
     theme: 'Light',
+    error: '',
+    loading: false
   };
 
   it('Should return initial state if no valid type is passed', () => {
@@ -60,6 +63,16 @@ describe('Reducer', () => {
     expect(result).toHaveProperty('detail', {id: 1});
   });
 
+  it('Should clear detail when action CLEAN_DETAIL is called', () => {
+    state.detail = {id: 1}
+    const result = rootReducer(state, {
+      type: CLEAN_DETAIL,
+      payload: {},
+    });
+    expect(result).not.toEqual(state);
+    expect(result).toHaveProperty('detail', {});
+  });
+
   it('Should create an activity when action CREATE_ACTIVITY is called', () => {
     const result = rootReducer(state, {
       type: CREATE_ACTIVITY,
@@ -67,6 +80,16 @@ describe('Reducer', () => {
     });
     expect(result).not.toEqual(state);
     expect(result).toHaveProperty('activity', {id: 1});
+  });
+
+  it('Should clear activity when action CLEAN_ACTIVITY is called', () => {
+    state.activity = {id: 1}
+    const result = rootReducer(state, {
+      type: CLEAN_ACTIVITY,
+      payload: {},
+    });
+    expect(result).not.toEqual(state);
+    expect(result).toHaveProperty('detail', {});
   });
 
   it('Should set activity filter when action FILTER_ACTIVITY is called', () => {
@@ -79,7 +102,8 @@ describe('Reducer', () => {
     expect(result.filterActivity).toHaveProperty('Running');
   });
 
-  xit('Should order countries by name ascending when action COUNTRIES_ORDER_ASC is called', () => {
+  it('Should order countries by name ascending when action COUNTRIES_ORDER_ASC is called', () => {
+    state.order = { asc: 'population'}
     const result = rootReducer(state, {
       type: COUNTRIES_ORDER_ASC,
       payload: 'name',

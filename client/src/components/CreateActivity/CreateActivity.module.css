@@ -92,19 +92,6 @@
 .orderedList.Comp {
   color: var(--Comp-ordered-list-color);
 }
-/*
-.section input {
-  margin-right: 3px;
-}
-
-.numberInput {
-  width: 50px;
-}
-
-.input:focus {
-  border: 2px solid red;
-  outline: none;
-} */
 
 .box{
   height: 200px;

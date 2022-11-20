@@ -39,13 +39,17 @@ describe('Country routes', () => {
       const res = await request(app).get("/countries/ARG");
       expect(res.statusCode).to.eql(200);
     });
-    it("should get 404 when country doesn't exist", async () => {
+    it("should get 200 when country doesn't exist", async () => {
       const res = await request(app).get("/countries/ZZZ");
       expect(res.statusCode).to.eql(404);
     });
-    it("should get 'No country.' msg", async () => {
+    it("should get 'No country with that ID.' msg", async () => {
       const res = await request(app).get("/countries/ZZZ");
-      expect(res.body.msg).to.eql('No countries.');
+      expect(res.body.msg).to.eql('No country with that ID.');
+    });
+    it("should get 'Invalid ID length.' msg if more than 3 letters in params", async () => {
+      const res = await request(app).get("/countries/ZZZZ");
+      expect(res.body.msg).to.eql('Invalid ID length.');
     });
   });
   describe("GET country by query", () => {
@@ -53,9 +57,9 @@ describe('Country routes', () => {
       const res = await request(app).get("/countries?name=arg");
       expect(res.statusCode).to.eql(200);
     });
-    it("should get 404 when country doesn't exist", async () => {
+    it("should get 200 when country doesn't exist", async () => {
       const res = await request(app).get("/countries?name=zzz");
-      expect(res.statusCode).to.eql(404);
+      expect(res.statusCode).to.eql(200);
     });
     it("should get 'No countries.' msg", async () => {
       const res = await request(app).get("/countries?name=zzz");

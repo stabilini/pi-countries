@@ -63,7 +63,7 @@ describe('Activity routes', () => {
     });
   });
 
-  describe('POST an activity', () => {
+  describe('CREATE an activity', () => {
     it('should get 200 when posting succesfully an activity', async () => {
       const res = await request(app).post('/activities').send(activity2);
       expect(res.statusCode).to.eql(201);
@@ -76,7 +76,7 @@ describe('Activity routes', () => {
       const res = await request(app).post('/activities').send(activity2);
       expect(res.body.status).to.eql('ok');
     });
-    it('should get -Activity created- msg when creating activity', async () => {
+    it('should get -Activity created- msg when creating activity without countries', async () => {
       const res = await request(app).post('/activities').send(activity2);
       expect(res.body.msg).to.eql('Activity created and linked.');
     });

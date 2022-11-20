@@ -1,6 +1,8 @@
 export const GET_COUNTRIES = 'GET_COUNTRIES';
 export const GET_DETAIL = 'GET_DETAIL';
+export const CLEAN_DETAIL = 'CLEAN_DETAIL';
 export const CREATE_ACTIVITY = 'CREATE_ACTIVITY';
+export const CLEAN_ACTIVITY = 'CLEAN_ACTIVITY';
 export const SET_PAGE_VIEW = 'SET_PAGE_VIEW';
 export const FILTER_ACTIVITY = 'FILTER_ACTIVITY';
 export const COUNTRIES_ORDER_ASC = 'COUNTRIES_ORDER_ASC';
@@ -10,6 +12,7 @@ export const COUNTRIES_FILTER_CONTINENT = 'COUNTRIES_FILTER_CONTINENT';
 export const COUNTRIES_FILTER_ACTIVITY = 'COUNTRIES_FILTER_ACTIVITY';
 export const SET_THEME = 'SET_THEME';
 export const SET_ERROR = 'SET_ERROR';
+export const SET_LOADING = 'SET_LOADING';
 
 export const URL = 'http://localhost:3001/';
 
@@ -39,6 +42,16 @@ export const getDetail = (id) => {
   }
 }
 
+export const cleanDetail = () => {
+  return function(dispatch) {
+    return dispatch({
+      type: CLEAN_DETAIL,
+      payload: {}
+    })
+  }
+}
+
+
 export const getFilterActivities = () => {
   return function(dispatch) {
     return fetch(URL + 'activities')
@@ -61,11 +74,20 @@ export const createActivity = (payload) => {
                 })
       .then(res => res.json())
       .then(obj => obj.status === 'ok' ?
-                    dispatch({type: CREATE_ACTIVITY, payload: obj.data})
+                    dispatch({type: SET_LOADING, payload: false})
                     :       
-                    dispatch({type: SET_ERROR, payload: 'obj.msg'})
+                    dispatch({type: SET_ERROR, payload: obj.msg})
       )
       .catch(error => dispatch({type: SET_ERROR, payload: error.msg}))
+  }
+}
+
+export const cleanActivity = () => {
+  return function(dispatch) {
+    return dispatch({
+      type: CLEAN_ACTIVITY,
+      payload: {}
+    })
   }
 }
 
@@ -127,8 +149,17 @@ export const setTheme = (theme) => {
 export const cleanError = () => {
   return function(dispatch) {
     return dispatch({
-      TYPE: SET_ERROR,
+      type: SET_ERROR,
       payload: ''
+    })
+  }
+}
+
+export const setLoading = (state) => {
+  return function(dispatch) {
+    return dispatch({
+      type: SET_LOADING,
+      payload: state
     })
   }
 }

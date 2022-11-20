@@ -2,12 +2,15 @@ const { Activity } = require('../../db.js');
 
 const createActivity = async (req, res) => {
   let { name, skill, duration, season, countries } = req.body;
+  // Para testear demora del servidor
+  // await new Promise(resolve => setTimeout(resolve, 3000));
   try {
+    // Para testear que arroja errores
+    // if (name === 'error') return res.status(400).json({status: 'error', msg: 'Bad name test.', data: result})
     if (!name || !skill || !duration || !season) return res.status(400).json({status: 'error', msg: 'Missing parameters.', data: result})
     if (skill < 0 || skill > 5) return res.status(400).json({status: 'error', msg: 'Invalid skill value.', data: result})
     if (duration < 1 || duration > 60) return res.status(400).json({status: 'error', msg: 'Invalid duration value.', data: result})
     if (!['Winter', 'Spring', 'Summer', 'Autumn'].includes(season)) return res.status(400).json({status: 'error', msg: 'Invalid season value.', data: result})
-  
     let result = await Activity.create({
       name: name,
       skill: skill,

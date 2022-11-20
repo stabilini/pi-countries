@@ -4,7 +4,7 @@ const getActivities = async (req, res) => {
   try {
     let result = await Activity.findAll();
     let act = {}
-    if(result.length === 0) return res.status(404).json({status: 'ok', msg: 'No activities.', data: act});
+    if(result.length === 0) return res.status(200).json({status: 'ok', msg: 'No activities.', data: act});
     
     for (let i = 0; i < result.length; i++) {
       let key = result[i].name;
