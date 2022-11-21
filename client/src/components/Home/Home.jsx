@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
-import { getCountries } from '../../redux/actions';
+import { getCountries } from '../../redux/actions/countries';
+import { setLoading } from '../../redux/actions/index';
 
 import NavBar from '../NavBar/NavBar.jsx';
 import Countries from '../Countries/Countries.jsx';
@@ -10,6 +11,7 @@ import Pagination from '../Pagination/Pagination.jsx';
 import Order from '../Order/Order.jsx';
 import FilterContinent from '../FilterContinent/FilterContinent.jsx';
 import FilterActivity from '../FilterActivity/FilterActivity.jsx';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.jsx';
 
 import styles from './Home.module.css';
 
@@ -22,10 +24,15 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const theme = useSelector(state => state.theme);
+  const loading = useSelector(state => state.loading);
+  // const countries = useSelector(state => state.countries);
 
   useEffect(() => {
-    dispatch(getCountries(name));
-  }, [dispatch, name]);
+    
+      dispatch(setLoading(true));
+      dispatch(getCountries(name));
+    
+  }, [dispatch, name,]);
 
   return (
     <div className={ `${styles.container} ${styles[theme]}` }>
@@ -46,10 +53,14 @@ const Home = () => {
         <div className={ styles.item }><FilterContinent /></div>
         <div className={ styles.item }><FilterActivity /></div>
       </div>
-      <div className={ styles.countries }>
-        <Pagination />
-        <Countries />
-      </div>
+      {
+      loading ? <LoadingSpinner text='Loading countries...' />
+      :
+        <div className={ styles.countries }>
+          <Pagination />
+          <Countries />
+        </div>
+      }
     </div>
   );
 };

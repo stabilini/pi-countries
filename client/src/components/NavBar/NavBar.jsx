@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getCountries } from '../../redux/actions';
+import { getCountries } from '../../redux/actions/countries';
+import { setLoading } from '../../redux/actions/index';
 
 import logo from '../../assets/logo-globe.png';
 import SelectTheme from '../SelectTheme/SelectTheme';
@@ -24,9 +25,15 @@ function NavBar() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    //no conviene usar el siguiente dispatch porque llama al back, pero el readme del PI pide que se use la ruta con query
+    dispatch(setLoading(true));
     dispatch(getCountries(input));
   };
+
+  useEffect(() => {
+    return () => {
+      dispatch(setLoading(false));
+    }
+  }, [dispatch])
 
   return (
     <div className={ `${styles.container} ${styles[theme]}` }>

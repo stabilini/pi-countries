@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { getDetail, cleanDetail } from '../../redux/actions';
+import { getDetail, cleanDetail } from '../../redux/actions/countries';
 
 import Button from '../Button/Button';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.jsx';

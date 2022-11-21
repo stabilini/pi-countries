@@ -12,7 +12,9 @@ import {
   COUNTRIES_FILTER_ACTIVITY,
   SET_PAGE_VIEW,
   FILTER_ACTIVITY,
-  SET_THEME
+  SET_THEME,
+  SET_ERROR,
+  SET_LOADING
 } from '../redux/actions/index';
 
 
@@ -113,6 +115,7 @@ describe('Reducer', () => {
   });
 
   it('Should order countries by name descending when action COUNTRIES_ORDER_DES is called', () => {
+    state.order = { asc: 'population'}
     const result = rootReducer(state, {
       type: COUNTRIES_ORDER_DES,
       payload: 'name',
@@ -122,6 +125,7 @@ describe('Reducer', () => {
   });
 
   it('Should order countries by population ascending when action COUNTRIES_ORDER_ASC is called', () => {
+    state.order = { asc: 'name'}
     const result = rootReducer(state, {
       type: COUNTRIES_ORDER_ASC,
       payload: 'population',
@@ -131,6 +135,7 @@ describe('Reducer', () => {
   });
 
   it('Should order countries by population descending when action COUNTRIES_ORDER_DES is called', () => {
+    state.order = { asc: 'name'}
     const result = rootReducer(state, {
       type: COUNTRIES_ORDER_DES,
       payload: 'population',
@@ -194,5 +199,23 @@ describe('Reducer', () => {
     });
     expect(result).not.toEqual(state);
     expect(result).toHaveProperty('theme', 'Dark');
+  });
+
+  it('Should set error when action SET_ERROR is called', () => {
+    const result = rootReducer(state, {
+      type: SET_ERROR,
+      payload: 'Bad information.',
+    });
+    expect(result).not.toEqual(state);
+    expect(result).toHaveProperty('error', 'Bad information.');
+  });
+
+  it('Should set loading status when action SET_LOADING is called', () => {
+    const result = rootReducer(state, {
+      type: SET_LOADING,
+      payload: true,
+    });
+    expect(result).not.toEqual(state);
+    expect(result).toHaveProperty('loading', true);
   });
 });

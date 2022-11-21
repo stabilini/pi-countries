@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector  } from 'react-redux';
 
-import { filterBy } from '../../redux/actions';
+import { filterBy } from '../../redux/actions/order_filter';
 
 import Checkbox from '../Checkbox/Checkbox';
 

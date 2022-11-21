@@ -27,8 +27,7 @@ const Countries = () => {
   const page = useSelector(state => state.page);
 
   return (
-    <div className={ `${styles.container} ${styles[theme]} ${
-      (page === 1 ? styles.container09 : styles.container10)}` }>
+    <div className={ `${styles.container} ${styles[theme]}` }>
       {filtered.length > 0 ? (
         filtered
           .map((country, i) => {

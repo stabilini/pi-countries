@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { orderCountries } from '../../redux/actions';
+import { orderCountries } from '../../redux/actions/order_filter';
 
 import Button2 from '../Button2/Button2';
 

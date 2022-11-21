@@ -1,7 +1,6 @@
 import React, { useState  } from 'react';
 import { useSelector } from 'react-redux';
 
-
 import Button from '../Button/Button';
 
 import styles from './About.module.css';
@@ -59,6 +58,13 @@ const About = () => {
           
           <div className={ styles.text }>
             {lang === 'esp' ?
+              `React/Redux APP con 20 componentes.`
+              :
+              `React/Redux APP with 20 components.`
+            }
+          </div>
+          <div className={ styles.text }>
+            {lang === 'esp' ?
               `La información de los paises es obtenida de la API externa restcountries, la cual se solicita una sola vez al levantar el servidor.`
               :
               `Countries information is obtained from external API restcountries. This is fetched only once when server is raised up.`
@@ -66,9 +72,9 @@ const About = () => {
           </div>
           <div className={ styles.text }>
             {lang === 'esp' ?
-              `Se realizan 50 tests en al backend y 16 en el frontend.`
+              `Se realizan 50 tests en al backend y 20 en el frontend.`
               :
-              `50 tests in backend and 16 in frontend.`
+              `50 tests in backend and 20 in frontend.`
             }
           </div>
           <div className={ styles.text }>
@@ -117,6 +123,7 @@ const About = () => {
           </span> 
           
           <Button link='/countries' text='Back to countries...' />
+          
         </span>
       </div>
     </>

@@ -163,14 +163,3 @@
   border: 1px solid var(--Comp-about-detail-container-border);
   color: var(--Comp-about-detail-container-color);
 }
-
-.activityName {
-  display: flex;
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.activityDetail {
-  margin-left: 12px;
-  display: flex;
-}

@@ -1,14 +1,15 @@
 import React, { useEffect, useState  } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { createActivity, getCountries, setLoading, cleanActivity, cleanError } from '../../redux/actions';
+import { setLoading, cleanError } from '../../redux/actions/index';
+import { createActivity, cleanActivity } from '../../redux/actions/activities';
+import { getCountries } from '../../redux/actions/countries';
 
 import Button from '../Button/Button';
 import Checkbox from '../Checkbox/Checkbox';
 import RadioButton from '../RadioButton/RadioButton';
 import Input from '../Input/Input';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner.jsx';
-
 
 import styles from './CreateActivity.module.css';
 
@@ -49,7 +50,7 @@ const CreateActivity = () => {
   const error = useSelector(state => state.error);
   const theme = useSelector(state => state.theme);
   const loading = useSelector(state => state.loading);
-  // const activity = useSelector(state => state.activity)
+  const activity = useSelector(state => state.activity);
 
   const handleInputChange = e => {
     setInput({
@@ -89,13 +90,15 @@ const CreateActivity = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCountries());
+    if (countries.length === 0) {
+      dispatch(getCountries());
+    }
     return () => {
       dispatch(cleanActivity());
       dispatch(cleanError());
       dispatch(setLoading(false));
     }
-  }, [dispatch])
+  }, [dispatch, countries.length])
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -183,6 +186,14 @@ const CreateActivity = () => {
                       <div className={ `${styles.error} ${styles[theme]}` }>{errors.countries}</div>
                       :
                       <div className={ styles.noerror }></div>
+                    }
+                    {
+                      activity.name ?
+                      <div className={ `${styles.createdok} ${styles[theme]}` }>
+                        Activity "{`${activity.name}`}" created succsesfully...<br />you can create more activities.
+                      </div>
+                      :
+                      null
                     }
                     <div className={ styles.section }>
                     {

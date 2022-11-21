@@ -14,7 +14,7 @@ import {
   SET_THEME,
   SET_ERROR,
   SET_LOADING
-  } from '../actions';
+  } from './../constants/index.js';
 
 const initialState = {
   countries: [],
@@ -72,7 +72,7 @@ const rootReducer = (state = initialState, action) => {
     case FILTER_ACTIVITY:
       return {
         ...state,
-        filterActivity: {...state.filterActivity, ...action.payload}
+        filterActivity: {...action.payload, ...state.filterActivity} // el orden importa!
       }
     case COUNTRIES_ORDER_ASC:
       return {

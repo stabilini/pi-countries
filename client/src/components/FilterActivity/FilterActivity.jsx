@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { filterBy, getFilterActivities } from '../../redux/actions';
+import { filterBy } from '../../redux/actions/order_filter';
+import { getFilterActivities } from '../../redux/actions/activities';
 
 import Checkbox from '../Checkbox/Checkbox';
 

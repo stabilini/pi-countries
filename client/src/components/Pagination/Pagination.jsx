@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setPageView } from '../../redux/actions';
+import { setPageView } from '../../redux/actions/index';
 
 import styles from './Pagination.module.css'
 

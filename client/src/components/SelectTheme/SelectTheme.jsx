@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setTheme } from '../../redux/actions';
+import { setTheme } from '../../redux/actions/index';
 
 import styles from './SelectTheme.module.css';
 
@@ -21,7 +21,7 @@ function SelectTheme() {
       <select  className={ `${styles.button} ${styles[theme]}` } name="theme" id="theme" onChange={toggleTheme} value={theme}>
         <option value="Light">Light</option>
         <option value="Dark">Dark</option>
-        {/* <option value="Retro">Retro</option> */}
+        {/* <option value="Retro">Retro</option> --no implementado-- */}
         <option value="Zen">Zen</option>
         <option value="Comp">Comp</option>
       </select>
