@@ -15,7 +15,7 @@ import {
   SET_THEME,
   SET_ERROR,
   SET_LOADING
-} from '../redux/actions/index';
+} from '../redux/constants/index';
 
 
 describe('Reducer', () => {
@@ -23,6 +23,8 @@ describe('Reducer', () => {
     countries: [],
     detail: {},
     activity: {},
+    users: [],
+    user: {},
     filterActivity: {
       'No activities': true
     },
