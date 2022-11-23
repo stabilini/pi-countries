@@ -5,6 +5,12 @@ export const CLEAN_DETAIL = 'CLEAN_DETAIL';
 export const CREATE_ACTIVITY = 'CREATE_ACTIVITY';
 export const CLEAN_ACTIVITY = 'CLEAN_ACTIVITY';
 
+export const GET_USERS = 'GET_USERS';
+export const CREATE_USER = 'CREATE_USER';
+export const UPDATE_USER = 'UPDATE_USER';
+export const DELETE_USER = 'DELETE_USER';
+export const CLEAN_USER = 'CLEAN_USER';
+
 export const SET_PAGE_VIEW = 'SET_PAGE_VIEW';
 
 export const COUNTRIES_ORDER_ASC = 'COUNTRIES_ORDER_ASC';

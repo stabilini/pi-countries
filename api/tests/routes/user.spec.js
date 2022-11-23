@@ -140,15 +140,15 @@ describe('User routes', () => {
     });
     it('should get 404 when deleting a user with wrong credentials', async () => {
       const res = await request(app).delete('/users').send({
-                                                            mail: 'rick@astley.com',
-                                                            pass: 'wrongpassword' 
+                                                            mail: 'riiiick@astley.com',
+                                                            // pass: 'wrongpassword' 
                                                           });
       expect(res.statusCode).to.eql(400);
     });
     it('should get -Invalid user credentials.- msg', async () => {
       const res = await request(app).delete('/users').send({
-                                                            mail: 'elon@musk.com',
-                                                            pass: 'wrongpassword' 
+                                                            mail: 'elooon@musk.com',
+                                                            // pass: 'wrongpassword' 
                                                           });
       expect(res.body.msg).to.eql('Invalid user credentials.');
     });

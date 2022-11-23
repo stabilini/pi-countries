@@ -8,6 +8,7 @@ import Detail from './components/Detail/Detail.jsx'
 import CreateActivity from './components/CreateActivity/CreateActivity.jsx'
 import Page404 from './components/Page404/Page404.jsx';
 import About from './components/About/About.jsx';
+import Users from './components/Users/Users.jsx';
 
 import styles from './App.module.css';
 import './App.css';
@@ -23,6 +24,12 @@ function App() {
         </Route>
         <Route exact path='/countries'>
           <Home />
+        </Route>
+        {/* <Route exact path='/loginregister'>
+          <LoginRegister />
+        </Route> */}
+        <Route exact path='/users'>
+          <Users />
         </Route>
         <Route exact path='/countries/:id'>
           <Detail />

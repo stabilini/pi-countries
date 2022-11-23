@@ -5,13 +5,13 @@ const fs = require('fs');
 const path = require('path');
 
 const {
-  DB_USER, DB_PASSWORD, DB_HOST, DEPLOY
+  DB_USER, DB_PASSWORD, DB_HOST
 } = process.env;
 
 // DEPLOY USAR SIGUIENTE LINEA (DEBE ESTAR CARGADO EL .ENV EN EL HOSTING)
 // const sequelize = new Sequelize(DEPLOY, {
 // DEVELOPMENTE USAR SIGUIENTE LINEA
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {  // para tests: tests - para APP: countries
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
@@ -42,25 +42,31 @@ Country.belongsToMany(Activity, { through: 'country_activity'});
 Activity.belongsToMany(Country, { through: 'country_activity'});
 
 // Llamamos una sola vez a la API externa y guardamos todos los paises en la BD
-axios
-  .get('https://restcountries.com/v3.1/all')
-  .then(data => {
-    let bulk = data.data.map(c => ({
-      id: c.cca3,
-      name: c.name.common,
-      flag: c.flags.png,
-      continent: c.continents[0],
-      capital: c.capital ? c.capital[0] : 'n/d',
-      subregion: c.subregion ? c.subregion : 'n/d',
-      area: c.area >= 0 ? c.area : 0,
-      population: c.population >= 0 ? c.population : 0
-    }))
-    Country.bulkCreate(bulk);
-  })
-  .then(console.log('Countries loaded from external API.'))
-  .catch(error => {
-    console.log(error);
-  });
+async function preloadCountries() {
+  let test = await Country.findAll({});
+  if (test.length === 0) {
+    axios
+      .get('https://restcountries.com/v3.1/all')
+      .then(data => {
+        let bulk = data.data.map(c => ({
+          id: c.cca3,
+          name: c.name.common,
+          flag: c.flags.png,
+          continent: c.continents[0],
+          capital: c.capital ? c.capital[0] : 'n/d',
+          subregion: c.subregion ? c.subregion : 'n/d',
+          area: c.area >= 0 ? c.area : 0,
+          population: c.population >= 0 ? c.population : 0
+        }))
+        Country.bulkCreate(bulk);
+      })
+      .then(console.log('Countries loaded from external API.'))
+      .catch(error => {
+        console.log(error);
+      });
+    }
+  }
+preloadCountries();
 
 
 module.exports = {

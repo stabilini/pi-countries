@@ -2,7 +2,7 @@
 
 .button {
   margin: 3px;
-  min-width: 60px;
+  /* min-width: 60px; */
   border-radius: 10px;
   cursor: pointer;
   display: inline-block;

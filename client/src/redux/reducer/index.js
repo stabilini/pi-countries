@@ -4,6 +4,11 @@ import {
   CLEAN_DETAIL,
   CREATE_ACTIVITY,
   CLEAN_ACTIVITY,
+  GET_USERS,
+  CREATE_USER,
+  DELETE_USER,
+  CLEAN_USER,
+  UPDATE_USER,
   COUNTRIES_ORDER_ASC,
   COUNTRIES_ORDER_DES,
   COUNTRIES_ORDER_RANDOM,
@@ -20,6 +25,8 @@ const initialState = {
   countries: [],
   detail: {},
   activity: {},
+  users: [],
+  user: {},
   filterActivity: {
     'No activities': true
   },
@@ -68,6 +75,35 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         detail: action.payload,
+      }
+    case GET_USERS:
+      return {
+        ...state,
+        users: action.payload,
+        error: '',
+      }
+    case CREATE_USER:
+      return {
+        ...state,
+        user: action.payload,
+        error: '',
+      }
+    case DELETE_USER:
+      return {
+        ...state,
+        user: action.payload,
+        error: '',
+      }
+    case UPDATE_USER:
+      return {
+        ...state,
+        user: action.payload,
+        error: '',
+      }
+    case CLEAN_USER:
+      return {
+        ...state,
+        user: action.payload,
       }
     case FILTER_ACTIVITY:
       return {

@@ -92,6 +92,8 @@
   --Light-about-detail-container-border: rgb(0, 0, 0);
   --Light-about-detail-container-color: rgb(0, 0, 0);
 
+  --Light-users-background: url('./assets/background-users-light.png');
+
   /* --- DARK THEME --- */
   --Dark-app-background: url('./assets/app-background-dark.png');
 
@@ -183,6 +185,8 @@
   --Dark-about-detail-container-bgcolor: rgb(128, 93, 93);
   --Dark-about-detail-container-border: rgb(0, 0, 0);
   --Dark-about-detail-container-color: rgb(196, 186, 186);
+
+  --Dark-users-background: url('./assets/background-users-dark.png');
 
   /* --- RETRO THEME --- */
   --Retro-background-color: rgb(187, 187, 187);

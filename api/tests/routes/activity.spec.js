@@ -64,7 +64,7 @@ describe('Activity routes', () => {
   });
 
   describe('CREATE an activity', () => {
-    it('should get 200 when posting succesfully an activity', async () => {
+    it('should get 201 when posting succesfully an activity', async () => {
       const res = await request(app).post('/activities').send(activity2);
       expect(res.statusCode).to.eql(201);
     });

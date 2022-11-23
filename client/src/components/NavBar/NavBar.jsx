@@ -29,6 +29,13 @@ function NavBar() {
     dispatch(getCountries(input));
   };
 
+  const handleClear = e => {
+    e.preventDefault();
+    setInput('');
+    dispatch(setLoading(true));
+    dispatch(getCountries());
+  };
+
   useEffect(() => {
     return () => {
       dispatch(setLoading(false));
@@ -49,9 +56,25 @@ function NavBar() {
             placeholder="Type text..."
             value={input}
             onChange={handleInputChange} />
-          <Button text='Search' onClick={handleSubmit} />
+          {
+            input ?
+            <Button text='❌' onClick={handleClear} />
+            :
+            <></>
+          }
+          {
+            !input
+            ?
+            <Button text='Search' disabled={ true } />
+            :
+            <Button onClick={handleSubmit} text='Search' />
+          }
+          
         </div>
-          <Button link='/newactivity' text='Create activity' />
+        <div className={ styles.center }>
+          <Button link='/newactivity' text='New activity' />
+          <Button link='/users' text='Users' />
+        </div>
       </div>
       <div className={ styles.exitContainer }>
         <SelectTheme />

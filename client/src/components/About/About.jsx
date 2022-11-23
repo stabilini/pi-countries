@@ -58,9 +58,9 @@ const About = () => {
           
           <div className={ styles.text }>
             {lang === 'esp' ?
-              `React/Redux APP con 20 componentes.`
+              `React/Redux APP con más de 20 componentes.`
               :
-              `React/Redux APP with 20 components.`
+              `React/Redux APP with +20 components.`
             }
           </div>
           <div className={ styles.text }>

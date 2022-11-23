@@ -59,6 +59,16 @@
   justify-content: center;
 }
 
+.sectionTitle {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.3em;
+}
+
+.separator {
+  height: 40px;
+}
+
 .skill {
   display: flex;
   margin-left: -12px;
@@ -195,8 +205,8 @@
   margin-right: 15px;
   padding: 1px 20px 1px 20px;
   font-size: 1.1em;
-  font-weight: bold; 
-  
+  font-weight: bold;
+
   animation: fadeOut 5s forwards 1;
 }  
 
@@ -249,12 +259,12 @@
 }
 
 .createActivityBackground.Light {
-  background: var(--Light-create-background) repeat-x;
+  background: var(--Light-users-background) repeat-x;
   animation-name: slide;
 }
 
 .createActivityBackground.Dark {
-  background: var(--Dark-create-background) repeat-x;
+  background: var(--Dark-users-background) repeat-x;
   animation-name: slide;
 }
 

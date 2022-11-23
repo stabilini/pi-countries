@@ -3,7 +3,6 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 // const morgan = require('morgan');
 const routes = require('./routes/index.js');
-const axios = require('axios');
 
 const { Country, Activity } = require('./db.js');
 
@@ -19,7 +18,7 @@ server.use(cookieParser());
 // server.use(morgan('dev')); // deshabilitado para que los tests no salgon entrecortados
 server.use((req, res, next) => {
   // DEPLOY DESCOMENTAR SIGUIENTE LINEA
-  res.header('Access-Control-Allow-Origin', 'https://pi-countries-client-production-08bf.up.railway.app'); // * para aceptar conexiones de cualquier lado
+  // res.header('Access-Control-Allow-Origin', 'https://pi-countries-client-production-08bf.up.railway.app'); // * para aceptar conexiones de cualquier lado
   // DEVELOPMENT DESCOMENTAR SIGUIENTE LINEA
   res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); // * para aceptar conexiones de cualquier lado
   res.header('Access-Control-Allow-Credentials', 'true');
