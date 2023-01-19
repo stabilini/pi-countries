@@ -155,7 +155,7 @@ const Users = () => {
                         </>
                         :
                         <>
-                          <div className={ styles.sectionTitle }>Create new user</div>
+                          <div className={ styles.sectionTitle }>Create new user (experimental)</div>
                           <div className={ styles.section }>
                             <Input label='Username:' type='text' name='mail' value={input.mail} onChange={handleInputChange} />
                           </div>

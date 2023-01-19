@@ -86,9 +86,9 @@ const About = () => {
           </div>
           <div className={ styles.text }>
             {lang === 'esp' ?
-              `Los estilos están realizados con CSS puro sin preprocesadores.`
+              `Los estilos están realizados con CSS puro sin preprocesadores ni frameworks.`
               :
-              `Styles in CSS without any preprocessors.`
+              `Styles in pure CSS without any preprocessors nor frameworks.`
             }
           </div>
          
@@ -101,7 +101,7 @@ const About = () => {
                   <li>{lang === 'esp' ? `Ordenamiento random` : `Random ordering`}</li>
                   <li>{lang === 'esp' ? `CRUD (solo en el back)` : `CRUD (only in backend)`}</li>
                   <li>{lang === 'esp' ? `Selector de idioma (solo en About)` : `Language selector (only in About)`}</li>
-                  <li>Deploy: <a target="_blank" href="https://pi-countries-client-production-08bf.up.railway.app/" rel='noreferrer'>Railway</a></li>
+                  <li>Deploy: OnRender</li>
                 </ul>
               </div>
             </div>
@@ -112,17 +112,17 @@ const About = () => {
               <div className={ `${styles.detailsContainer} ${styles[theme]}` }>
                 <div className={ styles.sectionSubtitle }>{lang === 'esp' ? `Acerca del Autor` : `About the author`}</div>
                 <ul>
-                  <li>Arq. Nicolás Stabilini</li>
+                  <li>Nicolás Stabilini</li>
                   <li>stabilini@gmail.com</li>
                   <li><u>Repo:</u> <a target="_blank" href="https://github.com/stabilini/pi-countries/" rel='noreferrer'>Countries main</a></li>
                   <li><u>Github:</u> <a target="_blank" href="https://github.com/stabilini/" rel='noreferrer'>stabilini</a></li>
-                  <li><u>Linkedin:</u> <a target="_blank" href="https://www.linkedin.com/in/nicol%C3%A1s-stabilini-5b84343a/" rel='noreferrer'>Nicolás Stabilini</a></li>
+                  <li><u>Linkedin:</u> <a target="_blank" href="https://www.linkedin.com/in/nicolas-stabilini//" rel='noreferrer'>Nicolás Stabilini</a></li>
                 </ul>
               </div>
             </div>
           </span> 
           
-          <Button link='/countries' text='Back to countries...' />
+          <Button link='/countries' text='Back to main...' />
           
         </span>
       </div>
