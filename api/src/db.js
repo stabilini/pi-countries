@@ -1,5 +1,4 @@
 require('dotenv').config();
-const axios = require('axios');
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
@@ -41,7 +40,7 @@ const { Country, Activity } = sequelize.models;
 Country.belongsToMany(Activity, { through: 'country_activity'});
 Activity.belongsToMany(Country, { through: 'country_activity'});
 
-// Llamamos una sola vez a la API externa y guardamos todos los paises en la BD
+// // Llamamos una sola vez a la API externa y guardamos todos los paises en la BD
 // async function preloadCountries() {
 //   let test = await Country.findAll({});
 //   if (test.length === 0) {
