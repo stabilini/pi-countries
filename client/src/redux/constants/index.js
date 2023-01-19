@@ -25,8 +25,4 @@ export const SET_THEME = 'SET_THEME';
 export const SET_ERROR = 'SET_ERROR';
 export const SET_LOADING = 'SET_LOADING';
 
-// DEPLOY
-export const URL = 'https://pi-countries-api.onrender.com';
-
-// DEVELOPMENT
-// export const URL = 'http://localhost:3001/';
+export const URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
