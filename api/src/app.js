@@ -1,7 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-// const morgan = require('morgan');
+const morgan = require('morgan');
 const routes = require('./routes/index.js');
 
 const { Country, Activity } = require('./db.js');
@@ -12,17 +12,16 @@ const server = express();
 
 server.name = 'API';
 
+const DOMAIN_FRONT = process.env.DOMAIN_FRONT || '';
+
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
-// server.use(morgan('dev')); // deshabilitado para que los tests no salgon entrecortados
+server.use(morgan('dev')); // COMENTAR AL REALIZAR TESTS !!!
 server.use((req, res, next) => {
-  // DEPLOY DESCOMENTAR SIGUIENTE LINEA
-  res.header('Access-Control-Allow-Origin', 'https://pi-countries-5uga.onrender.com');
-  // DEVELOPMENT DESCOMENTAR SIGUIENTE LINEA
-  // res.header('Access-Control-Allow-Origin', '*'); // * para aceptar conexiones de cualquier lado
+  res.header('Access-Control-Allow-Origin', DOMAIN_FRONT); // update to match the domain you will make the request from
   res.header('Access-Control-Allow-Credentials', 'true');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
 });
