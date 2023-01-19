@@ -24,6 +24,12 @@
   border-radius: 10px;
 }
 
+.textsmall {
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 5px;
+}
+
 .text.Light {
   color: var(--Light-detail-text-color);
   background: var(--Light-detail-background-color);

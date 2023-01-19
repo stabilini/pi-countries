@@ -11,6 +11,7 @@ const LoadingSpinner = ({text}) => {
     <div className={ `${styles.spinnerContainer} ${styles[theme]}` }>
       <img className={ `${styles.spinnerLoading} ${styles[theme]}` } src={logo} alt='rotating globe' />
       <div className={ `${styles.text} ${styles[theme]}` }>{text}</div>
+      <div className={ `${styles.text} ${styles.textsmall} ${styles[theme]}` }>May take a while after 10 min. of inactivity. Free hosting downside 😌</div>
     </div>
   );
 }
