@@ -1,5 +1,6 @@
 ## NOTE
 * deployed branch: development
+* the original readme.md is in Spanish, as it was provided to me for this exercise.
 
 <hr />
 
